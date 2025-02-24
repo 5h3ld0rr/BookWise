@@ -94,7 +94,7 @@
             linkLabel1.Font = new Font("Segoe UI", 11F);
             linkLabel1.LinkBehavior = LinkBehavior.HoverUnderline;
             linkLabel1.LinkColor = Color.FromArgb(231, 201, 165);
-            linkLabel1.Location = new Point(264, 507);
+            linkLabel1.Location = new Point(263, 507);
             linkLabel1.Name = "linkLabel1";
             linkLabel1.Size = new Size(79, 20);
             linkLabel1.TabIndex = 16;
@@ -107,7 +107,7 @@
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI", 11F);
-            label3.Location = new Point(86, 507);
+            label3.Location = new Point(85, 507);
             label3.Name = "label3";
             label3.Size = new Size(179, 20);
             label3.TabIndex = 15;
@@ -219,7 +219,7 @@
             Margin = new Padding(3, 2, 3, 2);
             Name = "SignUpForm";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "BookWise-Login";
+            Text = "Register";
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             panel1.ResumeLayout(false);
             panel1.PerformLayout();

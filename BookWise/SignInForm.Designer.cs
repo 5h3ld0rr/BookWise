@@ -55,9 +55,9 @@
             panel1.Controls.Add(textBoxEmail);
             panel1.Controls.Add(labelPassword);
             panel1.Controls.Add(labelEmail);
-            panel1.Location = new Point(40, 68);
+            panel1.Location = new Point(40, 75);
             panel1.Name = "panel1";
-            panel1.Size = new Size(423, 509);
+            panel1.Size = new Size(423, 488);
             panel1.TabIndex = 6;
             // 
             // linkLabel1
@@ -67,7 +67,7 @@
             linkLabel1.Font = new Font("Segoe UI", 11F);
             linkLabel1.LinkBehavior = LinkBehavior.HoverUnderline;
             linkLabel1.LinkColor = Color.FromArgb(231, 201, 165);
-            linkLabel1.Location = new Point(276, 457);
+            linkLabel1.Location = new Point(276, 428);
             linkLabel1.Name = "linkLabel1";
             linkLabel1.Size = new Size(96, 20);
             linkLabel1.TabIndex = 16;
@@ -80,7 +80,7 @@
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI", 11F);
-            label3.Location = new Point(59, 457);
+            label3.Location = new Point(59, 428);
             label3.Name = "label3";
             label3.Size = new Size(216, 20);
             label3.TabIndex = 15;
@@ -121,7 +121,7 @@
             buttonLogin.BackColor = Color.FromArgb(231, 201, 165);
             buttonLogin.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
             buttonLogin.ForeColor = Color.FromArgb(20, 23, 28);
-            buttonLogin.Location = new Point(34, 384);
+            buttonLogin.Location = new Point(34, 355);
             buttonLogin.Margin = new Padding(3, 2, 3, 2);
             buttonLogin.Name = "buttonLogin";
             buttonLogin.Size = new Size(364, 46);
@@ -136,7 +136,7 @@
             textBoxPassword.BorderStyle = BorderStyle.None;
             textBoxPassword.Font = new Font("Segoe UI", 16F);
             textBoxPassword.ForeColor = Color.White;
-            textBoxPassword.Location = new Point(34, 303);
+            textBoxPassword.Location = new Point(34, 283);
             textBoxPassword.Margin = new Padding(3, 2, 3, 2);
             textBoxPassword.Name = "textBoxPassword";
             textBoxPassword.PasswordChar = '*';
@@ -161,7 +161,7 @@
             labelPassword.AutoSize = true;
             labelPassword.Font = new Font("Segoe UI", 12F);
             labelPassword.ForeColor = Color.FromArgb(214, 224, 255);
-            labelPassword.Location = new Point(34, 269);
+            labelPassword.Location = new Point(34, 249);
             labelPassword.Name = "labelPassword";
             labelPassword.Size = new Size(76, 21);
             labelPassword.TabIndex = 6;
@@ -191,7 +191,7 @@
             Margin = new Padding(3, 2, 3, 2);
             Name = "SignInForm";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "BookWise-Login";
+            Text = "Login";
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
