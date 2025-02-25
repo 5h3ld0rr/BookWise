@@ -15,9 +15,11 @@
 
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SignInForm));
             pictureBox1 = new PictureBox();
             panel1 = new Panel();
-            linkLabel1 = new LinkLabel();
+            checkBoxShowPassword = new CheckBox();
+            linkRegister = new LinkLabel();
             label3 = new Label();
             label2 = new Label();
             label1 = new Label();
@@ -45,7 +47,8 @@
             // panel1
             // 
             panel1.BackColor = Color.FromArgb(18, 20, 29);
-            panel1.Controls.Add(linkLabel1);
+            panel1.Controls.Add(checkBoxShowPassword);
+            panel1.Controls.Add(linkRegister);
             panel1.Controls.Add(label3);
             panel1.Controls.Add(label2);
             panel1.Controls.Add(label1);
@@ -60,21 +63,34 @@
             panel1.Size = new Size(423, 488);
             panel1.TabIndex = 6;
             // 
-            // linkLabel1
+            // checkBoxShowPassword
             // 
-            linkLabel1.ActiveLinkColor = Color.FromArgb(231, 201, 165);
-            linkLabel1.AutoSize = true;
-            linkLabel1.Font = new Font("Segoe UI", 11F);
-            linkLabel1.LinkBehavior = LinkBehavior.HoverUnderline;
-            linkLabel1.LinkColor = Color.FromArgb(231, 201, 165);
-            linkLabel1.Location = new Point(276, 428);
-            linkLabel1.Name = "linkLabel1";
-            linkLabel1.Size = new Size(96, 20);
-            linkLabel1.TabIndex = 16;
-            linkLabel1.TabStop = true;
-            linkLabel1.Text = "Register here";
-            linkLabel1.VisitedLinkColor = Color.FromArgb(231, 201, 165);
-            linkLabel1.LinkClicked += linkLabel1_LinkClicked;
+            checkBoxShowPassword.AutoSize = true;
+            checkBoxShowPassword.Cursor = Cursors.Hand;
+            checkBoxShowPassword.Font = new Font("Segoe UI", 10F);
+            checkBoxShowPassword.Location = new Point(276, 308);
+            checkBoxShowPassword.Name = "checkBoxShowPassword";
+            checkBoxShowPassword.Size = new Size(123, 23);
+            checkBoxShowPassword.TabIndex = 18;
+            checkBoxShowPassword.Text = "Show Password";
+            checkBoxShowPassword.UseVisualStyleBackColor = true;
+            checkBoxShowPassword.CheckedChanged += checkBoxShowPassword_CheckedChanged;
+            // 
+            // linkRegister
+            // 
+            linkRegister.ActiveLinkColor = Color.FromArgb(231, 201, 165);
+            linkRegister.AutoSize = true;
+            linkRegister.Font = new Font("Segoe UI", 11F);
+            linkRegister.LinkBehavior = LinkBehavior.HoverUnderline;
+            linkRegister.LinkColor = Color.FromArgb(231, 201, 165);
+            linkRegister.Location = new Point(276, 428);
+            linkRegister.Name = "linkRegister";
+            linkRegister.Size = new Size(96, 20);
+            linkRegister.TabIndex = 16;
+            linkRegister.TabStop = true;
+            linkRegister.Text = "Register here";
+            linkRegister.VisitedLinkColor = Color.FromArgb(231, 201, 165);
+            linkRegister.LinkClicked += linkRegister_LinkClicked;
             // 
             // label3
             // 
@@ -100,7 +116,7 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 20F, FontStyle.Bold);
-            label1.Location = new Point(77, 20);
+            label1.Location = new Point(65, 20);
             label1.Name = "label1";
             label1.Size = new Size(145, 37);
             label1.TabIndex = 13;
@@ -111,7 +127,7 @@
             pictureBox2.Image = Properties.Resources.logo;
             pictureBox2.Location = new Point(25, 26);
             pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(46, 31);
+            pictureBox2.Size = new Size(34, 31);
             pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox2.TabIndex = 10;
             pictureBox2.TabStop = false;
@@ -119,6 +135,7 @@
             // buttonLogin
             // 
             buttonLogin.BackColor = Color.FromArgb(231, 201, 165);
+            buttonLogin.Cursor = Cursors.Hand;
             buttonLogin.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
             buttonLogin.ForeColor = Color.FromArgb(20, 23, 28);
             buttonLogin.Location = new Point(34, 355);
@@ -136,10 +153,9 @@
             textBoxPassword.BorderStyle = BorderStyle.None;
             textBoxPassword.Font = new Font("Segoe UI", 16F);
             textBoxPassword.ForeColor = Color.White;
-            textBoxPassword.Location = new Point(34, 283);
+            textBoxPassword.Location = new Point(34, 272);
             textBoxPassword.Margin = new Padding(3, 2, 3, 2);
             textBoxPassword.Name = "textBoxPassword";
-            textBoxPassword.PasswordChar = '*';
             textBoxPassword.Size = new Size(364, 29);
             textBoxPassword.TabIndex = 8;
             textBoxPassword.UseSystemPasswordChar = true;
@@ -150,7 +166,7 @@
             textBoxEmail.BorderStyle = BorderStyle.None;
             textBoxEmail.Font = new Font("Segoe UI", 16F);
             textBoxEmail.ForeColor = Color.White;
-            textBoxEmail.Location = new Point(34, 196);
+            textBoxEmail.Location = new Point(34, 192);
             textBoxEmail.Margin = new Padding(3, 2, 3, 2);
             textBoxEmail.Name = "textBoxEmail";
             textBoxEmail.Size = new Size(364, 29);
@@ -161,7 +177,7 @@
             labelPassword.AutoSize = true;
             labelPassword.Font = new Font("Segoe UI", 12F);
             labelPassword.ForeColor = Color.FromArgb(214, 224, 255);
-            labelPassword.Location = new Point(34, 249);
+            labelPassword.Location = new Point(34, 238);
             labelPassword.Name = "labelPassword";
             labelPassword.Size = new Size(76, 21);
             labelPassword.TabIndex = 6;
@@ -172,7 +188,7 @@
             labelEmail.AutoSize = true;
             labelEmail.Font = new Font("Segoe UI", 12F);
             labelEmail.ForeColor = Color.FromArgb(214, 224, 255);
-            labelEmail.Location = new Point(34, 164);
+            labelEmail.Location = new Point(34, 160);
             labelEmail.Name = "labelEmail";
             labelEmail.Size = new Size(48, 21);
             labelEmail.TabIndex = 5;
@@ -188,6 +204,7 @@
             Controls.Add(panel1);
             ForeColor = Color.White;
             FormBorderStyle = FormBorderStyle.FixedToolWindow;
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Margin = new Padding(3, 2, 3, 2);
             Name = "SignInForm";
             StartPosition = FormStartPosition.CenterScreen;
@@ -209,6 +226,7 @@
         private Label label2;
         private Label label1;
         private Label label3;
-        private LinkLabel linkLabel1;
+        private LinkLabel linkRegister;
+        private CheckBox checkBoxShowPassword;
     }
 }
