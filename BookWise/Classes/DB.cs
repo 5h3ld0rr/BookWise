@@ -1,31 +1,33 @@
-using System;
-using System.Data;
-using Microsoft.Data.SqlClient;
 using System.Configuration;
+using System.Data;
+using MySql.Data.MySqlClient;
 
-namespace BookWise.Classes
+namespace BookWise
 {
     public static class DB
     {
-        private static string connectionString = ConfigurationManager.ConnectionStrings["MyDBConnection"].ConnectionString;
+        private static string connectionString = ConfigurationManager.ConnectionStrings["MYSQLDBConnection"].ConnectionString;
+        //private static string connectionString = ConfigurationManager.ConnectionStrings["MyDBConnection"].ConnectionString;
 
-        public static SqlConnection GetConnection()
+        public static MySqlConnection GetConnection()
         {
-            return new SqlConnection(connectionString);
+            return new MySqlConnection(connectionString);
         }
 
-        private static SqlParameter[] CreateParameters(string query, object[] values)
+        private static MySqlParameter[] CreateParameters(string query, object[] values)
         {
-            SqlParameter[] parameters = new SqlParameter[values.Length];
+            MySqlParameter[] parameters = new MySqlParameter[values.Length];
             string[] paramNames = query.Split(' ');
             int paramIdx = 0;
-            for(int i=0;i< paramNames.Length;i++)
+            for (int i = 0; i < paramNames.Length; i++)
             {
                 string word = paramNames[i];
-                if (word.StartsWith("@")) {
-                    parameters[paramIdx] = new SqlParameter(word, values[paramIdx]);
+                if (word.StartsWith("@"))
+                {
+                    parameters[paramIdx] = new MySqlParameter(word, values[paramIdx]);
                     paramIdx++;
-                };
+                }
+                ;
             }
 
             return parameters;
@@ -33,14 +35,14 @@ namespace BookWise.Classes
 
         public static int ExecuteQuery(string query, params object[] values)
         {
-            using (SqlConnection conn = GetConnection())
+            using (MySqlConnection conn = GetConnection())
             {
-                using (SqlCommand cmd = new SqlCommand(query, conn))
+                using (MySqlCommand cmd = new MySqlCommand(query, conn))
                 {
-                    SqlParameter[] parameters = CreateParameters(query, values);
+                    MySqlParameter[] parameters = CreateParameters(query, values);
                     cmd.Parameters.AddRange(parameters);
                     conn.Open();
-                    return cmd.ExecuteNonQuery(); 
+                    return cmd.ExecuteNonQuery();
                 }
             }
         }
@@ -48,11 +50,11 @@ namespace BookWise.Classes
 
         public static object ExecuteScalar(string query, params object[] values)
         {
-            using (SqlConnection conn = GetConnection())
+            using (MySqlConnection conn = GetConnection())
             {
-                using (SqlCommand cmd = new SqlCommand(query, conn))
+                using (MySqlCommand cmd = new MySqlCommand(query, conn))
                 {
-                    SqlParameter[] parameters = CreateParameters(query, values);
+                    MySqlParameter[] parameters = CreateParameters(query, values);
                     cmd.Parameters.AddRange(parameters);
                     conn.Open();
                     return cmd.ExecuteScalar();
@@ -62,13 +64,13 @@ namespace BookWise.Classes
 
         public static DataTable ExecuteSelect(string query, params object[] values)
         {
-            using (SqlConnection conn = GetConnection())
+            using (MySqlConnection conn = GetConnection())
             {
-                using (SqlCommand cmd = new SqlCommand(query, conn))
+                using (MySqlCommand cmd = new MySqlCommand(query, conn))
                 {
-                    SqlParameter[] parameters = CreateParameters(query, values);
+                    MySqlParameter[] parameters = CreateParameters(query, values);
                     cmd.Parameters.AddRange(parameters);
-                    using (SqlDataAdapter adapter = new SqlDataAdapter(cmd))
+                    using (MySqlDataAdapter adapter = new MySqlDataAdapter(cmd))
                     {
                         DataTable dt = new DataTable();
                         adapter.Fill(dt);
