@@ -1,24 +1,24 @@
-﻿using System;
-using System.Data;
-using Microsoft.Data.SqlClient;
+﻿using System.Data;
 using System.Security.Cryptography;
 using System.Text;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 
-namespace BookWise.Classes
+namespace BookWise
 {
     public class User
     {
         public string Email;
         public string Password;
-
+        public string? FirstName;
+        public string? LastName;
+        public string? NIC;
+        public string? Phone;
+        public string? Address;
 
         public User(string email, string password)
         {
             Email = email;
             Password = HashPassword(password);
         }
-
 
         private string HashPassword(string password)
         {
@@ -36,11 +36,21 @@ namespace BookWise.Classes
 
         public bool Authenticate()
         {
-            string query = "SELECT COUNT(*) FROM Users WHERE Email = @Email AND Password = @Password";
-            object result = DB.ExecuteScalar(query, Email,Password);
-
-            return Convert.ToInt32(result) > 0;
+            string query = "SELECT first_name, last_name, nic, phone, address FROM Users WHERE Email = @Email AND Password = @Password";
+            DataTable result = DB.ExecuteSelect(query, Email, Password) as DataTable;
+            if (result != null && result.Rows.Count > 0)
+            {
+                DataRow row = result.Rows[0];
+                FirstName = row["first_name"].ToString();
+                LastName = row["last_name"].ToString();
+                NIC = row["nic"].ToString();
+                Phone = row["phone"].ToString();
+                Address = row["address"].ToString();
+                return true;
+            }
+            return false;
         }
+
         public bool IsRegistered()
         {
             string query = "SELECT COUNT(*) FROM Users WHERE Email = @Email";

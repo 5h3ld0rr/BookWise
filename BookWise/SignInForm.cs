@@ -1,18 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using BookWise.Classes;
-
-
-namespace BookWise
+﻿namespace BookWise
 {
-    public partial class SignInForm : Form
+    public partial class SignInForm : BaseForm
     {
         public SignInForm()
         {
@@ -30,27 +18,27 @@ namespace BookWise
                 return;
             }
 
-            User user = new User(email,password);
+            User user = new User(email, password);
 
-            if (user.Authenticate())
+            try
             {
-                MainForm mainForm = new MainForm();
-                mainForm.Show();
-                this.Hide();
+                if (user.Authenticate())
+                {
+                    new HomeForm(this, user.FirstName).Show();
+                    Hide();
+                }
+                else
+                {
+                    MessageBox.Show("Invalid email or password", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
-            else
+            catch (Exception ex)
             {
-                MessageBox.Show("Invalid email or password", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                textBoxEmail.Text = "";
-                textBoxPassword.Text = "";
+                MessageBox.Show("An error occured: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-        }
 
-        private void linkRegister_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            SignUpForm signUpForm = new SignUpForm();
-            signUpForm.Show();
-            this.Hide();
+            textBoxEmail.Text = "";
+            textBoxPassword.Text = "";
         }
 
         private void checkBoxShowPassword_CheckedChanged(object sender, EventArgs e)
