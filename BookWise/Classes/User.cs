@@ -37,7 +37,7 @@ namespace BookWise
         public bool Authenticate()
         {
             string query = "SELECT first_name, last_name, nic, phone, address FROM Users WHERE Email = @Email AND Password = @Password";
-            DataTable result = DB.ExecuteSelect(query, Email, Password) as DataTable;
+            DataTable result = DB.ExecuteSelect(query, Email, Password);
             if (result != null && result.Rows.Count > 0)
             {
                 DataRow row = result.Rows[0];
