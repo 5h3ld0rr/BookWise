@@ -78,7 +78,7 @@ namespace BookWise
             dataGridViewUsers.EditMode = DataGridViewEditMode.EditProgrammatically;
             dataGridViewUsers.EnableHeadersVisualStyles = false;
             dataGridViewUsers.GridColor = Color.GhostWhite;
-            dataGridViewUsers.Location = new Point(20, 81);
+            dataGridViewUsers.Location = new Point(20, 84);
             dataGridViewUsers.MultiSelect = false;
             dataGridViewUsers.Name = "dataGridViewUsers";
             dataGridViewUsers.ReadOnly = true;
@@ -91,6 +91,7 @@ namespace BookWise
             dataGridViewCellStyle2.Padding = new Padding(10);
             dataGridViewCellStyle2.SelectionBackColor = Color.FromArgb(248, 248, 248);
             dataGridViewCellStyle2.SelectionForeColor = Color.FromArgb(58, 53, 78);
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
             dataGridViewUsers.RowsDefaultCellStyle = dataGridViewCellStyle2;
             dataGridViewUsers.RowTemplate.DividerHeight = 1;
             dataGridViewUsers.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
@@ -144,6 +145,7 @@ namespace BookWise
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            AutoScroll = true;
             BackColor = Color.White;
             Controls.Add(buttonAddUser);
             Controls.Add(dataGridViewUsers);

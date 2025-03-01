@@ -53,10 +53,7 @@
             bool allowChangeRole = userRole == "Admin" && user.Id != userId;
             DialogResult result = new AddUserModal(allowChangeRole, user).ShowDialog();
 
-            if (result == DialogResult.OK)
-            {
-                RefreshData();
-            }
+            if (result == DialogResult.OK) RefreshData();
         }
 
         private void removeToolStripMenuItem_Click(object sender, EventArgs e)
@@ -107,10 +104,7 @@
             bool allowChangeRole = userRole == "Admin";
             DialogResult result = new AddUserModal(allowChangeRole).ShowDialog();
 
-            if (result == DialogResult.OK)
-            {
-                RefreshData();
-            }
+            if (result == DialogResult.OK) RefreshData();
         }
     }
 
