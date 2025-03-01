@@ -13,7 +13,11 @@ namespace BookWise
             ApplicationConfiguration.Initialize();
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new SignInForm());
+            SignInForm signInForm = new SignInForm();
+            if (signInForm.ShowDialog() == DialogResult.OK)
+            {
+                Application.Run(new HomeForm(signInForm.userName, signInForm.userId, signInForm.userRole));
+            }
         }
     }
 }
