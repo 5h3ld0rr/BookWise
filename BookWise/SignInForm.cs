@@ -2,6 +2,10 @@
 {
     public partial class SignInForm : BaseForm
     {
+        public string userName;
+        public int userId;
+        public string userRole;
+
         public SignInForm()
         {
             InitializeComponent();
@@ -18,27 +22,32 @@
                 return;
             }
 
-            User user = new User(email, password);
-
             try
             {
-                if (user.Authenticate())
+                Admin admin = new Admin()
                 {
-                    new HomeForm(this, user.FirstName).Show();
-                    Hide();
+                    Email = email,
+                    Password = password
+                };
+                if (admin.Authenticate())
+                {
+                    userName = admin.FirstName;
+                    userId = admin.Id;
+                    userRole = admin.Role;
+                    DialogResult = DialogResult.OK;
+                    Dispose();
                 }
                 else
                 {
+                    textBoxEmail.Text = "";
+                    textBoxPassword.Text = "";
                     MessageBox.Show("Invalid email or password", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("An error occured: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("An error occurred: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-
-            textBoxEmail.Text = "";
-            textBoxPassword.Text = "";
         }
 
         private void checkBoxShowPassword_CheckedChanged(object sender, EventArgs e)
