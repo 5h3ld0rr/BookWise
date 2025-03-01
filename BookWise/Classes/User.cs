@@ -35,12 +35,12 @@ namespace BookWise
             if (!string.IsNullOrWhiteSpace(Password))
             {
                 string _password = BCrypt.Net.BCrypt.HashPassword(Password);
-                string query = $"UPDATE Users SET first_name = @FirstName ,last_name= @LastName , email = @Email , role = @Role ,nic = @NIC , phone = @Phone , address = @Address , password = @Password WHERE id = @Id";
+                string query = "UPDATE Users SET first_name = @FirstName ,last_name= @LastName , email = @Email , role = @Role ,nic = @NIC , phone = @Phone , address = @Address , password = @Password WHERE id = @Id";
                 rowsAffected = DB.ExecuteQuery(query, FirstName, LastName, Email, Role, NIC, Phone, Address, _password, Id);
             }
             else
             {
-                string query = $"UPDATE Users SET first_name = @FirstName ,last_name= @LastName , email = @Email , role = @Role ,nic = @NIC , phone = @Phone , address = @Address WHERE id = @Id";
+                string query = "UPDATE Users SET first_name = @FirstName ,last_name= @LastName , email = @Email , role = @Role ,nic = @NIC , phone = @Phone , address = @Address WHERE id = @Id";
                 rowsAffected = DB.ExecuteQuery(query, FirstName, LastName, Email, Role, NIC, Phone, Address, Id);
             }
 
