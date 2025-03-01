@@ -48,11 +48,12 @@
             checkBoxShowPassword = new CheckBox();
             textBoxPhone = new TextBox();
             label9 = new Label();
+            panel1 = new Panel();
             SuspendLayout();
             // 
             // buttonSave
             // 
-            buttonSave.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            buttonSave.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             buttonSave.BackColor = Color.FromArgb(37, 56, 140);
             buttonSave.Cursor = Cursors.Hand;
             buttonSave.Font = new Font("Segoe UI", 16F, FontStyle.Bold, GraphicsUnit.Pixel);
@@ -235,8 +236,6 @@
             comboBoxRole.Font = new Font("Segoe UI", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
             comboBoxRole.FormattingEnabled = true;
             comboBoxRole.Items.AddRange(new object[] { "User", "Staff", "Admin" });
-            comboBoxRole.SelectedIndex = 0;
-            comboBoxRole.DropDownStyle = ComboBoxStyle.DropDownList;
             comboBoxRole.Location = new Point(23, 201);
             comboBoxRole.Name = "comboBoxRole";
             comboBoxRole.Size = new Size(391, 29);
@@ -277,13 +276,22 @@
             label9.TabIndex = 20;
             label9.Text = "Phone No";
             // 
+            // panel1
+            // 
+            panel1.Location = new Point(23, 816);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(200, 15);
+            panel1.TabIndex = 22;
+            // 
             // AddUserModal
             // 
             AcceptButton = buttonSave;
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            AutoScroll = true;
             BackColor = Color.GhostWhite;
             ClientSize = new Size(442, 831);
+            Controls.Add(panel1);
             Controls.Add(textBoxPhone);
             Controls.Add(label9);
             Controls.Add(checkBoxShowPassword);
@@ -334,5 +342,6 @@
         private CheckBox checkBoxShowPassword;
         private TextBox textBoxPhone;
         private Label label9;
+        private Panel panel1;
     }
 }
