@@ -67,23 +67,31 @@
 
         private void buttonHome_Click(object sender, EventArgs e)
         {
+            panelSearch.Visible = false;
             HighlightButton(buttonHome);
             LoadControl(new HomeControl());
         }
 
-        private void buttonAllBooks_Click(object sender, EventArgs e)
+        private void buttonBooks_Click(object sender, EventArgs e)
         {
+            panelSearch.Visible = true;
+            textBoxSearch.Text = "";
+            textBoxSearch.PlaceholderText = "Search books by name, author, isbn or category";
             HighlightButton(buttonBooks);
             LoadControl(new BooksControl());
         }
         private void buttonUsers_Click(object sender, EventArgs e)
         {
+            panelSearch.Visible = true;
+            textBoxSearch.Text = "";
+            textBoxSearch.PlaceholderText = "Search users by name, email, nic or phone";
             HighlightButton(buttonUsers);
             LoadControl(new UsersControl(userId, userRole));
         }
 
         private void buttonHistory_Click(object sender, EventArgs e)
         {
+            panelSearch.Visible = false;
             HighlightButton(buttonHistory);
             LoadControl(new HistoryControl());
         }
