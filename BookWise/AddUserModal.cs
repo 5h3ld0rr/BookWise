@@ -6,6 +6,11 @@
         public AddUserModal(bool allowChangeRole, User? user = null)
         {
             InitializeComponent();
+            comboBoxRole.Enabled = allowChangeRole;
+            comboBoxRole.SelectedIndex = 0;
+            comboBoxRole.DropDownStyle = ComboBoxStyle.DropDownList;
+            MaximumSize = new Size(Screen.PrimaryScreen.WorkingArea.Size.Width, Screen.PrimaryScreen.WorkingArea.Size.Height - 50);
+
             if (user != null)
             {
                 this.user = user;
@@ -20,7 +25,6 @@
                 Text = "Update an Existing User";
                 buttonSave.Text = "Update User";
             }
-            comboBoxRole.Enabled = allowChangeRole;
         }
 
         private void buttonSave_Click(object sender, EventArgs e)
@@ -49,60 +53,54 @@
                 return;
             }
 
-            if (user != null)
+            try
             {
-                user.FirstName = FirstName;
-                user.LastName = LastName;
-                user.Email = Email;
-                user.Role = Role;
-                user.NIC = NIC;
-                user.Phone = Phone;
-                user.Address = Address;
-                user.Password = Password;
-
-                if (user.Update())
+                if (user != null)
                 {
+                    user.FirstName = FirstName;
+                    user.LastName = LastName;
+                    user.Email = Email;
+                    user.Role = Role;
+                    user.NIC = NIC;
+                    user.Phone = Phone;
+                    user.Address = Address;
+                    user.Password = Password;
+
+                    user.Update();
                     DialogResult = DialogResult.OK;
                 }
                 else
                 {
-                    MessageBox.Show("Failed to update user", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    DialogResult = DialogResult.Cancel;
-                }
-            }
-            else
-            {
-                user = new User()
-                {
-                    FirstName = FirstName,
-                    LastName = LastName,
-                    Email = Email,
-                    Role = Role,
-                    NIC = NIC,
-                    Phone = Phone,
-                    Address = Address,
-                    Password = Password
-                };
-
-                if (user.IsRegistered())
-                {
-                    MessageBox.Show("User already exists", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    DialogResult = DialogResult.Cancel;
-                }
-                else
-                {
-                    if (user.Register())
+                    user = new User()
                     {
-                        DialogResult = DialogResult.OK;
+                        FirstName = FirstName,
+                        LastName = LastName,
+                        Email = Email,
+                        Role = Role,
+                        NIC = NIC,
+                        Phone = Phone,
+                        Address = Address,
+                        Password = Password
+                    };
+
+                    if (user.IsRegistered())
+                    {
+                        MessageBox.Show("User already exists", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        DialogResult = DialogResult.Cancel;
                     }
                     else
                     {
-                        MessageBox.Show("Failed to add user", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        DialogResult = DialogResult.Cancel;
+                        user.Register();
+                        DialogResult = DialogResult.OK;
                     }
                 }
+                Close();
             }
-            Close();
+            catch (Exception ex)
+            {
+                MessageBox.Show("An error occurred: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
         }
 
         private void checkBoxShowPassword_CheckedChanged(object sender, EventArgs e)
