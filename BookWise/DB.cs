@@ -1,5 +1,6 @@
 using System.Configuration;
 using System.Data;
+using System.Text.RegularExpressions;
 using MySql.Data.MySqlClient;
 
 namespace BookWise
@@ -7,7 +8,6 @@ namespace BookWise
     public static class DB
     {
         private static string connectionString = ConfigurationManager.ConnectionStrings["MYSQLDBConnection"].ConnectionString;
-        //private static string connectionString = ConfigurationManager.ConnectionStrings["MyDBConnection"].ConnectionString;
 
         public static MySqlConnection GetConnection()
         {
@@ -17,17 +17,17 @@ namespace BookWise
         private static MySqlParameter[] CreateParameters(string query, object[] values)
         {
             MySqlParameter[] parameters = new MySqlParameter[values.Length];
-            string[] paramNames = query.Split(' ');
+            string pattern = @"@\w+";
+            string[] paramNames = Regex.Matches(query, pattern, RegexOptions.IgnoreCase)
+        .Cast<Match>()
+        .Select(m => m.Value)
+        .Distinct(StringComparer.CurrentCultureIgnoreCase).ToArray();
+
             int paramIdx = 0;
-            for (int i = 0; i < paramNames.Length; i++)
+            foreach (string paramName in paramNames)
             {
-                string word = paramNames[i];
-                if (word.StartsWith("@"))
-                {
-                    parameters[paramIdx] = new MySqlParameter(word, values[paramIdx]);
-                    paramIdx++;
-                }
-                ;
+                parameters[paramIdx] = new MySqlParameter(paramName, values[paramIdx]);
+                paramIdx++;
             }
 
             return parameters;
