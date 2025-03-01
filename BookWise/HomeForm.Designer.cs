@@ -38,7 +38,7 @@
             buttonHome = new Button();
             buttonBooks = new Button();
             panelContainer = new Panel();
-            panel1 = new Panel();
+            panelSearch = new Panel();
             pictureBox1 = new PictureBox();
             textBoxSearch = new TextBox();
             label3 = new Label();
@@ -48,7 +48,7 @@
             tableLayoutPanel1.SuspendLayout();
             panelSidebar.SuspendLayout();
             panelContainer.SuspendLayout();
-            panel1.SuspendLayout();
+            panelSearch.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
@@ -210,40 +210,43 @@
             buttonBooks.TextAlign = ContentAlignment.MiddleLeft;
             buttonBooks.TextImageRelation = TextImageRelation.ImageBeforeText;
             buttonBooks.UseVisualStyleBackColor = false;
-            buttonBooks.Click += buttonAllBooks_Click;
+            buttonBooks.Click += buttonBooks_Click;
             // 
             // panelContainer
             // 
             panelContainer.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            panelContainer.Controls.Add(panel1);
+            panelContainer.Controls.Add(panelSearch);
             panelContainer.Controls.Add(label3);
             panelContainer.Controls.Add(labelFName);
             panelContainer.Controls.Add(label2);
             panelContainer.Font = new Font("Segoe UI", 20F, FontStyle.Regular, GraphicsUnit.Pixel);
-            panelContainer.Location = new Point(275, 3);
+            panelContainer.Location = new Point(272, 0);
+            panelContainer.Margin = new Padding(0);
             panelContainer.Name = "panelContainer";
             panelContainer.Padding = new Padding(16, 110, 16, 16);
-            panelContainer.Size = new Size(986, 675);
+            panelContainer.Size = new Size(992, 681);
             panelContainer.TabIndex = 1;
             // 
-            // panel1
+            // panelSearch
             // 
-            panel1.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            panel1.BackColor = Color.White;
-            panel1.BorderStyle = BorderStyle.FixedSingle;
-            panel1.Controls.Add(pictureBox1);
-            panel1.Controls.Add(textBoxSearch);
-            panel1.Location = new Point(517, 24);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(450, 45);
-            panel1.TabIndex = 4;
+            panelSearch.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            panelSearch.BackColor = Color.White;
+            panelSearch.BorderStyle = BorderStyle.FixedSingle;
+            panelSearch.Controls.Add(pictureBox1);
+            panelSearch.Controls.Add(textBoxSearch);
+            panelSearch.Location = new Point(523, 24);
+            panelSearch.Margin = new Padding(0);
+            panelSearch.Name = "panelSearch";
+            panelSearch.Size = new Size(450, 45);
+            panelSearch.TabIndex = 4;
+            panelSearch.Visible = false;
             // 
             // pictureBox1
             // 
             pictureBox1.Image = Properties.Resources.search;
             pictureBox1.Location = new Point(14, 11);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(24, 24);
+            pictureBox1.Size = new Size(24, 22);
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox1.TabIndex = 4;
             pictureBox1.TabStop = false;
@@ -252,10 +255,12 @@
             // 
             textBoxSearch.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             textBoxSearch.BorderStyle = BorderStyle.None;
-            textBoxSearch.Location = new Point(53, 7);
+            textBoxSearch.Font = new Font("Segoe UI", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
+            textBoxSearch.Location = new Point(44, 11);
+            textBoxSearch.Margin = new Padding(0);
             textBoxSearch.Name = "textBoxSearch";
             textBoxSearch.PlaceholderText = "Search ...";
-            textBoxSearch.Size = new Size(383, 27);
+            textBoxSearch.Size = new Size(383, 22);
             textBoxSearch.TabIndex = 3;
             textBoxSearch.TextChanged += textBoxSearch_TextChanged;
             // 
@@ -306,8 +311,8 @@
             panelSidebar.PerformLayout();
             panelContainer.ResumeLayout(false);
             panelContainer.PerformLayout();
-            panel1.ResumeLayout(false);
-            panel1.PerformLayout();
+            panelSearch.ResumeLayout(false);
+            panelSearch.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
         }
@@ -327,8 +332,8 @@
         private Label labelFName;
         private Label label2;
         private Label label3;
-        private TextBox textBoxSearch;
-        private Panel panel1;
+        private Panel panelSearch;
         private PictureBox pictureBox1;
+        private TextBox textBoxSearch;
     }
 }
