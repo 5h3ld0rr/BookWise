@@ -1,27 +1,41 @@
-﻿using BookWise.Controls;
-
-namespace BookWise
+﻿namespace BookWise
 {
     public partial class HomeForm : BaseForm
     {
         private Button[] SideBarBtns;
-        private SignInForm signInForm;
-        private UserControl? currentControl;
-        public HomeForm(SignInForm _signInForm, string? firstName)
+        private UserControl currentControl;
+        private int userId;
+        private string userRole;
+        public HomeForm(string firstName, int userId, string userRole)
         {
             InitializeComponent();
-            signInForm = _signInForm;
             labelFName.Text = firstName;
+            this.userId = userId;
+            this.userRole = userRole;
+            FormClosing += HomeForm_FormClosing;
             SideBarBtns = [buttonHome, buttonBooks, buttonUsers, buttonHistory];
             LoadControl(new HomeControl());
+        }
+        private void HomeForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (e.CloseReason != CloseReason.UserClosing) return;
+
+            DialogResult dialogResult = MessageBox.Show("Are you sure you want to close?", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (dialogResult == DialogResult.No)
+            {
+                e.Cancel = true;
+            }
+            else if (dialogResult == DialogResult.Yes)
+            {
+                Application.Exit();
+            }
         }
         private void buttonLogout_Click(object sender, EventArgs e)
         {
             DialogResult dialogResult = MessageBox.Show("Are you sure you want to logout?", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (dialogResult == DialogResult.No) return;
-
-            signInForm.Show();
-            Dispose();
+            Application.Restart();
         }
 
         private void HighlightButton(Button button)
@@ -33,10 +47,10 @@ namespace BookWise
 
         private void ResetButtonStyles()
         {
-            for (int i = 0; i < SideBarBtns.Length; i++)
+            foreach (Button btn in SideBarBtns)
             {
-                SideBarBtns[i].BackColor = Color.White;
-                SideBarBtns[i].ForeColor = Color.FromArgb(58, 53, 78);
+                btn.BackColor = Color.White;
+                btn.ForeColor = Color.FromArgb(58, 53, 78);
             }
         }
         private void LoadControl(UserControl control)
@@ -65,13 +79,18 @@ namespace BookWise
         private void buttonUsers_Click(object sender, EventArgs e)
         {
             HighlightButton(buttonUsers);
-            LoadControl(new UserControl());
+            LoadControl(new UsersControl(userId, userRole));
         }
 
         private void buttonHistory_Click(object sender, EventArgs e)
         {
             HighlightButton(buttonHistory);
             LoadControl(new HistoryControl());
+        }
+
+        private void textBoxSearch_TextChanged(object sender, EventArgs e)
+        {
+            (currentControl as dynamic).Search(textBoxSearch.Text);
         }
     }
 }
