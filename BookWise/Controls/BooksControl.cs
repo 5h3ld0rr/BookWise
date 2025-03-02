@@ -12,6 +12,7 @@
             dataGridViewBooks.Columns["isbn_no"].HeaderText = "ISBN No";
             dataGridViewBooks.Columns["author"].HeaderText = "Author";
             dataGridViewBooks.Columns["category"].HeaderText = "Category";
+            dataGridViewBooks.Columns["available"].HeaderText = "Available";
         }
 
         public void RefreshData()
