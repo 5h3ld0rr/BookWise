@@ -10,7 +10,7 @@
             if (book != null)
             {
                 this.book = book;
-                textBoxName.Text = book.Name;
+                textBoxTitle.Text = book.Title;
                 textBoxISBN.Text = book.ISBN;
                 textBoxAuthor.Text = book.Author;
                 textBoxCategory.Text = book.Category;
@@ -22,12 +22,12 @@
 
         private void buttonSave_Click(object sender, EventArgs e)
         {
-            string Name = textBoxName.Text;
-            string ISBN = textBoxISBN.Text;
-            string Category = textBoxCategory.Text;
-            string Author = textBoxAuthor.Text;
+            string title = textBoxTitle.Text;
+            string isbnNo = textBoxISBN.Text;
+            string category = textBoxCategory.Text;
+            string author = textBoxAuthor.Text;
 
-            bool notEnteredRequiredFields = String.IsNullOrWhiteSpace(Name) || String.IsNullOrWhiteSpace(ISBN) || String.IsNullOrWhiteSpace(Author) || String.IsNullOrWhiteSpace(Category);
+            bool notEnteredRequiredFields = String.IsNullOrWhiteSpace(title) || String.IsNullOrWhiteSpace(isbnNo) || String.IsNullOrWhiteSpace(author) || String.IsNullOrWhiteSpace(category);
 
             if (notEnteredRequiredFields)
             {
@@ -39,10 +39,10 @@
             {
                 if (book != null)
                 {
-                    book.Name = Name;
-                    book.ISBN = ISBN;
-                    book.Category = Category;
-                    book.Author = Author;
+                    book.Title = title;
+                    book.ISBN = isbnNo;
+                    book.Category = category;
+                    book.Author = author;
 
                     book.Update();
                     DialogResult = DialogResult.OK;
@@ -51,10 +51,10 @@
                 {
                     book = new Book()
                     {
-                        Name = Name,
-                        ISBN = ISBN,
-                        Category = Category,
-                        Author = Author
+                        Title = title,
+                        ISBN = isbnNo,
+                        Author = author,
+                        Category = category,
                     };
 
                     if (book.IsExisting())

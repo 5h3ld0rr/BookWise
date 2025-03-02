@@ -33,7 +33,7 @@
             label2 = new Label();
             label4 = new Label();
             label5 = new Label();
-            textBoxName = new TextBox();
+            textBoxTitle = new TextBox();
             textBoxISBN = new TextBox();
             textBoxCategory = new TextBox();
             textBoxAuthor = new TextBox();
@@ -61,9 +61,9 @@
             label1.ForeColor = Color.FromArgb(15, 23, 42);
             label1.Location = new Point(23, 22);
             label1.Name = "label1";
-            label1.Size = new Size(52, 21);
+            label1.Size = new Size(39, 21);
             label1.TabIndex = 1;
-            label1.Text = "Name";
+            label1.Text = "Title";
             // 
             // label2
             // 
@@ -99,15 +99,15 @@
             label5.TabIndex = 5;
             label5.Text = "Category";
             // 
-            // textBoxName
+            // textBoxTitle
             // 
-            textBoxName.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            textBoxName.Font = new Font("Segoe UI", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
-            textBoxName.ForeColor = Color.FromArgb(30, 41, 59);
-            textBoxName.Location = new Point(23, 46);
-            textBoxName.Name = "textBoxName";
-            textBoxName.Size = new Size(391, 29);
-            textBoxName.TabIndex = 9;
+            textBoxTitle.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            textBoxTitle.Font = new Font("Segoe UI", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
+            textBoxTitle.ForeColor = Color.FromArgb(30, 41, 59);
+            textBoxTitle.Location = new Point(23, 46);
+            textBoxTitle.Name = "textBoxTitle";
+            textBoxTitle.Size = new Size(391, 29);
+            textBoxTitle.TabIndex = 9;
             // 
             // textBoxISBN
             // 
@@ -144,13 +144,12 @@
             AcceptButton = buttonSave;
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            AutoScroll = true;
             BackColor = Color.GhostWhite;
             ClientSize = new Size(442, 429);
             Controls.Add(textBoxAuthor);
             Controls.Add(textBoxCategory);
             Controls.Add(textBoxISBN);
-            Controls.Add(textBoxName);
+            Controls.Add(textBoxTitle);
             Controls.Add(label5);
             Controls.Add(label4);
             Controls.Add(label2);
@@ -171,7 +170,7 @@
         private Label label2;
         private Label label4;
         private Label label5;
-        private TextBox textBoxName;
+        private TextBox textBoxTitle;
         private TextBox textBoxISBN;
         private TextBox textBoxCategory;
         private TextBox textBoxAuthor;
