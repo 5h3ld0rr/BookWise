@@ -2,7 +2,7 @@
 {
     public partial class UsersControl : UserControl
     {
-        private DataGridViewCellCollection selectedRow;
+        private User selectedUser;
         private int userId;
         private string userRole;
         public UsersControl(int userId, string userRole)
@@ -11,14 +11,10 @@
             RefreshData();
             this.userId = userId;
             this.userRole = userRole;
-            dataGridViewUsers.Columns["id"].Visible = false;
-            dataGridViewUsers.Columns["first_name"].HeaderText = "First Name";
-            dataGridViewUsers.Columns["last_name"].HeaderText = "Last Name";
-            dataGridViewUsers.Columns["email"].HeaderText = "Email";
-            dataGridViewUsers.Columns["role"].HeaderText = "Role";
-            dataGridViewUsers.Columns["nic"].HeaderText = "NIC No";
-            dataGridViewUsers.Columns["phone"].HeaderText = "Phone No";
-            dataGridViewUsers.Columns["address"].HeaderText = "Address";
+            dataGridViewUsers.Columns["FirstName"].HeaderText = "First Name";
+            dataGridViewUsers.Columns["LastName"].HeaderText = "Last Name";
+            dataGridViewUsers.Columns["NIC"].HeaderText = "NIC No";
+            dataGridViewUsers.Columns["Phone"].HeaderText = "Phone No";
         }
         public void RefreshData()
         {
@@ -39,19 +35,8 @@
 
         private void editToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            User user = new User()
-            {
-                Id = Convert.ToInt32(selectedRow["id"].Value),
-                FirstName = selectedRow["first_name"].Value.ToString(),
-                LastName = selectedRow["last_name"].Value.ToString(),
-                Email = selectedRow["email"].Value.ToString(),
-                Role = selectedRow["role"].Value.ToString(),
-                NIC = selectedRow["nic"].Value.ToString(),
-                Phone = selectedRow["phone"].Value.ToString(),
-                Address = selectedRow["address"].Value.ToString()
-            };
-            bool allowChangeRole = userRole == "Admin" && user.Id != userId;
-            DialogResult result = new AddUserModal(allowChangeRole, user).ShowDialog();
+            bool allowChangeRole = userRole == "Admin" && selectedUser.Id != userId;
+            DialogResult result = new AddUserModal(allowChangeRole, selectedUser).ShowDialog();
 
             if (result == DialogResult.OK) RefreshData();
         }
@@ -64,8 +49,7 @@
             {
                 try
                 {
-                    int id = Convert.ToInt32(selectedRow["id"].Value);
-                    User.Remove(id);
+                    selectedUser.Remove();
                     RefreshData();
                 }
                 catch (Exception ex)
@@ -86,11 +70,10 @@
             if (hit.RowIndex >= 0)
             {
                 dataGridViewUsers.Rows[hit.RowIndex].Selected = true;
-                selectedRow = dataGridViewUsers.Rows[hit.RowIndex].Cells;
-                int selectedUserId = Convert.ToInt32(selectedRow["id"].Value);
-                bool hasPermission = userRole == "Admin" || selectedRow["role"].Value.ToString() == "User";
-                contextMenu.Items["removeToolStripMenuItem"].Enabled = selectedUserId != userId && hasPermission;
-                contextMenu.Items["editToolStripMenuItem"].Enabled = selectedUserId == userId || hasPermission;
+                selectedUser = dataGridViewUsers.Rows[hit.RowIndex].DataBoundItem as User;
+                bool hasPermission = userRole == "Admin" || selectedUser.Role == "User";
+                contextMenu.Items["removeToolStripMenuItem"].Enabled = selectedUser.Id != userId && hasPermission;
+                contextMenu.Items["editToolStripMenuItem"].Enabled = selectedUser.Id == userId || hasPermission;
             }
             else
             {
