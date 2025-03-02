@@ -28,39 +28,39 @@
         /// </summary>
         private void InitializeComponent()
         {
-            tableLayoutPanel1 = new TableLayoutPanel();
+            tableLayoutPanel = new TableLayoutPanel();
             panel3 = new Panel();
+            labelAllBooks = new Label();
             label3 = new Label();
             panel2 = new Panel();
+            labelTotalUsers = new Label();
             label2 = new Label();
             panel1 = new Panel();
-            label1 = new Label();
             labelBorrowedBooks = new Label();
-            labelTotalUsers = new Label();
-            labelAllBooks = new Label();
-            tableLayoutPanel1.SuspendLayout();
+            label1 = new Label();
+            tableLayoutPanel.SuspendLayout();
             panel3.SuspendLayout();
             panel2.SuspendLayout();
             panel1.SuspendLayout();
             SuspendLayout();
             // 
-            // tableLayoutPanel1
+            // tableLayoutPanel
             // 
-            tableLayoutPanel1.ColumnCount = 3;
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 33.3333321F));
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 33.3333321F));
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 33.3333321F));
-            tableLayoutPanel1.Controls.Add(panel3, 2, 0);
-            tableLayoutPanel1.Controls.Add(panel2, 1, 0);
-            tableLayoutPanel1.Controls.Add(panel1, 0, 0);
-            tableLayoutPanel1.Dock = DockStyle.Top;
-            tableLayoutPanel1.Location = new Point(0, 0);
-            tableLayoutPanel1.Name = "tableLayoutPanel1";
-            tableLayoutPanel1.Padding = new Padding(0, 10, 0, 0);
-            tableLayoutPanel1.RowCount = 1;
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanel1.Size = new Size(1132, 133);
-            tableLayoutPanel1.TabIndex = 0;
+            tableLayoutPanel.ColumnCount = 3;
+            tableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 33.3333321F));
+            tableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 33.3333321F));
+            tableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 33.3333321F));
+            tableLayoutPanel.Controls.Add(panel3, 2, 0);
+            tableLayoutPanel.Controls.Add(panel2, 1, 0);
+            tableLayoutPanel.Controls.Add(panel1, 0, 0);
+            tableLayoutPanel.Dock = DockStyle.Top;
+            tableLayoutPanel.Location = new Point(0, 0);
+            tableLayoutPanel.Name = "tableLayoutPanel";
+            tableLayoutPanel.Padding = new Padding(0, 10, 0, 0);
+            tableLayoutPanel.RowCount = 1;
+            tableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
+            tableLayoutPanel.Size = new Size(1132, 133);
+            tableLayoutPanel.TabIndex = 0;
             // 
             // panel3
             // 
@@ -73,6 +73,18 @@
             panel3.Name = "panel3";
             panel3.Size = new Size(346, 117);
             panel3.TabIndex = 2;
+            // 
+            // labelAllBooks
+            // 
+            labelAllBooks.AutoSize = true;
+            labelAllBooks.Font = new Font("Segoe UI", 32F, FontStyle.Bold, GraphicsUnit.Pixel);
+            labelAllBooks.ForeColor = Color.FromArgb(30, 41, 59);
+            labelAllBooks.Location = new Point(17, 53);
+            labelAllBooks.Name = "labelAllBooks";
+            labelAllBooks.RightToLeft = RightToLeft.No;
+            labelAllBooks.Size = new Size(38, 45);
+            labelAllBooks.TabIndex = 3;
+            labelAllBooks.Text = "0";
             // 
             // label3
             // 
@@ -98,6 +110,18 @@
             panel2.Size = new Size(345, 117);
             panel2.TabIndex = 1;
             // 
+            // labelTotalUsers
+            // 
+            labelTotalUsers.AutoSize = true;
+            labelTotalUsers.Font = new Font("Segoe UI", 32F, FontStyle.Bold, GraphicsUnit.Pixel);
+            labelTotalUsers.ForeColor = Color.FromArgb(30, 41, 59);
+            labelTotalUsers.Location = new Point(18, 53);
+            labelTotalUsers.Name = "labelTotalUsers";
+            labelTotalUsers.RightToLeft = RightToLeft.No;
+            labelTotalUsers.Size = new Size(38, 45);
+            labelTotalUsers.TabIndex = 2;
+            labelTotalUsers.Text = "0";
+            // 
             // label2
             // 
             label2.AutoSize = true;
@@ -122,6 +146,18 @@
             panel1.Size = new Size(345, 117);
             panel1.TabIndex = 0;
             // 
+            // labelBorrowedBooks
+            // 
+            labelBorrowedBooks.AutoSize = true;
+            labelBorrowedBooks.Font = new Font("Segoe UI", 32F, FontStyle.Bold, GraphicsUnit.Pixel);
+            labelBorrowedBooks.ForeColor = Color.FromArgb(30, 41, 59);
+            labelBorrowedBooks.Location = new Point(17, 53);
+            labelBorrowedBooks.Name = "labelBorrowedBooks";
+            labelBorrowedBooks.RightToLeft = RightToLeft.No;
+            labelBorrowedBooks.Size = new Size(38, 45);
+            labelBorrowedBooks.TabIndex = 1;
+            labelBorrowedBooks.Text = "0";
+            // 
             // label1
             // 
             label1.AutoSize = true;
@@ -134,51 +170,15 @@
             label1.TabIndex = 0;
             label1.Text = "Borrowed Books";
             // 
-            // labelBorrowedBooks
-            // 
-            labelBorrowedBooks.AutoSize = true;
-            labelBorrowedBooks.Font = new Font("Segoe UI", 32F, FontStyle.Bold, GraphicsUnit.Pixel);
-            labelBorrowedBooks.ForeColor = Color.FromArgb(30, 41, 59);
-            labelBorrowedBooks.Location = new Point(17, 53);
-            labelBorrowedBooks.Name = "labelBorrowedBooks";
-            labelBorrowedBooks.RightToLeft = RightToLeft.No;
-            labelBorrowedBooks.Size = new Size(74, 45);
-            labelBorrowedBooks.TabIndex = 1;
-            labelBorrowedBooks.Text = "100";
-            // 
-            // labelTotalUsers
-            // 
-            labelTotalUsers.AutoSize = true;
-            labelTotalUsers.Font = new Font("Segoe UI", 32F, FontStyle.Bold, GraphicsUnit.Pixel);
-            labelTotalUsers.ForeColor = Color.FromArgb(30, 41, 59);
-            labelTotalUsers.Location = new Point(18, 53);
-            labelTotalUsers.Name = "labelTotalUsers";
-            labelTotalUsers.RightToLeft = RightToLeft.No;
-            labelTotalUsers.Size = new Size(74, 45);
-            labelTotalUsers.TabIndex = 2;
-            labelTotalUsers.Text = "100";
-            // 
-            // labelAllBooks
-            // 
-            labelAllBooks.AutoSize = true;
-            labelAllBooks.Font = new Font("Segoe UI", 32F, FontStyle.Bold, GraphicsUnit.Pixel);
-            labelAllBooks.ForeColor = Color.FromArgb(30, 41, 59);
-            labelAllBooks.Location = new Point(17, 53);
-            labelAllBooks.Name = "labelAllBooks";
-            labelAllBooks.RightToLeft = RightToLeft.No;
-            labelAllBooks.Size = new Size(74, 45);
-            labelAllBooks.TabIndex = 3;
-            labelAllBooks.Text = "100";
-            // 
             // HomeControl
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.GhostWhite;
-            Controls.Add(tableLayoutPanel1);
+            Controls.Add(tableLayoutPanel);
             Name = "HomeControl";
             Size = new Size(1132, 652);
-            tableLayoutPanel1.ResumeLayout(false);
+            tableLayoutPanel.ResumeLayout(false);
             panel3.ResumeLayout(false);
             panel3.PerformLayout();
             panel2.ResumeLayout(false);
@@ -190,7 +190,7 @@
 
         #endregion
 
-        private TableLayoutPanel tableLayoutPanel1;
+        private TableLayoutPanel tableLayoutPanel;
         private Panel panel1;
         private Panel panel3;
         private Panel panel2;
