@@ -2,17 +2,12 @@
 {
     public partial class BooksControl : UserControl
     {
-        private DataGridViewCellCollection selectedRow;
+        private Book selectedBook;
         public BooksControl()
         {
             InitializeComponent();
             RefreshData();
-            dataGridViewBooks.Columns["id"].Visible = false;
-            dataGridViewBooks.Columns["name"].HeaderText = "Name";
-            dataGridViewBooks.Columns["isbn_no"].HeaderText = "ISBN No";
-            dataGridViewBooks.Columns["author"].HeaderText = "Author";
-            dataGridViewBooks.Columns["category"].HeaderText = "Category";
-            dataGridViewBooks.Columns["available"].HeaderText = "Available";
+            dataGridViewBooks.Columns["ISBN"].HeaderText = "ISBN No";
         }
 
         public void RefreshData()
@@ -34,15 +29,7 @@
 
         private void editToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Book book = new Book()
-            {
-                Id = Convert.ToInt32(selectedRow["id"].Value),
-                Name = selectedRow["name"].Value.ToString(),
-                ISBN = selectedRow["isbn_no"].Value.ToString(),
-                Author = selectedRow["author"].Value.ToString(),
-                Category = selectedRow["category"].Value.ToString()
-            };
-            DialogResult result = new AddBookModal(book).ShowDialog();
+            DialogResult result = new AddBookModal(selectedBook).ShowDialog();
 
             if (result == DialogResult.OK) RefreshData();
         }
@@ -55,8 +42,7 @@
             {
                 try
                 {
-                    int id = Convert.ToInt32(selectedRow["id"].Value);
-                    Book.Remove(id);
+                    selectedBook.Remove();
                     RefreshData();
                 }
                 catch (Exception ex)
@@ -77,7 +63,7 @@
             if (hit.RowIndex >= 0)
             {
                 dataGridViewBooks.Rows[hit.RowIndex].Selected = true;
-                selectedRow = dataGridViewBooks.Rows[hit.RowIndex].Cells;
+                selectedBook = dataGridViewBooks.Rows[hit.RowIndex].DataBoundItem as Book;
             }
             else
             {
