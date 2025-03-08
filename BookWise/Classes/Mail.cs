@@ -26,10 +26,20 @@ namespace BookWise
 
         public async void Send(string email)
         {
-            mail.To.Add(email);
-            await smtpClient.SendMailAsync(mail);
-            mail.Dispose();
-            smtpClient.Dispose();
+            try
+            {
+                mail.To.Add(email);
+                await smtpClient.SendMailAsync(mail);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"An error occurred: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                mail.Dispose();
+                smtpClient.Dispose();
+            }
         }
     }
 }
