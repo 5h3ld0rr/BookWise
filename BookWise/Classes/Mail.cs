@@ -11,7 +11,7 @@ namespace BookWise
         private static readonly string smtpUser = ConfigurationManager.AppSettings["smtpUser"];
         private static readonly string smtpPass = ConfigurationManager.AppSettings["smtpPass"];
 
-        private static SmtpClient smtpClient = new SmtpClient(smtpHost, smtpPort)
+        private SmtpClient smtpClient = new SmtpClient(smtpHost, smtpPort)
         {
             EnableSsl = true,
             UseDefaultCredentials = false,
