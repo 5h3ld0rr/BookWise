@@ -84,7 +84,7 @@
         {
             panelSearch.Visible = true;
             textBoxSearch.Text = "";
-            textBoxSearch.PlaceholderText = "Search users by name, email, nic or phone";
+            textBoxSearch.PlaceholderText = "Search users by id, name, email, nic or phone";
             HighlightButton(buttonUsers);
             LoadControl(new UsersControl(userId, userRole));
         }

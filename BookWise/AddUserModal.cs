@@ -8,12 +8,12 @@
             InitializeComponent();
             comboBoxRole.Enabled = allowChangeRole;
             comboBoxRole.SelectedIndex = 0;
-            comboBoxRole.DropDownStyle = ComboBoxStyle.DropDownList;
-            MaximumSize = new Size(Screen.PrimaryScreen.WorkingArea.Size.Width, Screen.PrimaryScreen.WorkingArea.Size.Height - 50);
 
             if (user != null)
             {
                 this.user = user;
+                textBoxId.Text = user.Id.ToString();
+                textBoxId.Enabled = false;
                 textBoxFName.Text = user.FirstName;
                 textBoxLName.Text = user.LastName;
                 textBoxEmail.Text = user.Email;
@@ -29,6 +29,7 @@
 
         private void buttonSave_Click(object sender, EventArgs e)
         {
+            string Id = textBoxId.Text;
             string FirstName = textBoxFName.Text;
             string LastName = textBoxLName.Text;
             string Email = textBoxEmail.Text;
@@ -38,15 +39,17 @@
             string Address = textBoxAddress.Text;
             string Password = textBoxPassword.Text;
             string ConfirmPassword = textBoxConfirmPassword.Text;
-            bool passwordRequired = (Role != "User" && (user?.Role == "User" || user == null));
+            bool passwordRequired = (Role != "Student" && (user?.Role == "Student" || user == null));
 
-            bool notEnteredRequiredFields = String.IsNullOrWhiteSpace(FirstName) || String.IsNullOrWhiteSpace(LastName) || String.IsNullOrWhiteSpace(Email) || String.IsNullOrWhiteSpace(Role) || String.IsNullOrWhiteSpace(NIC) || String.IsNullOrWhiteSpace(Phone) || String.IsNullOrWhiteSpace(Address) || passwordRequired && (String.IsNullOrWhiteSpace(Password) || String.IsNullOrWhiteSpace(ConfirmPassword));
+            bool notEnteredRequiredFields = String.IsNullOrWhiteSpace(Id) || String.IsNullOrWhiteSpace(FirstName) || String.IsNullOrWhiteSpace(LastName) || String.IsNullOrWhiteSpace(Email) || String.IsNullOrWhiteSpace(Role) || String.IsNullOrWhiteSpace(NIC) || String.IsNullOrWhiteSpace(Phone) || String.IsNullOrWhiteSpace(Address) || passwordRequired && (String.IsNullOrWhiteSpace(Password) || String.IsNullOrWhiteSpace(ConfirmPassword));
 
             if (notEnteredRequiredFields)
             {
                 MessageBox.Show("Please enter all the required fields", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
+
+
             if (Password != ConfirmPassword)
             {
                 MessageBox.Show("Passwords do not match", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -73,6 +76,7 @@
                 {
                     user = new User()
                     {
+                        Id = Convert.ToInt32(Id),
                         FirstName = FirstName,
                         LastName = LastName,
                         Email = Email,
@@ -91,7 +95,7 @@
                     else
                     {
                         user.Register();
-                        new UserRegisterMail(FirstName).Send(Email);
+                        //new UserRegisterMail(FirstName).Send(Email);
                         DialogResult = DialogResult.OK;
                     }
                 }
@@ -112,7 +116,7 @@
 
         private void comboBoxRole_SelectedIndexChanged(object sender, EventArgs e)
         {
-            bool isUser = comboBoxRole.Text == "User";
+            bool isUser = comboBoxRole.Text == "Student";
             textBoxPassword.Enabled = !isUser;
             textBoxConfirmPassword.Enabled = !isUser;
             if (isUser)
@@ -121,6 +125,14 @@
                 textBoxConfirmPassword.Text = "";
             }
 
+        }
+
+        private void textBoxId_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) && e.KeyChar != '\b' && e.KeyChar != '-')
+            {
+                e.Handled = true;
+            }
         }
     }
 }

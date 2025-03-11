@@ -48,6 +48,8 @@
             checkBoxShowPassword = new CheckBox();
             textBoxPhone = new TextBox();
             label9 = new Label();
+            label10 = new Label();
+            textBoxId = new TextBox();
             SuspendLayout();
             // 
             // buttonSave
@@ -115,7 +117,7 @@
             label5.AutoSize = true;
             label5.Font = new Font("Segoe UI", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
             label5.ForeColor = Color.FromArgb(15, 23, 42);
-            label5.Location = new Point(23, 99);
+            label5.Location = new Point(181, 99);
             label5.Name = "label5";
             label5.Size = new Size(48, 21);
             label5.TabIndex = 5;
@@ -213,9 +215,9 @@
             textBoxEmail.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             textBoxEmail.Font = new Font("Segoe UI", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
             textBoxEmail.ForeColor = Color.FromArgb(30, 41, 59);
-            textBoxEmail.Location = new Point(23, 123);
+            textBoxEmail.Location = new Point(181, 123);
             textBoxEmail.Name = "textBoxEmail";
-            textBoxEmail.Size = new Size(462, 29);
+            textBoxEmail.Size = new Size(303, 29);
             textBoxEmail.TabIndex = 14;
             // 
             // textBoxNic
@@ -234,7 +236,7 @@
             comboBoxRole.DropDownStyle = ComboBoxStyle.DropDownList;
             comboBoxRole.Font = new Font("Segoe UI", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
             comboBoxRole.FormattingEnabled = true;
-            comboBoxRole.Items.AddRange(new object[] { "User", "Staff", "Admin" });
+            comboBoxRole.Items.AddRange(new object[] { "Student", "Staff", "Admin" });
             comboBoxRole.Location = new Point(339, 204);
             comboBoxRole.Name = "comboBoxRole";
             comboBoxRole.Size = new Size(145, 29);
@@ -276,6 +278,28 @@
             label9.TabIndex = 20;
             label9.Text = "Phone No";
             // 
+            // label10
+            // 
+            label10.AutoSize = true;
+            label10.Font = new Font("Segoe UI", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
+            label10.ForeColor = Color.FromArgb(15, 23, 42);
+            label10.Location = new Point(23, 99);
+            label10.Name = "label10";
+            label10.Size = new Size(48, 21);
+            label10.TabIndex = 4;
+            label10.Text = "Id No";
+            // 
+            // textBoxId
+            // 
+            textBoxId.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            textBoxId.Font = new Font("Segoe UI", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
+            textBoxId.ForeColor = Color.FromArgb(30, 41, 59);
+            textBoxId.Location = new Point(23, 123);
+            textBoxId.Name = "textBoxId";
+            textBoxId.Size = new Size(145, 29);
+            textBoxId.TabIndex = 15;
+            textBoxId.KeyPress += textBoxId_KeyPress;
+            // 
             // AddUserModal
             // 
             AcceptButton = buttonSave;
@@ -287,6 +311,7 @@
             Controls.Add(label9);
             Controls.Add(checkBoxShowPassword);
             Controls.Add(comboBoxRole);
+            Controls.Add(textBoxId);
             Controls.Add(textBoxNic);
             Controls.Add(textBoxEmail);
             Controls.Add(textBoxConfirmPassword);
@@ -298,6 +323,7 @@
             Controls.Add(label7);
             Controls.Add(label6);
             Controls.Add(label5);
+            Controls.Add(label10);
             Controls.Add(label4);
             Controls.Add(label3);
             Controls.Add(label2);
@@ -333,5 +359,7 @@
         private CheckBox checkBoxShowPassword;
         private TextBox textBoxPhone;
         private Label label9;
+        private Label label10;
+        private TextBox textBoxId;
     }
 }
