@@ -5,12 +5,16 @@
         private User selectedUser;
         private int userId;
         private string userRole;
+        private string acceptedRoles = "'Admin', 'Staff', 'Student'";
         public UsersControl(int userId, string userRole)
         {
             InitializeComponent();
+            comboBoxUserFilter.SelectedIndex = 0;
             RefreshData();
             this.userId = userId;
             this.userRole = userRole;
+            dataGridViewUsers.Columns["Id"].HeaderText = "ID";
+            dataGridViewUsers.Columns["Id"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             dataGridViewUsers.Columns["FirstName"].HeaderText = "First Name";
             dataGridViewUsers.Columns["LastName"].HeaderText = "Last Name";
             dataGridViewUsers.Columns["NIC"].HeaderText = "NIC No";
@@ -18,7 +22,7 @@
         }
         public void RefreshData()
         {
-            dataGridViewUsers.DataSource = User.GetAll();
+            dataGridViewUsers.DataSource = User.GetAll(acceptedRoles);
         }
 
         public void Search(string query)
@@ -29,7 +33,7 @@
             }
             else
             {
-                dataGridViewUsers.DataSource = User.Search(query);
+                dataGridViewUsers.DataSource = User.Search(query, acceptedRoles);
             }
         }
 
@@ -71,7 +75,7 @@
             {
                 dataGridViewUsers.Rows[hit.RowIndex].Selected = true;
                 selectedUser = dataGridViewUsers.Rows[hit.RowIndex].DataBoundItem as User;
-                bool hasPermission = userRole == "Admin" || selectedUser.Role == "User";
+                bool hasPermission = userRole == "Admin" || selectedUser.Role == "Student";
                 contextMenu.Items["removeToolStripMenuItem"].Enabled = selectedUser.Id != userId && hasPermission;
                 contextMenu.Items["editToolStripMenuItem"].Enabled = selectedUser.Id == userId || hasPermission;
             }
@@ -88,6 +92,29 @@
             DialogResult result = new AddUserModal(allowChangeRole).ShowDialog();
 
             if (result == DialogResult.OK) RefreshData();
+        }
+
+        private void comboBoxUserFilter_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            switch (comboBoxUserFilter.Text)
+            {
+                case "Staff":
+                    labelTitle.Text = "All Staff";
+                    acceptedRoles = "'Admin', 'Staff'";
+                    break;
+                case "Students":
+                    labelTitle.Text = "All Students";
+                    acceptedRoles = "'Student'";
+                    break;
+                case "All":
+                    labelTitle.Text = "All Users";
+                    acceptedRoles = "'Admin', 'Staff', 'Student'";
+                    break;
+                default:
+                    break;
+
+            }
+            RefreshData();
         }
     }
 
