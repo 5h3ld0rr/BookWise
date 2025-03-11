@@ -157,9 +157,9 @@
             labelEmail.ForeColor = Color.FromArgb(15, 23, 42);
             labelEmail.Location = new Point(34, 165);
             labelEmail.Name = "labelEmail";
-            labelEmail.Size = new Size(48, 21);
+            labelEmail.Size = new Size(77, 21);
             labelEmail.TabIndex = 5;
-            labelEmail.Text = "Email";
+            labelEmail.Text = "ID / Email";
             // 
             // SignInForm
             // 

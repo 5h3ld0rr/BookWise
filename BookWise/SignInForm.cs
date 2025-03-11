@@ -21,14 +21,23 @@
                 MessageBox.Show("Please enter all the required fields", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-
+            bool isIdEntered = int.TryParse(email, out int id);
             try
             {
                 Admin admin = new Admin()
                 {
-                    Email = email,
                     Password = password
                 };
+
+                if (isIdEntered)
+                {
+                    admin.Id = id;
+                }
+                else
+                {
+                    admin.Email = email;
+                }
+
                 if (admin.Authenticate())
                 {
                     userName = admin.FirstName;
@@ -41,7 +50,7 @@
                 {
                     textBoxEmail.Text = "";
                     textBoxPassword.Text = "";
-                    MessageBox.Show("Invalid email or password", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Invalid credentials", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             catch (Exception ex)
