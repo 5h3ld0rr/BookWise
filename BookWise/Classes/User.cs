@@ -4,7 +4,7 @@ namespace BookWise
 {
     public class User
     {
-        public int Id;
+        public int Id { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string Email { get; set; }
@@ -16,8 +16,8 @@ namespace BookWise
 
         public bool IsRegistered()
         {
-            string query = "SELECT COUNT(*) FROM Users WHERE Email = @Email OR Nic = @Nic";
-            object result = DB.ExecuteScalar(query, Email, NIC);
+            string query = "SELECT COUNT(*) FROM Users WHERE Id = @Id OR Email = @Email OR Nic = @Nic";
+            object result = DB.ExecuteScalar(query, Id, Email, NIC);
 
             return Convert.ToInt32(result) > 0;
         }
@@ -25,8 +25,8 @@ namespace BookWise
         public bool Register()
         {
             string _password = String.IsNullOrWhiteSpace(Password) ? null : BCrypt.Net.BCrypt.HashPassword(Password);
-            string query = "INSERT INTO Users (first_name, last_name,email, role, nic, phone, address, password) VALUES ( @FirstName , @LastName , @Email , @Role , @NIC , @Phone , @Address , @Password )";
-            int rowsAffected = DB.ExecuteQuery(query, FirstName, LastName, Email, Role, NIC, Phone, Address, _password);
+            string query = "INSERT INTO Users (id, first_name, last_name,email, role, nic, phone, address, password) VALUES (@Id, @FirstName , @LastName , @Email , @Role , @NIC , @Phone , @Address , @Password )";
+            int rowsAffected = DB.ExecuteQuery(query, Id, FirstName, LastName, Email, Role, NIC, Phone, Address, _password);
 
             return rowsAffected > 0;
         }
