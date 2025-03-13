@@ -17,35 +17,35 @@ namespace BookWise
 
         public bool IsExisting()
         {
-            string query = "SELECT COUNT(*) FROM Books WHERE isbn_no = @ISBN";
+            string query = "SELECT COUNT(*) FROM books WHERE isbn_no = @ISBN";
             object result = DB.ExecuteScalar(query, ISBN);
             return Convert.ToInt32(result) > 0;
         }
 
         public bool Add()
         {
-            string query = "INSERT INTO Books (title, isbn_no, author, category, available) VALUES ( @Title , @ISBN , @Author , @Category , @Available )";
+            string query = "INSERT INTO books (title, isbn_no, author, category, available) VALUES ( @Title , @ISBN , @Author , @Category , @Available )";
             int rowsAffected = DB.ExecuteQuery(query, Title, ISBN, Author, Category, _available);
             return rowsAffected > 0;
         }
 
         public bool Update()
         {
-            string query = "UPDATE Books SET title = @Title , isbn_no = @ISBN , author = @Author , category = @Category , available = @Available WHERE id = @Id";
+            string query = "UPDATE books SET title = @Title , isbn_no = @ISBN , author = @Author , category = @Category , available = @Available WHERE id = @Id";
             int rowsAffected = DB.ExecuteQuery(query, Title, ISBN, Author, Category, _available, Id);
             return rowsAffected > 0;
         }
 
         public bool Remove()
         {
-            string query = "DELETE FROM Books WHERE id = @Id";
+            string query = "DELETE FROM books WHERE id = @Id";
             int rowsAffected = DB.ExecuteQuery(query, Id);
             return rowsAffected > 0;
         }
 
         public static Book[] GetAll()
         {
-            string query = "SELECT id, Title, isbn_no, author, category, available FROM Books";
+            string query = "SELECT id, Title, isbn_no, author, category, available FROM books";
             DataTable result = DB.ExecuteSelect(query);
             Book[] books = new Book[result.Rows.Count];
 
@@ -68,7 +68,7 @@ namespace BookWise
         public static Book[] Search(string _query)
         {
             string query = "%" + _query + "%";
-            string searchQuery = "SELECT id, title, isbn_no, author, category, available FROM Books WHERE title LIKE @query OR isbn_no LIKE @query OR author LIKE @query OR category LIKE @query";
+            string searchQuery = "SELECT id, title, isbn_no, author, category, available FROM books WHERE title LIKE @query OR isbn_no LIKE @query OR author LIKE @query OR category LIKE @query";
             DataTable result = DB.ExecuteSelect(searchQuery, query);
             Book[] books = new Book[result.Rows.Count];
 
