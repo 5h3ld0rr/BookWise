@@ -9,7 +9,7 @@ namespace BookWise
         public static string TotalUsers;
         public static void Update()
         {
-            string query = "SELECT (SELECT COUNT(*) FROM Users) AS TotalUsers,(SELECT COUNT(*) FROM Books) AS TotalBooks, (SELECT COUNT(*) FROM Books WHERE available = 'No') AS BorrowedBooks";
+            string query = "SELECT (SELECT COUNT(*) FROM users) AS TotalUsers,(SELECT COUNT(*) FROM books) AS TotalBooks, (SELECT COUNT(*) FROM books WHERE available = 'No') AS BorrowedBooks";
             DataTable result = DB.ExecuteSelect(query);
             DataRow row = result.Rows[0];
             BorrowedBooks = row["BorrowedBooks"].ToString();
