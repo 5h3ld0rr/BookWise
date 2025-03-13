@@ -65,11 +65,11 @@ namespace BookWise
             return books;
         }
 
-        public static Book[] Search(string _query)
+        public static Book[] Search(string _searchQuery)
         {
-            string query = "%" + _query + "%";
-            string searchQuery = "SELECT id, title, isbn_no, author, category, available FROM books WHERE title LIKE @query OR isbn_no LIKE @query OR author LIKE @query OR category LIKE @query";
-            DataTable result = DB.ExecuteSelect(searchQuery, query);
+            string searchQuery = "%" + _searchQuery + "%";
+            string query = "SELECT id, title, isbn_no, author, category, available FROM books WHERE title LIKE @query OR isbn_no LIKE @query OR author LIKE @query OR category LIKE @query";
+            DataTable result = DB.ExecuteSelect(query, searchQuery);
             Book[] books = new Book[result.Rows.Count];
 
             for (int i = 0; i < result.Rows.Count; i++)
