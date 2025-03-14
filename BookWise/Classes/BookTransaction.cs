@@ -82,13 +82,13 @@ namespace BookWise
         {
             string searchQuery = "%" + _searchQuery + "%";
 
-            string query = "SELECT bt.user_id, first_name, last_name, title, isbn_no, status, date FROM book_transactions bt INNER JOIN users u ON bt.user_id = u.id INNER JOIN books b ON bt.book_id = b.id WHERE u.id LIKE @query OR first_name LIKE @query OR last_name LIKE @query OR title LIKE @query OR isbn_no LIKE @query OR status LIKE @query";
+            string query = "SELECT bt.user_id, first_name, last_name, title, isbn_no, status, date FROM book_transactions bt INNER JOIN users u ON bt.user_id = u.id INNER JOIN books b ON bt.book_id = b.id WHERE (u.id LIKE @query OR first_name LIKE @query OR last_name LIKE @query OR title LIKE @query OR isbn_no LIKE @query)";
 
             List<object> filterParams = new List<object>();
             filterParams.Add(searchQuery);
             if (filterData != null)
             {
-                query += " WHERE date BETWEEN @StartDate AND @EndDate";
+                query += " AND date BETWEEN @StartDate AND @EndDate";
                 filterParams.Add(filterData.StartDate);
                 filterParams.Add(filterData.EndDate);
                 if (filterData.Status != "All")
