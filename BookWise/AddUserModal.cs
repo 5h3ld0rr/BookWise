@@ -95,7 +95,7 @@
                     else
                     {
                         user.Register();
-                        //new UserRegisterMail(FirstName).Send(Email);
+                        new UserRegisterMail(FirstName).Send(Email);
                         DialogResult = DialogResult.OK;
                     }
                 }
