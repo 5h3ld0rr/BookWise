@@ -91,7 +91,9 @@
 
         private void buttonHistory_Click(object sender, EventArgs e)
         {
-            panelSearch.Visible = false;
+            panelSearch.Visible = true;
+            textBoxSearch.Text = "";
+            textBoxSearch.PlaceholderText = "Search transaction by user or book";
             HighlightButton(buttonHistory);
             LoadControl(new HistoryControl());
         }
