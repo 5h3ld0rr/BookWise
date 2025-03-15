@@ -12,8 +12,8 @@
             if (user != null)
             {
                 this.user = user;
-                textBoxId.Text = user.Id.ToString();
-                textBoxId.Enabled = false;
+                numericUpDownId.Value = user.Id;
+                numericUpDownId.Enabled = false;
                 textBoxFName.Text = user.FirstName;
                 textBoxLName.Text = user.LastName;
                 textBoxEmail.Text = user.Email;
@@ -29,7 +29,7 @@
 
         private void buttonSave_Click(object sender, EventArgs e)
         {
-            string Id = textBoxId.Text;
+            int Id = Convert.ToInt32(numericUpDownId.Value);
             string FirstName = textBoxFName.Text;
             string LastName = textBoxLName.Text;
             string Email = textBoxEmail.Text;
@@ -41,7 +41,7 @@
             string ConfirmPassword = textBoxConfirmPassword.Text;
             bool passwordRequired = (Role != "Student" && (user?.Role == "Student" || user == null));
 
-            bool notEnteredRequiredFields = String.IsNullOrWhiteSpace(Id) || String.IsNullOrWhiteSpace(FirstName) || String.IsNullOrWhiteSpace(LastName) || String.IsNullOrWhiteSpace(Email) || String.IsNullOrWhiteSpace(Role) || String.IsNullOrWhiteSpace(NIC) || String.IsNullOrWhiteSpace(Phone) || String.IsNullOrWhiteSpace(Address) || passwordRequired && (String.IsNullOrWhiteSpace(Password) || String.IsNullOrWhiteSpace(ConfirmPassword));
+            bool notEnteredRequiredFields = String.IsNullOrWhiteSpace(FirstName) || String.IsNullOrWhiteSpace(LastName) || String.IsNullOrWhiteSpace(Email) || String.IsNullOrWhiteSpace(Role) || String.IsNullOrWhiteSpace(NIC) || String.IsNullOrWhiteSpace(Phone) || String.IsNullOrWhiteSpace(Address) || passwordRequired && (String.IsNullOrWhiteSpace(Password) || String.IsNullOrWhiteSpace(ConfirmPassword));
 
             if (notEnteredRequiredFields)
             {
@@ -125,14 +125,6 @@
                 textBoxConfirmPassword.Text = "";
             }
 
-        }
-
-        private void textBoxId_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (!char.IsDigit(e.KeyChar) && e.KeyChar != '\b' && e.KeyChar != '-')
-            {
-                e.Handled = true;
-            }
         }
     }
 }
