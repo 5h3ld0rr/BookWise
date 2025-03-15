@@ -97,16 +97,16 @@
             // 
             buttonFilter.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             buttonFilter.BackColor = Color.GhostWhite;
+            buttonFilter.BackgroundImage = Properties.Resources.filter;
+            buttonFilter.BackgroundImageLayout = ImageLayout.Zoom;
             buttonFilter.Cursor = Cursors.Hand;
             buttonFilter.Font = new Font("Segoe UI Semibold", 14F, FontStyle.Bold, GraphicsUnit.Pixel, 0);
             buttonFilter.ForeColor = Color.FromArgb(30, 41, 59);
-            buttonFilter.ImageAlign = ContentAlignment.MiddleLeft;
-            buttonFilter.Location = new Point(784, 23);
+            buttonFilter.Location = new Point(872, 19);
             buttonFilter.Name = "buttonFilter";
             buttonFilter.Padding = new Padding(10, 0, 10, 0);
-            buttonFilter.Size = new Size(112, 41);
+            buttonFilter.Size = new Size(37, 37);
             buttonFilter.TabIndex = 4;
-            buttonFilter.Text = "Filter";
             buttonFilter.TextImageRelation = TextImageRelation.ImageBeforeText;
             buttonFilter.UseVisualStyleBackColor = false;
             buttonFilter.Click += buttonFilter_Click;
