@@ -9,7 +9,7 @@ namespace BookWise
         public string ISBN { get; set; }
         public string Author { get; set; }
         public string Category { get; set; }
-        public string AvailableBooks { get; set; }
+        public int AvailableBooks { get; set; }
 
         public bool IsExisting()
         {
@@ -55,7 +55,7 @@ namespace BookWise
                     ISBN = row["isbn_no"]?.ToString(),
                     Author = row["author"]?.ToString(),
                     Category = row["category"]?.ToString(),
-                    AvailableBooks = row["available_books"].ToString()
+                    AvailableBooks = Convert.ToInt32(row["available_books"])
                 };
             }
             return books;
@@ -78,7 +78,7 @@ namespace BookWise
                     ISBN = row["isbn_no"]?.ToString(),
                     Author = row["author"]?.ToString(),
                     Category = row["category"]?.ToString(),
-                    AvailableBooks = row["available_books"].ToString()
+                    AvailableBooks = Convert.ToInt32(row["available_books"])
                 };
             }
             return books;

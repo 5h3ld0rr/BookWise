@@ -37,8 +37,9 @@
             textBoxISBN = new TextBox();
             textBoxCategory = new TextBox();
             textBoxAuthor = new TextBox();
-            textBoxNoOfBooks = new TextBox();
             label3 = new Label();
+            numericUpDownNoOfBooks = new NumericUpDown();
+            ((System.ComponentModel.ISupportInitialize)numericUpDownNoOfBooks).BeginInit();
             SuspendLayout();
             // 
             // buttonSave
@@ -141,17 +142,6 @@
             textBoxAuthor.Size = new Size(391, 29);
             textBoxAuthor.TabIndex = 15;
             // 
-            // textBoxNoOfBooks
-            // 
-            textBoxNoOfBooks.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            textBoxNoOfBooks.Font = new Font("Segoe UI", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
-            textBoxNoOfBooks.ForeColor = Color.FromArgb(30, 41, 59);
-            textBoxNoOfBooks.Location = new Point(23, 357);
-            textBoxNoOfBooks.Name = "textBoxNoOfBooks";
-            textBoxNoOfBooks.Size = new Size(391, 29);
-            textBoxNoOfBooks.TabIndex = 17;
-            textBoxNoOfBooks.KeyPress += textBoxNoOfBooks_KeyPress;
-            // 
             // label3
             // 
             label3.AutoSize = true;
@@ -163,6 +153,17 @@
             label3.TabIndex = 16;
             label3.Text = "Total No of Books";
             // 
+            // numericUpDownNoOfBooks
+            // 
+            numericUpDownNoOfBooks.Font = new Font("Segoe UI", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
+            numericUpDownNoOfBooks.ForeColor = Color.FromArgb(30, 41, 59);
+            numericUpDownNoOfBooks.Location = new Point(23, 357);
+            numericUpDownNoOfBooks.Maximum = new decimal(new int[] { 10000, 0, 0, 0 });
+            numericUpDownNoOfBooks.Name = "numericUpDownNoOfBooks";
+            numericUpDownNoOfBooks.Size = new Size(391, 29);
+            numericUpDownNoOfBooks.TabIndex = 23;
+            numericUpDownNoOfBooks.Value = new decimal(new int[] { 1, 0, 0, 0 });
+            // 
             // AddBookModal
             // 
             AcceptButton = buttonSave;
@@ -170,7 +171,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.GhostWhite;
             ClientSize = new Size(442, 495);
-            Controls.Add(textBoxNoOfBooks);
+            Controls.Add(numericUpDownNoOfBooks);
             Controls.Add(label3);
             Controls.Add(textBoxAuthor);
             Controls.Add(textBoxCategory);
@@ -185,6 +186,7 @@
             MaximizeBox = false;
             Name = "AddBookModal";
             Text = "Add a New Book";
+            ((System.ComponentModel.ISupportInitialize)numericUpDownNoOfBooks).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -200,7 +202,7 @@
         private TextBox textBoxISBN;
         private TextBox textBoxCategory;
         private TextBox textBoxAuthor;
-        private TextBox textBoxNoOfBooks;
         private Label label3;
+        private NumericUpDown numericUpDownNoOfBooks;
     }
 }

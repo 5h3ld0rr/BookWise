@@ -14,7 +14,7 @@
                 textBoxISBN.Text = book.ISBN;
                 textBoxAuthor.Text = book.Author;
                 textBoxCategory.Text = book.Category;
-                textBoxNoOfBooks.Text = book.AvailableBooks;
+                numericUpDownNoOfBooks.Value = book.AvailableBooks;
 
                 Text = "Update an Existing Book";
                 buttonSave.Text = "Update Book";
@@ -27,9 +27,9 @@
             string isbnNo = textBoxISBN.Text;
             string category = textBoxCategory.Text;
             string author = textBoxAuthor.Text;
-            string noOfBooks = textBoxNoOfBooks.Text;
+            int noOfBooks = Convert.ToInt32(numericUpDownNoOfBooks.Value);
 
-            bool notEnteredRequiredFields = String.IsNullOrWhiteSpace(title) || String.IsNullOrWhiteSpace(isbnNo) || String.IsNullOrWhiteSpace(author) || String.IsNullOrWhiteSpace(category) || String.IsNullOrWhiteSpace(noOfBooks);
+            bool notEnteredRequiredFields = String.IsNullOrWhiteSpace(title) || String.IsNullOrWhiteSpace(isbnNo) || String.IsNullOrWhiteSpace(author) || String.IsNullOrWhiteSpace(category);
 
             if (notEnteredRequiredFields)
             {
@@ -77,14 +77,6 @@
             catch (Exception ex)
             {
                 MessageBox.Show("An error occurred: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-        private void textBoxNoOfBooks_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (!char.IsDigit(e.KeyChar) && e.KeyChar != '\b' && e.KeyChar != '-')
-            {
-                e.Handled = true;
             }
         }
     }

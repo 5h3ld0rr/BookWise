@@ -49,7 +49,8 @@
             textBoxPhone = new TextBox();
             label9 = new Label();
             label10 = new Label();
-            textBoxId = new TextBox();
+            numericUpDownId = new NumericUpDown();
+            ((System.ComponentModel.ISupportInitialize)numericUpDownId).BeginInit();
             SuspendLayout();
             // 
             // buttonSave
@@ -289,16 +290,15 @@
             label10.TabIndex = 4;
             label10.Text = "Id No";
             // 
-            // textBoxId
+            // numericUpDownId
             // 
-            textBoxId.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            textBoxId.Font = new Font("Segoe UI", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
-            textBoxId.ForeColor = Color.FromArgb(30, 41, 59);
-            textBoxId.Location = new Point(23, 123);
-            textBoxId.Name = "textBoxId";
-            textBoxId.Size = new Size(145, 29);
-            textBoxId.TabIndex = 15;
-            textBoxId.KeyPress += textBoxId_KeyPress;
+            numericUpDownId.Font = new Font("Segoe UI", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
+            numericUpDownId.ForeColor = Color.FromArgb(30, 41, 59);
+            numericUpDownId.Location = new Point(23, 124);
+            numericUpDownId.Maximum = new decimal(new int[] { -727379968, 232, 0, 0 });
+            numericUpDownId.Name = "numericUpDownId";
+            numericUpDownId.Size = new Size(145, 29);
+            numericUpDownId.TabIndex = 22;
             // 
             // AddUserModal
             // 
@@ -307,11 +307,11 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.GhostWhite;
             ClientSize = new Size(513, 508);
+            Controls.Add(numericUpDownId);
             Controls.Add(textBoxPhone);
             Controls.Add(label9);
             Controls.Add(checkBoxShowPassword);
             Controls.Add(comboBoxRole);
-            Controls.Add(textBoxId);
             Controls.Add(textBoxNic);
             Controls.Add(textBoxEmail);
             Controls.Add(textBoxConfirmPassword);
@@ -333,6 +333,7 @@
             MaximizeBox = false;
             Name = "AddUserModal";
             Text = "Add a New User";
+            ((System.ComponentModel.ISupportInitialize)numericUpDownId).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -360,6 +361,6 @@
         private TextBox textBoxPhone;
         private Label label9;
         private Label label10;
-        private TextBox textBoxId;
+        private NumericUpDown numericUpDownId;
     }
 }
