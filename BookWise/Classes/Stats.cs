@@ -9,11 +9,11 @@ namespace BookWise
         public static string TotalUsers;
         public static void Update()
         {
-            string query = "SELECT (SELECT COUNT(*) FROM users) AS TotalUsers,(SELECT COUNT(*) FROM books) AS TotalBooks, (SELECT COUNT(*) FROM books WHERE available = 'No') AS BorrowedBooks";
+            string query = "SELECT (SELECT COUNT(*) FROM users) AS TotalUsers,(SELECT SUM(available_books) FROM books) AS AvailableBooks, ((SELECT COUNT(*) FROM book_transactions WHERE status = 'Borrowed') - (SELECT COUNT(*) FROM book_transactions WHERE status = 'Returned')) AS BorrowedBooks";
             DataTable result = DB.ExecuteSelect(query);
             DataRow row = result.Rows[0];
             BorrowedBooks = row["BorrowedBooks"].ToString();
-            TotalBooks = row["TotalBooks"].ToString();
+            TotalBooks = (Convert.ToInt32(row["AvailableBooks"]) + Convert.ToInt32(BorrowedBooks)).ToString();
             TotalUsers = row["TotalUsers"].ToString();
         }
     }

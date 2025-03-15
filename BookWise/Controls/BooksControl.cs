@@ -8,6 +8,7 @@
             InitializeComponent();
             RefreshData();
             dataGridViewBooks.Columns["ISBN"].HeaderText = "ISBN No";
+            dataGridViewBooks.Columns["AvailableBooks"].HeaderText = "Available Books";
         }
 
         public void RefreshData()
