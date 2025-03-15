@@ -10,6 +10,10 @@
             RefreshData();
             labelFilterApplied.Visible = false;
             filterHistoryModal = new FilterHistoryModal();
+            dataGridViewBookTransactions.Columns["UserId"].HeaderText = "User ID";
+            dataGridViewBookTransactions.Columns["UserName"].HeaderText = "User Name";
+            dataGridViewBookTransactions.Columns["BookTitle"].HeaderText = "Book Title";
+            dataGridViewBookTransactions.Columns["ISBN"].HeaderText = "ISBN No";
         }
         public void RefreshData()
         {
