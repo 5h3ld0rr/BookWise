@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            buttonFilter = new Button();
-            buttonReset = new Button();
+            buttonApply = new Button();
+            buttonClear = new Button();
             dateTimePickerStartDate = new DateTimePicker();
             label1 = new Label();
             label2 = new Label();
@@ -38,36 +38,36 @@
             comboBoxStatus = new ComboBox();
             SuspendLayout();
             // 
-            // buttonFilter
+            // buttonApply
             // 
-            buttonFilter.Anchor = AnchorStyles.Bottom;
-            buttonFilter.BackColor = Color.FromArgb(37, 56, 140);
-            buttonFilter.Cursor = Cursors.Hand;
-            buttonFilter.Font = new Font("Segoe UI Semibold", 16F, FontStyle.Bold, GraphicsUnit.Pixel);
-            buttonFilter.ForeColor = Color.FromArgb(248, 250, 252);
-            buttonFilter.Location = new Point(205, 384);
-            buttonFilter.Name = "buttonFilter";
-            buttonFilter.Size = new Size(171, 50);
-            buttonFilter.TabIndex = 1;
-            buttonFilter.Text = "Filter";
-            buttonFilter.UseVisualStyleBackColor = false;
-            buttonFilter.Click += buttonFilter_Click;
+            buttonApply.Anchor = AnchorStyles.Bottom;
+            buttonApply.BackColor = Color.FromArgb(37, 56, 140);
+            buttonApply.Cursor = Cursors.Hand;
+            buttonApply.Font = new Font("Segoe UI Semibold", 16F, FontStyle.Bold, GraphicsUnit.Pixel);
+            buttonApply.ForeColor = Color.FromArgb(248, 250, 252);
+            buttonApply.Location = new Point(205, 384);
+            buttonApply.Name = "buttonApply";
+            buttonApply.Size = new Size(171, 50);
+            buttonApply.TabIndex = 1;
+            buttonApply.Text = "Apply";
+            buttonApply.UseVisualStyleBackColor = false;
+            buttonApply.Click += buttonApply_Click;
             // 
-            // buttonReset
+            // buttonClear
             // 
-            buttonReset.Anchor = AnchorStyles.Bottom;
-            buttonReset.BackColor = Color.White;
-            buttonReset.Cursor = Cursors.Hand;
-            buttonReset.FlatAppearance.BorderSize = 0;
-            buttonReset.Font = new Font("Segoe UI Semibold", 16F, FontStyle.Bold, GraphicsUnit.Pixel);
-            buttonReset.ForeColor = Color.FromArgb(30, 41, 59);
-            buttonReset.Location = new Point(19, 384);
-            buttonReset.Name = "buttonReset";
-            buttonReset.Size = new Size(171, 48);
-            buttonReset.TabIndex = 2;
-            buttonReset.Text = "Reset";
-            buttonReset.UseVisualStyleBackColor = false;
-            buttonReset.Click += buttonReset_Click;
+            buttonClear.Anchor = AnchorStyles.Bottom;
+            buttonClear.BackColor = Color.White;
+            buttonClear.Cursor = Cursors.Hand;
+            buttonClear.FlatAppearance.BorderSize = 0;
+            buttonClear.Font = new Font("Segoe UI Semibold", 16F, FontStyle.Bold, GraphicsUnit.Pixel);
+            buttonClear.ForeColor = Color.FromArgb(30, 41, 59);
+            buttonClear.Location = new Point(19, 384);
+            buttonClear.Name = "buttonClear";
+            buttonClear.Size = new Size(171, 48);
+            buttonClear.TabIndex = 2;
+            buttonClear.Text = "Clear";
+            buttonClear.UseVisualStyleBackColor = false;
+            buttonClear.Click += buttonClear_Click;
             // 
             // dateTimePickerStartDate
             // 
@@ -143,7 +143,7 @@
             // 
             // FilterHistoryModal
             // 
-            AcceptButton = buttonFilter;
+            AcceptButton = buttonApply;
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(397, 450);
@@ -153,8 +153,8 @@
             Controls.Add(dateTimePickerEndDate);
             Controls.Add(label1);
             Controls.Add(dateTimePickerStartDate);
-            Controls.Add(buttonReset);
-            Controls.Add(buttonFilter);
+            Controls.Add(buttonClear);
+            Controls.Add(buttonApply);
             Name = "FilterHistoryModal";
             Text = "Filter History";
             ResumeLayout(false);
@@ -163,8 +163,8 @@
 
         #endregion
 
-        private Button buttonFilter;
-        private Button buttonReset;
+        private Button buttonApply;
+        private Button buttonClear;
         private DateTimePicker dateTimePickerStartDate;
         private Label label1;
         private Label label2;

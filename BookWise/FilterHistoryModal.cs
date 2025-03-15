@@ -26,13 +26,13 @@
             dateTimePickerEndDate.Value = Convert.ToDateTime(filterData.EndDate);
         }
 
-        private void buttonFilter_Click(object sender, EventArgs e)
+        private void buttonApply_Click(object sender, EventArgs e)
         {
             DialogResult = DialogResult.Yes;
             Hide();
         }
 
-        private void buttonReset_Click(object sender, EventArgs e)
+        private void buttonClear_Click(object sender, EventArgs e)
         {
             DialogResult = DialogResult.Abort;
             Hide();
