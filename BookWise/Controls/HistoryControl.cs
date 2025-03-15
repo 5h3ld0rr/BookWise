@@ -46,8 +46,7 @@
 
                 // Clear filter
                 case DialogResult.Abort:
-                    filterHistoryModal.Dispose();
-                    filterHistoryModal = new FilterHistoryModal();
+                    filterHistoryModal.ClearFilter();
                     filterData = null;
                     RefreshData();
                     labelFilterApplied.Visible = false;

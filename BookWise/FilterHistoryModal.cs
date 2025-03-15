@@ -20,10 +20,15 @@
         public FilterHistoryModal()
         {
             InitializeComponent();
+            ClearFilter();
+        }
+
+        public void ClearFilter()
+        {
             filterData = new FilterData();
-            comboBoxStatus.Text = filterData.Status;
             dateTimePickerStartDate.Value = Convert.ToDateTime(filterData.StartDate);
             dateTimePickerEndDate.Value = Convert.ToDateTime(filterData.EndDate);
+            comboBoxStatus.Text = filterData.Status;
         }
 
         private void buttonApply_Click(object sender, EventArgs e)
