@@ -45,7 +45,7 @@ namespace BookWise
 
         public static Book[] GetAll()
         {
-            string query = "SELECT id, Title, isbn_no, author, category, available FROM books";
+            string query = "SELECT id, Title, isbn_no, author, category, available FROM books ORDER BY id DESC";
             DataTable result = DB.ExecuteSelect(query);
             Book[] books = new Book[result.Rows.Count];
 
@@ -68,7 +68,7 @@ namespace BookWise
         public static Book[] Search(string _searchQuery)
         {
             string searchQuery = "%" + _searchQuery + "%";
-            string query = "SELECT id, title, isbn_no, author, category, available FROM books WHERE title LIKE @query OR isbn_no LIKE @query OR author LIKE @query OR category LIKE @query";
+            string query = "SELECT id, title, isbn_no, author, category, available FROM books WHERE title LIKE @query OR isbn_no LIKE @query OR author LIKE @query OR category LIKE @query ORDER BY id DESC";
             DataTable result = DB.ExecuteSelect(query, searchQuery);
             Book[] books = new Book[result.Rows.Count];
 
