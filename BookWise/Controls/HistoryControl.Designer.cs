@@ -28,11 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             dataGridViewBookTransactions = new DataGridView();
             label1 = new Label();
             buttonFilter = new Button();
+            labelFilterApplied = new Label();
             ((System.ComponentModel.ISupportInitialize)dataGridViewBookTransactions).BeginInit();
             SuspendLayout();
             // 
@@ -48,15 +49,15 @@
             dataGridViewBookTransactions.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
             dataGridViewBookTransactions.ClipboardCopyMode = DataGridViewClipboardCopyMode.EnableWithoutHeaderText;
             dataGridViewBookTransactions.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = Color.GhostWhite;
-            dataGridViewCellStyle3.Font = new Font("Segoe UI", 16F, FontStyle.Regular, GraphicsUnit.Pixel, 0);
-            dataGridViewCellStyle3.ForeColor = Color.FromArgb(58, 53, 78);
-            dataGridViewCellStyle3.Padding = new Padding(10, 16, 10, 16);
-            dataGridViewCellStyle3.SelectionBackColor = Color.GhostWhite;
-            dataGridViewCellStyle3.SelectionForeColor = Color.FromArgb(58, 53, 78);
-            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
-            dataGridViewBookTransactions.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = Color.GhostWhite;
+            dataGridViewCellStyle1.Font = new Font("Segoe UI", 16F, FontStyle.Regular, GraphicsUnit.Pixel, 0);
+            dataGridViewCellStyle1.ForeColor = Color.FromArgb(58, 53, 78);
+            dataGridViewCellStyle1.Padding = new Padding(10, 16, 10, 16);
+            dataGridViewCellStyle1.SelectionBackColor = Color.GhostWhite;
+            dataGridViewCellStyle1.SelectionForeColor = Color.FromArgb(58, 53, 78);
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            dataGridViewBookTransactions.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dataGridViewBookTransactions.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridViewBookTransactions.EditMode = DataGridViewEditMode.EditProgrammatically;
             dataGridViewBookTransactions.EnableHeadersVisualStyles = false;
@@ -67,15 +68,15 @@
             dataGridViewBookTransactions.ReadOnly = true;
             dataGridViewBookTransactions.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
             dataGridViewBookTransactions.RowHeadersVisible = false;
-            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = Color.White;
-            dataGridViewCellStyle4.Font = new Font("Segoe UI Semibold", 16F, FontStyle.Bold, GraphicsUnit.Pixel, 0);
-            dataGridViewCellStyle4.ForeColor = Color.FromArgb(58, 53, 78);
-            dataGridViewCellStyle4.Padding = new Padding(10);
-            dataGridViewCellStyle4.SelectionBackColor = Color.FromArgb(248, 248, 248);
-            dataGridViewCellStyle4.SelectionForeColor = Color.FromArgb(58, 53, 78);
-            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.True;
-            dataGridViewBookTransactions.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = Color.White;
+            dataGridViewCellStyle2.Font = new Font("Segoe UI Semibold", 16F, FontStyle.Bold, GraphicsUnit.Pixel, 0);
+            dataGridViewCellStyle2.ForeColor = Color.FromArgb(58, 53, 78);
+            dataGridViewCellStyle2.Padding = new Padding(10);
+            dataGridViewCellStyle2.SelectionBackColor = Color.FromArgb(248, 248, 248);
+            dataGridViewCellStyle2.SelectionForeColor = Color.FromArgb(58, 53, 78);
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
+            dataGridViewBookTransactions.RowsDefaultCellStyle = dataGridViewCellStyle2;
             dataGridViewBookTransactions.RowTemplate.DividerHeight = 1;
             dataGridViewBookTransactions.SelectionMode = DataGridViewSelectionMode.CellSelect;
             dataGridViewBookTransactions.Size = new Size(889, 440);
@@ -110,11 +111,23 @@
             buttonFilter.UseVisualStyleBackColor = false;
             buttonFilter.Click += buttonFilter_Click;
             // 
+            // labelFilterApplied
+            // 
+            labelFilterApplied.AutoSize = true;
+            labelFilterApplied.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
+            labelFilterApplied.ForeColor = SystemColors.ControlDarkDark;
+            labelFilterApplied.Location = new Point(261, 28);
+            labelFilterApplied.Name = "labelFilterApplied";
+            labelFilterApplied.Size = new Size(80, 13);
+            labelFilterApplied.TabIndex = 5;
+            labelFilterApplied.Text = "*Filter applied";
+            // 
             // HistoryControl
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
+            Controls.Add(labelFilterApplied);
             Controls.Add(buttonFilter);
             Controls.Add(dataGridViewBookTransactions);
             Controls.Add(label1);
@@ -130,5 +143,6 @@
         private DataGridView dataGridViewBookTransactions;
         private Label label1;
         private Button buttonFilter;
+        private Label labelFilterApplied;
     }
 }

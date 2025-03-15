@@ -8,6 +8,7 @@
         {
             InitializeComponent();
             RefreshData();
+            labelFilterApplied.Visible = false;
             filterHistoryModal = new FilterHistoryModal();
         }
         public void RefreshData()
@@ -32,17 +33,20 @@
 
             switch (result)
             {
+                // Apply filter
                 case DialogResult.Yes:
                     filterData = filterHistoryModal.filterData;
                     RefreshData();
+                    labelFilterApplied.Visible = true;
                     break;
 
-                // Filter Reset Button Clicked
+                // Clear filter
                 case DialogResult.Abort:
                     filterHistoryModal.Dispose();
                     filterHistoryModal = new FilterHistoryModal();
                     filterData = null;
                     RefreshData();
+                    labelFilterApplied.Visible = false;
                     break;
                 default:
                     break;
