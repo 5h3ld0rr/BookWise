@@ -9,11 +9,7 @@ namespace BookWise
         public string ISBN { get; set; }
         public string Author { get; set; }
         public string Category { get; set; }
-        private bool _available = true;
-        public string Available
-        {
-            get => _available ? "Yes" : "No";
-        }
+        public string AvailableBooks { get; set; }
 
         public bool IsExisting()
         {
@@ -24,15 +20,15 @@ namespace BookWise
 
         public bool Add()
         {
-            string query = "INSERT INTO books (title, isbn_no, author, category, available) VALUES ( @Title , @ISBN , @Author , @Category , @Available )";
-            int rowsAffected = DB.ExecuteQuery(query, Title, ISBN, Author, Category, _available);
+            string query = "INSERT INTO books (title, isbn_no, author, category, available_books) VALUES ( @Title , @ISBN , @Author , @Category , @Available )";
+            int rowsAffected = DB.ExecuteQuery(query, Title, ISBN, Author, Category, AvailableBooks);
             return rowsAffected > 0;
         }
 
         public bool Update()
         {
-            string query = "UPDATE books SET title = @Title , isbn_no = @ISBN , author = @Author , category = @Category , available = @Available WHERE id = @Id";
-            int rowsAffected = DB.ExecuteQuery(query, Title, ISBN, Author, Category, _available, Id);
+            string query = "UPDATE books SET title = @Title , isbn_no = @ISBN , author = @Author , category = @Category , available_books = @Available WHERE id = @Id";
+            int rowsAffected = DB.ExecuteQuery(query, Title, ISBN, Author, Category, AvailableBooks, Id);
             return rowsAffected > 0;
         }
 
@@ -45,7 +41,7 @@ namespace BookWise
 
         public static Book[] GetAll()
         {
-            string query = "SELECT id, Title, isbn_no, author, category, available FROM books ORDER BY id DESC";
+            string query = "SELECT id, Title, isbn_no, author, category, available_books FROM books ORDER BY id DESC";
             DataTable result = DB.ExecuteSelect(query);
             Book[] books = new Book[result.Rows.Count];
 
@@ -59,7 +55,7 @@ namespace BookWise
                     ISBN = row["isbn_no"]?.ToString(),
                     Author = row["author"]?.ToString(),
                     Category = row["category"]?.ToString(),
-                    _available = Convert.ToBoolean(row["available"])
+                    AvailableBooks = row["available_books"].ToString()
                 };
             }
             return books;
@@ -82,7 +78,7 @@ namespace BookWise
                     ISBN = row["isbn_no"]?.ToString(),
                     Author = row["author"]?.ToString(),
                     Category = row["category"]?.ToString(),
-                    _available = Convert.ToBoolean(row["available"])
+                    AvailableBooks = row["available_books"].ToString()
                 };
             }
             return books;
