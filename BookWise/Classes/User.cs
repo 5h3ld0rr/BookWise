@@ -58,7 +58,7 @@ namespace BookWise
 
         public static User[] GetAll(string acceptedRoles)
         {
-            string query = $"SELECT id, first_name, last_name,email, role, nic, phone, address FROM users WHERE role IN ({acceptedRoles})";
+            string query = $"SELECT id, first_name, last_name,email, role, nic, phone, address FROM users WHERE role IN ({acceptedRoles}) ORDER BY created_at DESC";
             DataTable result = DB.ExecuteSelect(query);
             User[] users = new User[result.Rows.Count];
 
@@ -83,7 +83,7 @@ namespace BookWise
         public static User[] Search(string _query, string acceptedRoles)
         {
             string query = "%" + _query + "%";
-            string searchQuery = $"SELECT id, first_name, last_name,email, role, nic, phone, address FROM users WHERE (id LIKE @query OR first_name LIKE @query OR last_name LIKE @query OR email LIKE @query OR nic LIKE @query OR phone LIKE @query) AND role IN ({acceptedRoles})";
+            string searchQuery = $"SELECT id, first_name, last_name,email, role, nic, phone, address FROM users WHERE (id LIKE @query OR first_name LIKE @query OR last_name LIKE @query OR email LIKE @query OR nic LIKE @query OR phone LIKE @query) AND role IN ({acceptedRoles}) ORDER BY created_at DESC";
             DataTable result = DB.ExecuteSelect(searchQuery, query);
             User[] users = new User[result.Rows.Count];
 
