@@ -1,4 +1,6 @@
-﻿namespace BookWise
+﻿using BookWise.Controls;
+
+namespace BookWise
 {
     public partial class HomeForm : BaseForm
     {
@@ -13,8 +15,10 @@
             this.userId = userId;
             this.userRole = userRole;
             FormClosing += HomeForm_FormClosing;
-            SideBarBtns = [buttonHome, buttonBooks, buttonUsers, buttonHistory];
+            SideBarBtns = [buttonHome, buttonBooks, buttonUsers, buttonHistory, buttonRules];
+            buttonRules.Visible = userRole == "Admin";
             LoadControl(new HomeControl());
+            MasterData.Rules.Refresh();
         }
         private void HomeForm_FormClosing(object sender, FormClosingEventArgs e)
         {
@@ -96,6 +100,13 @@
             textBoxSearch.PlaceholderText = "Search transaction by user or book";
             HighlightButton(buttonHistory);
             LoadControl(new HistoryControl());
+        }
+
+        private void buttonRules_Click(object sender, EventArgs e)
+        {
+            panelSearch.Visible = false;
+            HighlightButton(buttonRules);
+            LoadControl(new RulesControl());
         }
 
         private void textBoxSearch_TextChanged(object sender, EventArgs e)
