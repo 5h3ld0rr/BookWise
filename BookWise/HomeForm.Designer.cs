@@ -32,6 +32,7 @@
             pictureBox2 = new PictureBox();
             tableLayoutPanel1 = new TableLayoutPanel();
             panelSidebar = new Panel();
+            buttonRules = new Button();
             buttonHistory = new Button();
             buttonUsers = new Button();
             buttonLogout = new Button();
@@ -95,6 +96,7 @@
             // panelSidebar
             // 
             panelSidebar.BackColor = Color.White;
+            panelSidebar.Controls.Add(buttonRules);
             panelSidebar.Controls.Add(buttonHistory);
             panelSidebar.Controls.Add(buttonUsers);
             panelSidebar.Controls.Add(buttonLogout);
@@ -107,6 +109,28 @@
             panelSidebar.Name = "panelSidebar";
             panelSidebar.Size = new Size(266, 675);
             panelSidebar.TabIndex = 0;
+            // 
+            // buttonRules
+            // 
+            buttonRules.BackColor = Color.White;
+            buttonRules.BackgroundImageLayout = ImageLayout.None;
+            buttonRules.Cursor = Cursors.Hand;
+            buttonRules.FlatAppearance.BorderColor = Color.Black;
+            buttonRules.FlatAppearance.BorderSize = 0;
+            buttonRules.FlatStyle = FlatStyle.Flat;
+            buttonRules.Font = new Font("Segoe UI Semibold", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            buttonRules.Image = Properties.Resources.rules;
+            buttonRules.ImageAlign = ContentAlignment.MiddleLeft;
+            buttonRules.Location = new Point(14, 404);
+            buttonRules.Name = "buttonRules";
+            buttonRules.Padding = new Padding(5, 0, 0, 0);
+            buttonRules.Size = new Size(236, 50);
+            buttonRules.TabIndex = 22;
+            buttonRules.Text = "  Rules";
+            buttonRules.TextAlign = ContentAlignment.MiddleLeft;
+            buttonRules.TextImageRelation = TextImageRelation.ImageBeforeText;
+            buttonRules.UseVisualStyleBackColor = false;
+            buttonRules.Click += buttonRules_Click;
             // 
             // buttonHistory
             // 
@@ -335,5 +359,6 @@
         private Panel panelSearch;
         private PictureBox pictureBox1;
         private TextBox textBoxSearch;
+        private Button buttonRules;
     }
 }

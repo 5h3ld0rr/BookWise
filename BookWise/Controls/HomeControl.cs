@@ -9,10 +9,10 @@
         }
         public void RefreshData()
         {
-            Stats.Update();
-            labelBorrowedBooks.Text = Stats.BorrowedBooks;
-            labelAllBooks.Text = Stats.TotalBooks;
-            labelTotalUsers.Text = Stats.TotalUsers;
+            MasterData.Stats.Refresh();
+            labelBorrowedBooks.Text = MasterData.Stats.BorrowedBooks;
+            labelAllBooks.Text = MasterData.Stats.TotalBooks;
+            labelTotalUsers.Text = MasterData.Stats.TotalUsers;
         }
     }
 }
