@@ -185,6 +185,7 @@
             FormBorderStyle = FormBorderStyle.FixedSingle;
             MaximizeBox = false;
             Name = "AddBookModal";
+            StartPosition = FormStartPosition.CenterParent;
             Text = "Add a New Book";
             ((System.ComponentModel.ISupportInitialize)numericUpDownNoOfBooks).EndInit();
             ResumeLayout(false);
