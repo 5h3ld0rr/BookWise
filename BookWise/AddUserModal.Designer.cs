@@ -332,6 +332,7 @@
             FormBorderStyle = FormBorderStyle.FixedSingle;
             MaximizeBox = false;
             Name = "AddUserModal";
+            StartPosition = FormStartPosition.CenterParent;
             Text = "Add a New User";
             ((System.ComponentModel.ISupportInitialize)numericUpDownId).EndInit();
             ResumeLayout(false);

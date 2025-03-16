@@ -155,7 +155,10 @@
             Controls.Add(dateTimePickerStartDate);
             Controls.Add(buttonClear);
             Controls.Add(buttonApply);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
+            MaximizeBox = false;
             Name = "FilterHistoryModal";
+            StartPosition = FormStartPosition.CenterParent;
             Text = "Filter History";
             ResumeLayout(false);
             PerformLayout();
