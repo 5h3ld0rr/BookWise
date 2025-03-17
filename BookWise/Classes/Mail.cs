@@ -1,15 +1,14 @@
-﻿using System.Configuration;
-using System.Net;
+﻿using System.Net;
 using System.Net.Mail;
 
 namespace BookWise
 {
     public class Mail
     {
-        private static readonly string smtpHost = ConfigurationManager.AppSettings["SmtpHost"];
-        private static readonly int smtpPort = int.Parse(ConfigurationManager.AppSettings["SmtpPort"]);
-        private static readonly string smtpUser = ConfigurationManager.AppSettings["smtpUser"];
-        private static readonly string smtpPass = ConfigurationManager.AppSettings["smtpPass"];
+        private static readonly string smtpHost = "smtp.zoho.com";
+        private static readonly int smtpPort = 587;
+        private static readonly string smtpUser = "noreply@technovizion.studio";
+        private static readonly string smtpPass = "JdUjtDfB5edX";
 
         private SmtpClient smtpClient = new SmtpClient(smtpHost, smtpPort)
         {
