@@ -1,6 +1,4 @@
-﻿using BookWise.Controls;
-
-namespace BookWise
+﻿namespace BookWise
 {
     public partial class HomeForm : BaseForm
     {

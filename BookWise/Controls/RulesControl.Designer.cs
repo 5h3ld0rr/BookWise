@@ -1,4 +1,4 @@
-﻿namespace BookWise.Controls
+﻿namespace BookWise
 {
     partial class RulesControl
     {
