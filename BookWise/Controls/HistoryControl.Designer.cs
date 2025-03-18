@@ -124,8 +124,7 @@
             // 
             // HistoryControl
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
-            AutoScaleMode = AutoScaleMode.Font;
+            AutoScaleMode = AutoScaleMode.None;
             BackColor = Color.White;
             Controls.Add(labelFilterApplied);
             Controls.Add(buttonFilter);

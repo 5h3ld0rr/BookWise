@@ -59,7 +59,7 @@
             tableLayoutPanel.Padding = new Padding(0, 10, 0, 0);
             tableLayoutPanel.RowCount = 1;
             tableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanel.Size = new Size(1132, 133);
+            tableLayoutPanel.Size = new Size(1280, 133);
             tableLayoutPanel.TabIndex = 0;
             // 
             // panel3
@@ -68,10 +68,10 @@
             panel3.Controls.Add(labelAllBooks);
             panel3.Controls.Add(label3);
             panel3.Dock = DockStyle.Fill;
-            panel3.Location = new Point(770, 13);
+            panel3.Location = new Point(868, 13);
             panel3.Margin = new Padding(16, 3, 16, 3);
             panel3.Name = "panel3";
-            panel3.Size = new Size(346, 117);
+            panel3.Size = new Size(396, 117);
             panel3.TabIndex = 2;
             // 
             // labelAllBooks
@@ -104,10 +104,10 @@
             panel2.Controls.Add(labelTotalUsers);
             panel2.Controls.Add(label2);
             panel2.Dock = DockStyle.Fill;
-            panel2.Location = new Point(393, 13);
+            panel2.Location = new Point(442, 13);
             panel2.Margin = new Padding(16, 3, 16, 3);
             panel2.Name = "panel2";
-            panel2.Size = new Size(345, 117);
+            panel2.Size = new Size(394, 117);
             panel2.TabIndex = 1;
             // 
             // labelTotalUsers
@@ -143,7 +143,7 @@
             panel1.Location = new Point(16, 13);
             panel1.Margin = new Padding(16, 3, 16, 3);
             panel1.Name = "panel1";
-            panel1.Size = new Size(345, 117);
+            panel1.Size = new Size(394, 117);
             panel1.TabIndex = 0;
             // 
             // labelBorrowedBooks
@@ -172,12 +172,11 @@
             // 
             // HomeControl
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
-            AutoScaleMode = AutoScaleMode.Font;
+            AutoScaleMode = AutoScaleMode.None;
             BackColor = Color.GhostWhite;
             Controls.Add(tableLayoutPanel);
             Name = "HomeControl";
-            Size = new Size(1132, 652);
+            Size = new Size(1280, 720);
             tableLayoutPanel.ResumeLayout(false);
             panel3.ResumeLayout(false);
             panel3.PerformLayout();

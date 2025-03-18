@@ -6,6 +6,7 @@
         public BooksControl()
         {
             InitializeComponent();
+            Dock = DockStyle.Fill;
             RefreshData();
             dataGridViewBooks.Columns["ISBN"].HeaderText = "ISBN No";
             dataGridViewBooks.Columns["AvailableBooks"].HeaderText = "Available Books";

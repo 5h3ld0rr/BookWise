@@ -49,7 +49,7 @@ namespace BookWise
             label1.ForeColor = Color.FromArgb(30, 41, 59);
             label1.Location = new Point(23, 21);
             label1.Name = "label1";
-            label1.Size = new Size(123, 37);
+            label1.Size = new Size(130, 37);
             label1.TabIndex = 0;
             label1.Text = "All Books";
             // 
@@ -103,14 +103,14 @@ namespace BookWise
             contextMenu.Items.AddRange(new ToolStripItem[] { editToolStripMenuItem, removeToolStripMenuItem });
             contextMenu.Name = "contextMenuStrip1";
             contextMenu.ShowImageMargin = false;
-            contextMenu.Size = new Size(156, 70);
+            contextMenu.Size = new Size(93, 48);
             contextMenu.Opening += contextMenu_Opening;
             // 
             // editToolStripMenuItem
             // 
             editToolStripMenuItem.DisplayStyle = ToolStripItemDisplayStyle.Text;
             editToolStripMenuItem.Name = "editToolStripMenuItem";
-            editToolStripMenuItem.Size = new Size(155, 22);
+            editToolStripMenuItem.Size = new Size(92, 22);
             editToolStripMenuItem.Text = "Edit";
             editToolStripMenuItem.Click += editToolStripMenuItem_Click;
             // 
@@ -118,7 +118,7 @@ namespace BookWise
             // 
             removeToolStripMenuItem.DisplayStyle = ToolStripItemDisplayStyle.Text;
             removeToolStripMenuItem.Name = "removeToolStripMenuItem";
-            removeToolStripMenuItem.Size = new Size(155, 22);
+            removeToolStripMenuItem.Size = new Size(92, 22);
             removeToolStripMenuItem.Text = "Remove";
             removeToolStripMenuItem.Click += removeToolStripMenuItem_Click;
             // 
@@ -141,16 +141,15 @@ namespace BookWise
             buttonAddBook.UseVisualStyleBackColor = false;
             buttonAddBook.Click += buttonAddBook_Click;
             // 
-            // UsersControl
+            // BooksControl
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
-            AutoScaleMode = AutoScaleMode.Font;
+            AutoScaleMode = AutoScaleMode.None;
             AutoScroll = true;
             BackColor = Color.White;
             Controls.Add(buttonAddBook);
             Controls.Add(dataGridViewBooks);
             Controls.Add(label1);
-            Name = "UsersControl";
+            Name = "BooksControl";
             Padding = new Padding(20);
             Size = new Size(929, 541);
             ((System.ComponentModel.ISupportInitialize)dataGridViewBooks).EndInit();

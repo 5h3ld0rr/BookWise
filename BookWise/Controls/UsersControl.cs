@@ -9,6 +9,7 @@
         public UsersControl(int userId, string userRole)
         {
             InitializeComponent();
+            Dock = DockStyle.Fill;
             comboBoxUserFilter.SelectedIndex = 0;
             RefreshData();
             this.userId = userId;

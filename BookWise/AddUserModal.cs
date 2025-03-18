@@ -13,7 +13,6 @@
             {
                 this.user = user;
                 numericUpDownId.Value = user.Id;
-                numericUpDownId.Enabled = false;
                 textBoxFName.Text = user.FirstName;
                 textBoxLName.Text = user.LastName;
                 textBoxEmail.Text = user.Email;
