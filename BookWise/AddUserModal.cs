@@ -1,6 +1,6 @@
 ﻿namespace BookWise
 {
-    public partial class AddUserModal : BaseForm
+    public partial class AddUserModal : Form
     {
         private User? user;
         public AddUserModal(bool allowChangeRole, User? user = null)

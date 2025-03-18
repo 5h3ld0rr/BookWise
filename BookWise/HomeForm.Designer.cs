@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(HomeForm));
             label1 = new Label();
             pictureBox2 = new PictureBox();
             tableLayoutPanel1 = new TableLayoutPanel();
@@ -121,7 +122,7 @@
             buttonRules.Font = new Font("Segoe UI Semibold", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             buttonRules.Image = Properties.Resources.rules;
             buttonRules.ImageAlign = ContentAlignment.MiddleLeft;
-            buttonRules.Location = new Point(14, 404);
+            buttonRules.Location = new Point(16, 404);
             buttonRules.Name = "buttonRules";
             buttonRules.Padding = new Padding(5, 0, 0, 0);
             buttonRules.Size = new Size(236, 50);
@@ -143,7 +144,7 @@
             buttonHistory.Font = new Font("Segoe UI Semibold", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             buttonHistory.Image = Properties.Resources.borrow;
             buttonHistory.ImageAlign = ContentAlignment.MiddleLeft;
-            buttonHistory.Location = new Point(14, 340);
+            buttonHistory.Location = new Point(16, 340);
             buttonHistory.Name = "buttonHistory";
             buttonHistory.Padding = new Padding(5, 0, 0, 0);
             buttonHistory.Size = new Size(236, 50);
@@ -165,7 +166,7 @@
             buttonUsers.Font = new Font("Segoe UI Semibold", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             buttonUsers.Image = Properties.Resources.users;
             buttonUsers.ImageAlign = ContentAlignment.MiddleLeft;
-            buttonUsers.Location = new Point(14, 278);
+            buttonUsers.Location = new Point(16, 278);
             buttonUsers.Name = "buttonUsers";
             buttonUsers.Padding = new Padding(5, 0, 0, 0);
             buttonUsers.Size = new Size(236, 50);
@@ -204,7 +205,7 @@
             buttonHome.ForeColor = Color.White;
             buttonHome.Image = Properties.Resources.home;
             buttonHome.ImageAlign = ContentAlignment.MiddleLeft;
-            buttonHome.Location = new Point(13, 154);
+            buttonHome.Location = new Point(15, 154);
             buttonHome.Name = "buttonHome";
             buttonHome.Padding = new Padding(5, 0, 0, 0);
             buttonHome.Size = new Size(236, 50);
@@ -226,7 +227,7 @@
             buttonBooks.Font = new Font("Segoe UI Semibold", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             buttonBooks.Image = Properties.Resources.book;
             buttonBooks.ImageAlign = ContentAlignment.MiddleLeft;
-            buttonBooks.Location = new Point(13, 215);
+            buttonBooks.Location = new Point(15, 215);
             buttonBooks.Name = "buttonBooks";
             buttonBooks.Padding = new Padding(5, 0, 0, 0);
             buttonBooks.Size = new Size(236, 50);
@@ -324,10 +325,14 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.GhostWhite;
             ClientSize = new Size(1264, 681);
             Controls.Add(tableLayoutPanel1);
+            ForeColor = Color.FromArgb(30, 41, 59);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             MinimumSize = new Size(1280, 720);
             Name = "HomeForm";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Home";
             WindowState = FormWindowState.Maximized;
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();

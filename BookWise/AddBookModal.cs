@@ -1,6 +1,6 @@
 ﻿namespace BookWise
 {
-    public partial class AddBookModal : BaseForm
+    public partial class AddBookModal : Form
     {
         private Book? book;
         public AddBookModal(Book? book = null)

@@ -1,6 +1,6 @@
 ﻿namespace BookWise
 {
-    public partial class FilterHistoryModal : BaseForm
+    public partial class FilterHistoryModal : Form
     {
         public class FilterData
         {
@@ -56,6 +56,11 @@
         private void comboBoxStatus_SelectedIndexChanged(object sender, EventArgs e)
         {
             filterData.Status = comboBoxStatus.Text;
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -1,6 +1,6 @@
 ﻿namespace BookWise
 {
-    public partial class SignInForm : BaseForm
+    public partial class SignInForm : Form
     {
         public string userName;
         public int userId;

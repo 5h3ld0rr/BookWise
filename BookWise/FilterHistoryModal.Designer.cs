@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FilterHistoryModal));
             buttonApply = new Button();
             buttonClear = new Button();
             dateTimePickerStartDate = new DateTimePicker();
@@ -45,7 +46,7 @@
             buttonApply.Cursor = Cursors.Hand;
             buttonApply.Font = new Font("Segoe UI Semibold", 16F, FontStyle.Bold, GraphicsUnit.Pixel);
             buttonApply.ForeColor = Color.FromArgb(248, 250, 252);
-            buttonApply.Location = new Point(205, 384);
+            buttonApply.Location = new Point(206, 384);
             buttonApply.Name = "buttonApply";
             buttonApply.Size = new Size(171, 50);
             buttonApply.TabIndex = 1;
@@ -61,7 +62,7 @@
             buttonClear.FlatAppearance.BorderSize = 0;
             buttonClear.Font = new Font("Segoe UI Semibold", 16F, FontStyle.Bold, GraphicsUnit.Pixel);
             buttonClear.ForeColor = Color.FromArgb(30, 41, 59);
-            buttonClear.Location = new Point(19, 384);
+            buttonClear.Location = new Point(20, 384);
             buttonClear.Name = "buttonClear";
             buttonClear.Size = new Size(171, 48);
             buttonClear.TabIndex = 2;
@@ -146,6 +147,7 @@
             AcceptButton = buttonApply;
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.GhostWhite;
             ClientSize = new Size(397, 450);
             Controls.Add(comboBoxStatus);
             Controls.Add(label3);
@@ -155,7 +157,9 @@
             Controls.Add(dateTimePickerStartDate);
             Controls.Add(buttonClear);
             Controls.Add(buttonApply);
+            ForeColor = Color.FromArgb(30, 41, 59);
             FormBorderStyle = FormBorderStyle.FixedSingle;
+            Icon = (Icon)resources.GetObject("$this.Icon");
             MaximizeBox = false;
             Name = "FilterHistoryModal";
             StartPosition = FormStartPosition.CenterParent;

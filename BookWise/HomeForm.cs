@@ -1,6 +1,6 @@
 ﻿namespace BookWise
 {
-    public partial class HomeForm : BaseForm
+    public partial class HomeForm : Form
     {
         private Button[] SideBarBtns;
         private UserControl currentControl;

@@ -15,6 +15,7 @@
 
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SignInForm));
             pictureBox1 = new PictureBox();
             panel1 = new Panel();
             checkBoxShowPassword = new CheckBox();
@@ -63,7 +64,7 @@
             checkBoxShowPassword.AutoSize = true;
             checkBoxShowPassword.Cursor = Cursors.Hand;
             checkBoxShowPassword.Font = new Font("Segoe UI", 10F);
-            checkBoxShowPassword.Location = new Point(276, 346);
+            checkBoxShowPassword.Location = new Point(268, 346);
             checkBoxShowPassword.Name = "checkBoxShowPassword";
             checkBoxShowPassword.Size = new Size(123, 23);
             checkBoxShowPassword.TabIndex = 18;
@@ -107,7 +108,7 @@
             buttonLogin.Cursor = Cursors.Hand;
             buttonLogin.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
             buttonLogin.ForeColor = Color.FromArgb(248, 250, 252);
-            buttonLogin.Location = new Point(34, 403);
+            buttonLogin.Location = new Point(29, 403);
             buttonLogin.Margin = new Padding(3, 2, 3, 2);
             buttonLogin.Name = "buttonLogin";
             buttonLogin.Size = new Size(364, 46);
@@ -121,7 +122,7 @@
             textBoxPassword.BackColor = Color.FromArgb(249, 250, 251);
             textBoxPassword.Font = new Font("Segoe UI", 16F);
             textBoxPassword.ForeColor = Color.FromArgb(15, 23, 42);
-            textBoxPassword.Location = new Point(34, 298);
+            textBoxPassword.Location = new Point(29, 298);
             textBoxPassword.Margin = new Padding(3, 2, 3, 2);
             textBoxPassword.Name = "textBoxPassword";
             textBoxPassword.Size = new Size(364, 36);
@@ -133,7 +134,7 @@
             textBoxEmail.BackColor = Color.FromArgb(249, 250, 251);
             textBoxEmail.Font = new Font("Segoe UI", 16F);
             textBoxEmail.ForeColor = Color.FromArgb(15, 23, 42);
-            textBoxEmail.Location = new Point(34, 197);
+            textBoxEmail.Location = new Point(29, 197);
             textBoxEmail.Margin = new Padding(3, 2, 3, 2);
             textBoxEmail.Name = "textBoxEmail";
             textBoxEmail.Size = new Size(364, 36);
@@ -155,7 +156,7 @@
             labelEmail.AutoSize = true;
             labelEmail.Font = new Font("Segoe UI", 12F);
             labelEmail.ForeColor = Color.FromArgb(15, 23, 42);
-            labelEmail.Location = new Point(34, 165);
+            labelEmail.Location = new Point(29, 165);
             labelEmail.Name = "labelEmail";
             labelEmail.Size = new Size(77, 21);
             labelEmail.TabIndex = 5;
@@ -166,13 +167,17 @@
             AcceptButton = buttonLogin;
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.GhostWhite;
             ClientSize = new Size(946, 634);
             Controls.Add(pictureBox1);
             Controls.Add(panel1);
+            ForeColor = Color.FromArgb(30, 41, 59);
             FormBorderStyle = FormBorderStyle.FixedSingle;
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Margin = new Padding(3, 2, 3, 2);
             MaximizeBox = false;
             Name = "SignInForm";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Login";
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             panel1.ResumeLayout(false);
