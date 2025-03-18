@@ -33,6 +33,8 @@
             pictureBox2 = new PictureBox();
             tableLayoutPanel1 = new TableLayoutPanel();
             panelSidebar = new Panel();
+            buttonReturn = new Button();
+            buttonIssue = new Button();
             buttonRules = new Button();
             buttonHistory = new Button();
             buttonUsers = new Button();
@@ -96,7 +98,10 @@
             // 
             // panelSidebar
             // 
+            panelSidebar.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
             panelSidebar.BackColor = Color.White;
+            panelSidebar.Controls.Add(buttonReturn);
+            panelSidebar.Controls.Add(buttonIssue);
             panelSidebar.Controls.Add(buttonRules);
             panelSidebar.Controls.Add(buttonHistory);
             panelSidebar.Controls.Add(buttonUsers);
@@ -105,11 +110,54 @@
             panelSidebar.Controls.Add(buttonBooks);
             panelSidebar.Controls.Add(pictureBox2);
             panelSidebar.Controls.Add(label1);
-            panelSidebar.Dock = DockStyle.Fill;
             panelSidebar.Location = new Point(3, 3);
             panelSidebar.Name = "panelSidebar";
             panelSidebar.Size = new Size(266, 675);
             panelSidebar.TabIndex = 0;
+            // 
+            // buttonReturn
+            // 
+            buttonReturn.BackColor = Color.White;
+            buttonReturn.BackgroundImageLayout = ImageLayout.None;
+            buttonReturn.Cursor = Cursors.Hand;
+            buttonReturn.FlatAppearance.BorderColor = Color.Black;
+            buttonReturn.FlatAppearance.BorderSize = 0;
+            buttonReturn.FlatStyle = FlatStyle.Flat;
+            buttonReturn.Font = new Font("Segoe UI Semibold", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            buttonReturn.Image = Properties.Resources.users;
+            buttonReturn.ImageAlign = ContentAlignment.MiddleLeft;
+            buttonReturn.Location = new Point(16, 258);
+            buttonReturn.Name = "buttonReturn";
+            buttonReturn.Padding = new Padding(5, 0, 0, 0);
+            buttonReturn.Size = new Size(236, 50);
+            buttonReturn.TabIndex = 24;
+            buttonReturn.Text = "  Return Book";
+            buttonReturn.TextAlign = ContentAlignment.MiddleLeft;
+            buttonReturn.TextImageRelation = TextImageRelation.ImageBeforeText;
+            buttonReturn.UseVisualStyleBackColor = false;
+            buttonReturn.Click += buttonReturn_Click;
+            // 
+            // buttonIssue
+            // 
+            buttonIssue.BackColor = Color.White;
+            buttonIssue.BackgroundImageLayout = ImageLayout.None;
+            buttonIssue.Cursor = Cursors.Hand;
+            buttonIssue.FlatAppearance.BorderColor = Color.Black;
+            buttonIssue.FlatAppearance.BorderSize = 0;
+            buttonIssue.FlatStyle = FlatStyle.Flat;
+            buttonIssue.Font = new Font("Segoe UI Semibold", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            buttonIssue.Image = Properties.Resources.book;
+            buttonIssue.ImageAlign = ContentAlignment.MiddleLeft;
+            buttonIssue.Location = new Point(15, 196);
+            buttonIssue.Name = "buttonIssue";
+            buttonIssue.Padding = new Padding(5, 0, 0, 0);
+            buttonIssue.Size = new Size(236, 50);
+            buttonIssue.TabIndex = 23;
+            buttonIssue.Text = "  Issue Book";
+            buttonIssue.TextAlign = ContentAlignment.MiddleLeft;
+            buttonIssue.TextImageRelation = TextImageRelation.ImageBeforeText;
+            buttonIssue.UseVisualStyleBackColor = false;
+            buttonIssue.Click += buttonIssue_Click;
             // 
             // buttonRules
             // 
@@ -122,7 +170,7 @@
             buttonRules.Font = new Font("Segoe UI Semibold", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             buttonRules.Image = Properties.Resources.rules;
             buttonRules.ImageAlign = ContentAlignment.MiddleLeft;
-            buttonRules.Location = new Point(16, 404);
+            buttonRules.Location = new Point(16, 506);
             buttonRules.Name = "buttonRules";
             buttonRules.Padding = new Padding(5, 0, 0, 0);
             buttonRules.Size = new Size(236, 50);
@@ -144,7 +192,7 @@
             buttonHistory.Font = new Font("Segoe UI Semibold", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             buttonHistory.Image = Properties.Resources.borrow;
             buttonHistory.ImageAlign = ContentAlignment.MiddleLeft;
-            buttonHistory.Location = new Point(16, 340);
+            buttonHistory.Location = new Point(16, 444);
             buttonHistory.Name = "buttonHistory";
             buttonHistory.Padding = new Padding(5, 0, 0, 0);
             buttonHistory.Size = new Size(236, 50);
@@ -166,7 +214,7 @@
             buttonUsers.Font = new Font("Segoe UI Semibold", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             buttonUsers.Image = Properties.Resources.users;
             buttonUsers.ImageAlign = ContentAlignment.MiddleLeft;
-            buttonUsers.Location = new Point(16, 278);
+            buttonUsers.Location = new Point(16, 382);
             buttonUsers.Name = "buttonUsers";
             buttonUsers.Padding = new Padding(5, 0, 0, 0);
             buttonUsers.Size = new Size(236, 50);
@@ -205,7 +253,7 @@
             buttonHome.ForeColor = Color.White;
             buttonHome.Image = Properties.Resources.home;
             buttonHome.ImageAlign = ContentAlignment.MiddleLeft;
-            buttonHome.Location = new Point(15, 154);
+            buttonHome.Location = new Point(15, 134);
             buttonHome.Name = "buttonHome";
             buttonHome.Padding = new Padding(5, 0, 0, 0);
             buttonHome.Size = new Size(236, 50);
@@ -227,7 +275,7 @@
             buttonBooks.Font = new Font("Segoe UI Semibold", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             buttonBooks.Image = Properties.Resources.book;
             buttonBooks.ImageAlign = ContentAlignment.MiddleLeft;
-            buttonBooks.Location = new Point(15, 215);
+            buttonBooks.Location = new Point(15, 320);
             buttonBooks.Name = "buttonBooks";
             buttonBooks.Padding = new Padding(5, 0, 0, 0);
             buttonBooks.Size = new Size(236, 50);
@@ -366,5 +414,7 @@
         private PictureBox pictureBox1;
         private TextBox textBoxSearch;
         private Button buttonRules;
+        private Button buttonIssue;
+        private Button buttonReturn;
     }
 }
