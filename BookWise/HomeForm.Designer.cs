@@ -179,6 +179,7 @@
             // buttonLogout
             // 
             buttonLogout.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            buttonLogout.BackColor = Color.White;
             buttonLogout.Cursor = Cursors.Hand;
             buttonLogout.Image = Properties.Resources.logout;
             buttonLogout.ImageAlign = ContentAlignment.MiddleLeft;
@@ -188,7 +189,7 @@
             buttonLogout.Size = new Size(235, 50);
             buttonLogout.TabIndex = 19;
             buttonLogout.Text = "Logout";
-            buttonLogout.UseVisualStyleBackColor = true;
+            buttonLogout.UseVisualStyleBackColor = false;
             buttonLogout.Click += buttonLogout_Click;
             // 
             // buttonHome
