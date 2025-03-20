@@ -11,7 +11,7 @@ namespace BookWise
             public static string TotalUsers;
             public static void Refresh()
             {
-                string query = "SELECT (SELECT COUNT(*) FROM users) AS TotalUsers,(SELECT SUM(available_books) FROM books) AS AvailableBooks, (SELECT COUNT(*) FROM book_transactions WHERE status = 'Borrowed' AND returned = 0) AS BorrowedBooks";
+                string query = "SELECT (SELECT COUNT(*) FROM users) AS TotalUsers,(SELECT SUM(available_books) FROM books) AS AvailableBooks, (SELECT COUNT(*) FROM book_transactions WHERE ISNULL(return_date)) AS BorrowedBooks";
                 DataTable result = DB.ExecuteSelect(query);
                 DataRow row = result.Rows[0];
                 BorrowedBooks = row["BorrowedBooks"].ToString();

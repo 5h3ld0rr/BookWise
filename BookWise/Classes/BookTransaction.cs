@@ -22,30 +22,23 @@ namespace BookWise
         }
         public static DataTable GetAll(FilterHistoryModal.FilterData filterData)
         {
-            string query = "SELECT user_id, CONCAT(first_name,' ', last_name) AS user_name , title as Title, isbn_no, status as Status, DATE_FORMAT(date, '%Y-%m-%d') as Date, DATE_FORMAT(date, '%h:%i %p') as Time FROM book_transactions bt INNER JOIN users u ON user_id = u.id INNER JOIN books b ON book_id = b.id";
+            var bookTransactions = GetBookTransactionsQueryAndParams(filterData);
 
-            List<object> filterParams = new List<object>();
-
-            if (filterData != null)
-            {
-                query += " WHERE (date BETWEEN @StartDate AND @EndDate)";
-                filterParams.Add(filterData.StartDate);
-                filterParams.Add(filterData.EndDate);
-                if (filterData.Status != "All")
-                {
-                    query += " AND status = @Status";
-                    filterParams.Add(filterData.Status);
-                }
-            }
-            query += " ORDER BY bt.date DESC";
-
-            DataTable result = DB.ExecuteSelect(query, filterParams.ToArray());
+            DataTable result = DB.ExecuteSelect(bookTransactions.query, bookTransactions.parameters);
 
             return result;
         }
-        public static BookTransaction[] GetByUser(int userId)
+        public static DataTable Search(string _searchQuery, FilterHistoryModal.FilterData filterData)
         {
-            string query = "SELECT * FROM book_transactions WHERE user_id = @userId";
+            string searchQuery = "%" + _searchQuery + "%";
+            var bookTransactions = GetBookTransactionsQueryAndParams(filterData, searchQuery);
+
+            DataTable result = DB.ExecuteSelect(bookTransactions.query, bookTransactions.parameters);
+            return result;
+        }
+        public static BookTransaction[] GetUnreturnedBooksByUser(int userId)
+        {
+            string query = "SELECT * FROM book_transactions WHERE user_id = @userId AND ISNULL(return_date)";
             DataTable result = DB.ExecuteSelect(query, userId);
             BookTransaction[] transactions = new BookTransaction[result.Rows.Count];
 
@@ -64,29 +57,54 @@ namespace BookWise
             }
             return transactions;
         }
-        public static DataTable Search(string _searchQuery, FilterHistoryModal.FilterData filterData)
+
+        private static (string query, string[] parameters) GetBookTransactionsQueryAndParams(FilterHistoryModal.FilterData filterData, string? searchQuery = null)
         {
-            string searchQuery = "%" + _searchQuery + "%";
+            string query = "SELECT isbn_no, title as Title, user_id, CONCAT(first_name,' ', last_name) AS user_name, DATE_FORMAT(borrow_date, '%Y-%m-%d %h:%i %p') as borrowdate,DATE_FORMAT(return_date, '%Y-%m-%d %h:%i %p') as returndate FROM book_transactions bt INNER JOIN users u ON bt.user_id = u.id INNER JOIN books b ON bt.book_id = b.id";
 
-            string query = "SELECT user_id, CONCAT(first_name,' ', last_name) AS user_name , title as Title, isbn_no, status as Status, DATE_FORMAT(date, '%Y-%m-%d') as Date, DATE_FORMAT(date, '%h:%i %p') as Time FROM book_transactions bt INNER JOIN users u ON bt.user_id = u.id INNER JOIN books b ON bt.book_id = b.id WHERE (u.id LIKE @query OR first_name LIKE @query OR last_name LIKE @query OR title LIKE @query OR isbn_no LIKE @query)";
+            List<string> filterParams = new List<string>();
 
-            List<object> filterParams = new List<object>();
-            filterParams.Add(searchQuery);
+            if (searchQuery != null)
+            {
+                query += " WHERE (u.id LIKE @query OR first_name LIKE @query OR last_name LIKE @query OR title LIKE @query OR isbn_no LIKE @query)";
+                filterParams.Add(searchQuery);
+            }
             if (filterData != null)
             {
-                query += " AND date BETWEEN @StartDate AND @EndDate";
-                filterParams.Add(filterData.StartDate);
-                filterParams.Add(filterData.EndDate);
-                if (filterData.Status != "All")
+                query += $"{(searchQuery == null ? " WHERE" : " AND")} (borrow_date BETWEEN @BorrowStartDate AND @BorrowEndDate) AND (ISNULL(return_date) OR (return_date BETWEEN @ReturnStartDate AND @ReturnEndDate))";
+                filterParams.Add(filterData.BorrowStartDate);
+                filterParams.Add(filterData.BorrowEndDate);
+                filterParams.Add(filterData.ReturnStartDate);
+                filterParams.Add(filterData.ReturnEndDate);
+
+                switch (filterData.Status)
                 {
-                    query += " AND status = @Status";
-                    filterParams.Add(filterData.Status);
+                    case "Returned":
+                        query += " AND NOT ISNULL(return_date)";
+                        break;
+                    case "Unreturned":
+                        query += " AND ISNULL(return_date)";
+                        break;
+                    default:
+                        break;
+                }
+
+                int days = MasterData.Rules.MaxDaysToReturn;
+
+                switch (filterData.Overdue)
+                {
+                    case "Yes":
+                        query += $" AND IF(ISNULL(return_date), DATEDIFF(NOW(), borrow_date), DATEDIFF(return_date, borrow_date)) > {days}";
+                        break;
+                    case "No":
+                        query += $" AND IF(ISNULL(return_date), DATEDIFF(NOW(), borrow_date), DATEDIFF(return_date, borrow_date)) < {days}";
+                        break;
+                    default:
+                        break;
                 }
             }
-            query += " ORDER BY bt.date DESC";
-
-            DataTable result = DB.ExecuteSelect(query, filterParams.ToArray());
-            return result;
+            query += " ORDER BY bt.return_date DESC, bt.borrow_date DESC";
+            return (query, filterParams.ToArray());
         }
     }
 }
