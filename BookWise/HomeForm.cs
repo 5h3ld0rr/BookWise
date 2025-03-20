@@ -72,11 +72,12 @@
         }
         private void LoadControl(UserControl control)
         {
-            if (currentControl != null && currentControl != control)
+            if (currentControl == control) return;
+            (control as dynamic).RefreshData();
+            if (currentControl != null)
             {
                 panelContainer.Controls.Remove(currentControl);
             }
-            if (currentControl == control) return;
             currentControl = control;
             panelContainer.Controls.Add(control);
         }
