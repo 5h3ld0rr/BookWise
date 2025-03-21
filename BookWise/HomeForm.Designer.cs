@@ -34,7 +34,7 @@
             tableLayoutPanel1 = new TableLayoutPanel();
             panelSidebar = new Panel();
             buttonReturn = new Button();
-            buttonIssue = new Button();
+            buttonBorrow = new Button();
             buttonRules = new Button();
             buttonHistory = new Button();
             buttonUsers = new Button();
@@ -101,7 +101,7 @@
             panelSidebar.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
             panelSidebar.BackColor = Color.White;
             panelSidebar.Controls.Add(buttonReturn);
-            panelSidebar.Controls.Add(buttonIssue);
+            panelSidebar.Controls.Add(buttonBorrow);
             panelSidebar.Controls.Add(buttonRules);
             panelSidebar.Controls.Add(buttonHistory);
             panelSidebar.Controls.Add(buttonUsers);
@@ -124,7 +124,7 @@
             buttonReturn.FlatAppearance.BorderSize = 0;
             buttonReturn.FlatStyle = FlatStyle.Flat;
             buttonReturn.Font = new Font("Segoe UI Semibold", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            buttonReturn.Image = Properties.Resources.users;
+            buttonReturn.Image = Properties.Resources.check_in;
             buttonReturn.ImageAlign = ContentAlignment.MiddleLeft;
             buttonReturn.Location = new Point(16, 258);
             buttonReturn.Name = "buttonReturn";
@@ -137,27 +137,27 @@
             buttonReturn.UseVisualStyleBackColor = false;
             buttonReturn.Click += buttonReturn_Click;
             // 
-            // buttonIssue
+            // buttonBorrow
             // 
-            buttonIssue.BackColor = Color.White;
-            buttonIssue.BackgroundImageLayout = ImageLayout.None;
-            buttonIssue.Cursor = Cursors.Hand;
-            buttonIssue.FlatAppearance.BorderColor = Color.Black;
-            buttonIssue.FlatAppearance.BorderSize = 0;
-            buttonIssue.FlatStyle = FlatStyle.Flat;
-            buttonIssue.Font = new Font("Segoe UI Semibold", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            buttonIssue.Image = Properties.Resources.book;
-            buttonIssue.ImageAlign = ContentAlignment.MiddleLeft;
-            buttonIssue.Location = new Point(15, 196);
-            buttonIssue.Name = "buttonIssue";
-            buttonIssue.Padding = new Padding(5, 0, 0, 0);
-            buttonIssue.Size = new Size(236, 50);
-            buttonIssue.TabIndex = 23;
-            buttonIssue.Text = "  Issue Book";
-            buttonIssue.TextAlign = ContentAlignment.MiddleLeft;
-            buttonIssue.TextImageRelation = TextImageRelation.ImageBeforeText;
-            buttonIssue.UseVisualStyleBackColor = false;
-            buttonIssue.Click += buttonIssue_Click;
+            buttonBorrow.BackColor = Color.White;
+            buttonBorrow.BackgroundImageLayout = ImageLayout.None;
+            buttonBorrow.Cursor = Cursors.Hand;
+            buttonBorrow.FlatAppearance.BorderColor = Color.Black;
+            buttonBorrow.FlatAppearance.BorderSize = 0;
+            buttonBorrow.FlatStyle = FlatStyle.Flat;
+            buttonBorrow.Font = new Font("Segoe UI Semibold", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            buttonBorrow.Image = Properties.Resources.check_out;
+            buttonBorrow.ImageAlign = ContentAlignment.MiddleLeft;
+            buttonBorrow.Location = new Point(15, 196);
+            buttonBorrow.Name = "buttonBorrow";
+            buttonBorrow.Padding = new Padding(5, 0, 0, 0);
+            buttonBorrow.Size = new Size(236, 50);
+            buttonBorrow.TabIndex = 23;
+            buttonBorrow.Text = "  Borrow Book";
+            buttonBorrow.TextAlign = ContentAlignment.MiddleLeft;
+            buttonBorrow.TextImageRelation = TextImageRelation.ImageBeforeText;
+            buttonBorrow.UseVisualStyleBackColor = false;
+            buttonBorrow.Click += buttonBorrow_Click;
             // 
             // buttonRules
             // 
@@ -414,7 +414,7 @@
         private PictureBox pictureBox1;
         private TextBox textBoxSearch;
         private Button buttonRules;
-        private Button buttonIssue;
+        private Button buttonBorrow;
         private Button buttonReturn;
     }
 }

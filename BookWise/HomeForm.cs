@@ -5,7 +5,7 @@
         private Button[] SideBarBtns;
         private UserControl currentControl;
         private HomeControl homeControl;
-        private IssueBookControl issueBookControl;
+        private BorrowBookControl borrowBookControl;
         private ReturnBookControl returnBookControl;
         private BooksControl booksControl;
         private UsersControl usersControl;
@@ -21,11 +21,11 @@
             this.userId = userId;
             this.userRole = userRole;
             FormClosing += HomeForm_FormClosing;
-            SideBarBtns = [buttonHome, buttonIssue, buttonReturn, buttonBooks, buttonUsers, buttonHistory, buttonRules];
+            SideBarBtns = [buttonHome, buttonBorrow, buttonReturn, buttonBooks, buttonUsers, buttonHistory, buttonRules];
             buttonRules.Visible = userRole == "Admin";
             MasterData.Rules.Refresh();
             homeControl = new HomeControl();
-            issueBookControl = new IssueBookControl();
+            borrowBookControl = new BorrowBookControl();
             returnBookControl = new ReturnBookControl();
             booksControl = new BooksControl();
             usersControl = new UsersControl(userId, userRole);
@@ -89,11 +89,11 @@
             LoadControl(homeControl);
         }
 
-        private void buttonIssue_Click(object sender, EventArgs e)
+        private void buttonBorrow_Click(object sender, EventArgs e)
         {
             panelSearch.Visible = false;
-            HighlightButton(buttonIssue);
-            LoadControl(issueBookControl);
+            HighlightButton(buttonBorrow);
+            LoadControl(borrowBookControl);
         }
 
         private void buttonReturn_Click(object sender, EventArgs e)
