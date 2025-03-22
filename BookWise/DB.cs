@@ -1,4 +1,3 @@
-using System.Configuration;
 using System.Data;
 using System.Text.RegularExpressions;
 using MySql.Data.MySqlClient;
@@ -7,7 +6,7 @@ namespace BookWise
 {
     public static class DB
     {
-        private static string connectionString = ConfigurationManager.ConnectionStrings["MyDBConnection"].ConnectionString;
+        private static string connectionString = Config.ConnectionString;
 
         public static MySqlConnection GetConnection()
         {

@@ -1,15 +1,14 @@
-﻿using System.Configuration;
-using System.Net;
+﻿using System.Net;
 using System.Net.Mail;
 
 namespace BookWise
 {
     public abstract class Mail
     {
-        private static readonly string smtpHost = ConfigurationManager.AppSettings["SmtpHost"];
-        private static readonly int smtpPort = int.Parse(ConfigurationManager.AppSettings["SmtpPort"]);
-        private static readonly string smtpUser = ConfigurationManager.AppSettings["smtpUser"];
-        private static readonly string smtpPass = ConfigurationManager.AppSettings["smtpPass"];
+        private static readonly string smtpHost = Config.SMTP.Host;
+        private static readonly int smtpPort = Config.SMTP.Port;
+        private static readonly string smtpUser = Config.SMTP.User;
+        private static readonly string smtpPass = Config.SMTP.Password;
 
         protected abstract string Subject { get; }
         protected abstract string Body { get; }
