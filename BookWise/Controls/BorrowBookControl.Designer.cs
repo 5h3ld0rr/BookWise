@@ -1,0 +1,340 @@
+﻿namespace BookWise
+{
+    partial class BorrowBookControl
+    {
+        /// <summary> 
+        /// Required designer variable.
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
+
+        /// <summary> 
+        /// Clean up any resources being used.
+        /// </summary>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        #region Component Designer generated code
+
+        /// <summary> 
+        /// Required method for Designer support - do not modify 
+        /// the contents of this method with the code editor.
+        /// </summary>
+        private void InitializeComponent()
+        {
+            labelTitle = new Label();
+            splitContainer1 = new SplitContainer();
+            groupBox1 = new GroupBox();
+            panel1 = new Panel();
+            textBoxAddress = new TextBox();
+            textBoxPhone = new TextBox();
+            textBoxEmail = new TextBox();
+            textBoxNic = new TextBox();
+            textBoxName = new TextBox();
+            label6 = new Label();
+            label5 = new Label();
+            label4 = new Label();
+            label3 = new Label();
+            label2 = new Label();
+            label1 = new Label();
+            numericUpDownId = new NumericUpDown();
+            buttonSaveUserInfo = new Button();
+            groupBox2 = new GroupBox();
+            panel2 = new Panel();
+            ((System.ComponentModel.ISupportInitialize)splitContainer1).BeginInit();
+            splitContainer1.Panel1.SuspendLayout();
+            splitContainer1.Panel2.SuspendLayout();
+            splitContainer1.SuspendLayout();
+            groupBox1.SuspendLayout();
+            panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)numericUpDownId).BeginInit();
+            groupBox2.SuspendLayout();
+            SuspendLayout();
+            // 
+            // labelTitle
+            // 
+            labelTitle.AutoSize = true;
+            labelTitle.Font = new Font("Segoe UI Semibold", 20.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            labelTitle.ForeColor = Color.FromArgb(30, 41, 59);
+            labelTitle.Location = new Point(23, 21);
+            labelTitle.Name = "labelTitle";
+            labelTitle.Size = new Size(195, 37);
+            labelTitle.TabIndex = 1;
+            labelTitle.Text = "Borrow a Book";
+            // 
+            // splitContainer1
+            // 
+            splitContainer1.BackColor = Color.GhostWhite;
+            splitContainer1.Location = new Point(0, 61);
+            splitContainer1.Name = "splitContainer1";
+            // 
+            // splitContainer1.Panel1
+            // 
+            splitContainer1.Panel1.Controls.Add(groupBox1);
+            splitContainer1.Panel1.Padding = new Padding(30);
+            // 
+            // splitContainer1.Panel2
+            // 
+            splitContainer1.Panel2.Controls.Add(groupBox2);
+            splitContainer1.Panel2.Padding = new Padding(30);
+            splitContainer1.Size = new Size(929, 480);
+            splitContainer1.SplitterDistance = 463;
+            splitContainer1.SplitterWidth = 1;
+            splitContainer1.TabIndex = 2;
+            // 
+            // groupBox1
+            // 
+            groupBox1.Controls.Add(panel1);
+            groupBox1.Dock = DockStyle.Fill;
+            groupBox1.Font = new Font("Segoe UI", 16F);
+            groupBox1.ForeColor = Color.FromArgb(30, 41, 59);
+            groupBox1.Location = new Point(30, 30);
+            groupBox1.Name = "groupBox1";
+            groupBox1.Size = new Size(403, 420);
+            groupBox1.TabIndex = 0;
+            groupBox1.TabStop = false;
+            groupBox1.Text = "User Information";
+            // 
+            // panel1
+            // 
+            panel1.BackColor = Color.White;
+            panel1.Controls.Add(textBoxAddress);
+            panel1.Controls.Add(textBoxPhone);
+            panel1.Controls.Add(textBoxEmail);
+            panel1.Controls.Add(textBoxNic);
+            panel1.Controls.Add(textBoxName);
+            panel1.Controls.Add(label6);
+            panel1.Controls.Add(label5);
+            panel1.Controls.Add(label4);
+            panel1.Controls.Add(label3);
+            panel1.Controls.Add(label2);
+            panel1.Controls.Add(label1);
+            panel1.Controls.Add(numericUpDownId);
+            panel1.Controls.Add(buttonSaveUserInfo);
+            panel1.Dock = DockStyle.Fill;
+            panel1.Location = new Point(3, 32);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(397, 385);
+            panel1.TabIndex = 0;
+            // 
+            // textBoxAddress
+            // 
+            textBoxAddress.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            textBoxAddress.BackColor = Color.GhostWhite;
+            textBoxAddress.Enabled = false;
+            textBoxAddress.Font = new Font("Segoe UI", 12F);
+            textBoxAddress.ForeColor = Color.FromArgb(30, 41, 59);
+            textBoxAddress.Location = new Point(161, 268);
+            textBoxAddress.Name = "textBoxAddress";
+            textBoxAddress.Size = new Size(213, 29);
+            textBoxAddress.TabIndex = 15;
+            // 
+            // textBoxPhone
+            // 
+            textBoxPhone.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            textBoxPhone.BackColor = Color.GhostWhite;
+            textBoxPhone.Enabled = false;
+            textBoxPhone.Font = new Font("Segoe UI", 12F);
+            textBoxPhone.ForeColor = Color.FromArgb(30, 41, 59);
+            textBoxPhone.Location = new Point(161, 220);
+            textBoxPhone.Name = "textBoxPhone";
+            textBoxPhone.Size = new Size(213, 29);
+            textBoxPhone.TabIndex = 14;
+            // 
+            // textBoxEmail
+            // 
+            textBoxEmail.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            textBoxEmail.BackColor = Color.GhostWhite;
+            textBoxEmail.Font = new Font("Segoe UI", 12F);
+            textBoxEmail.ForeColor = Color.FromArgb(30, 41, 59);
+            textBoxEmail.Location = new Point(161, 172);
+            textBoxEmail.Name = "textBoxEmail";
+            textBoxEmail.Size = new Size(213, 29);
+            textBoxEmail.TabIndex = 13;
+            // 
+            // textBoxNic
+            // 
+            textBoxNic.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            textBoxNic.BackColor = Color.GhostWhite;
+            textBoxNic.Font = new Font("Segoe UI", 12F);
+            textBoxNic.ForeColor = Color.FromArgb(30, 41, 59);
+            textBoxNic.Location = new Point(161, 124);
+            textBoxNic.Name = "textBoxNic";
+            textBoxNic.Size = new Size(213, 29);
+            textBoxNic.TabIndex = 12;
+            // 
+            // textBoxName
+            // 
+            textBoxName.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            textBoxName.BackColor = Color.GhostWhite;
+            textBoxName.Enabled = false;
+            textBoxName.Font = new Font("Segoe UI", 12F);
+            textBoxName.ForeColor = Color.FromArgb(30, 41, 59);
+            textBoxName.Location = new Point(161, 32);
+            textBoxName.Name = "textBoxName";
+            textBoxName.Size = new Size(213, 29);
+            textBoxName.TabIndex = 11;
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Font = new Font("Segoe UI", 12F);
+            label6.Location = new Point(19, 223);
+            label6.Name = "label6";
+            label6.Size = new Size(83, 21);
+            label6.TabIndex = 10;
+            label6.Text = "Mobile No";
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Font = new Font("Segoe UI", 12F);
+            label5.Location = new Point(19, 271);
+            label5.Name = "label5";
+            label5.Size = new Size(66, 21);
+            label5.TabIndex = 9;
+            label5.Text = "Address";
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Font = new Font("Segoe UI", 12F);
+            label4.Location = new Point(19, 175);
+            label4.Name = "label4";
+            label4.Size = new Size(48, 21);
+            label4.TabIndex = 8;
+            label4.Text = "Email";
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Font = new Font("Segoe UI", 12F);
+            label3.Location = new Point(19, 127);
+            label3.Name = "label3";
+            label3.Size = new Size(61, 21);
+            label3.TabIndex = 7;
+            label3.Text = "NIC No";
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new Font("Segoe UI", 12F);
+            label2.Location = new Point(19, 79);
+            label2.Name = "label2";
+            label2.Size = new Size(50, 21);
+            label2.TabIndex = 6;
+            label2.Text = "ID No";
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Segoe UI", 12F);
+            label1.Location = new Point(19, 31);
+            label1.Name = "label1";
+            label1.Size = new Size(52, 21);
+            label1.TabIndex = 5;
+            label1.Text = "Name";
+            // 
+            // numericUpDownId
+            // 
+            numericUpDownId.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            numericUpDownId.BackColor = Color.GhostWhite;
+            numericUpDownId.Font = new Font("Segoe UI", 12F);
+            numericUpDownId.ForeColor = Color.FromArgb(30, 41, 59);
+            numericUpDownId.InterceptArrowKeys = false;
+            numericUpDownId.Location = new Point(161, 77);
+            numericUpDownId.Maximum = new decimal(new int[] { 999999999, 0, 0, 0 });
+            numericUpDownId.Name = "numericUpDownId";
+            numericUpDownId.Size = new Size(213, 29);
+            numericUpDownId.TabIndex = 4;
+            // 
+            // buttonSaveUserInfo
+            // 
+            buttonSaveUserInfo.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            buttonSaveUserInfo.BackColor = Color.FromArgb(37, 56, 140);
+            buttonSaveUserInfo.Cursor = Cursors.Hand;
+            buttonSaveUserInfo.Font = new Font("Segoe UI Semibold", 14F, FontStyle.Bold, GraphicsUnit.Pixel, 0);
+            buttonSaveUserInfo.ForeColor = Color.White;
+            buttonSaveUserInfo.ImageAlign = ContentAlignment.MiddleLeft;
+            buttonSaveUserInfo.Location = new Point(263, 324);
+            buttonSaveUserInfo.Name = "buttonSaveUserInfo";
+            buttonSaveUserInfo.Padding = new Padding(10, 0, 10, 0);
+            buttonSaveUserInfo.Size = new Size(111, 41);
+            buttonSaveUserInfo.TabIndex = 3;
+            buttonSaveUserInfo.Text = "Save";
+            buttonSaveUserInfo.TextImageRelation = TextImageRelation.ImageBeforeText;
+            buttonSaveUserInfo.UseVisualStyleBackColor = false;
+            buttonSaveUserInfo.Click += buttonSaveUserInfo_Click;
+            // 
+            // groupBox2
+            // 
+            groupBox2.Controls.Add(panel2);
+            groupBox2.Dock = DockStyle.Fill;
+            groupBox2.Font = new Font("Segoe UI", 16F);
+            groupBox2.ForeColor = Color.FromArgb(30, 41, 59);
+            groupBox2.Location = new Point(30, 30);
+            groupBox2.Name = "groupBox2";
+            groupBox2.Size = new Size(405, 420);
+            groupBox2.TabIndex = 1;
+            groupBox2.TabStop = false;
+            groupBox2.Text = "Book Information";
+            // 
+            // panel2
+            // 
+            panel2.BackColor = Color.White;
+            panel2.Dock = DockStyle.Fill;
+            panel2.Location = new Point(3, 32);
+            panel2.Name = "panel2";
+            panel2.Size = new Size(399, 385);
+            panel2.TabIndex = 1;
+            // 
+            // BorrowBookControl
+            // 
+            AutoScaleMode = AutoScaleMode.None;
+            BackColor = Color.GhostWhite;
+            Controls.Add(splitContainer1);
+            Controls.Add(labelTitle);
+            Name = "BorrowBookControl";
+            Size = new Size(929, 541);
+            splitContainer1.Panel1.ResumeLayout(false);
+            splitContainer1.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)splitContainer1).EndInit();
+            splitContainer1.ResumeLayout(false);
+            groupBox1.ResumeLayout(false);
+            panel1.ResumeLayout(false);
+            panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)numericUpDownId).EndInit();
+            groupBox2.ResumeLayout(false);
+            ResumeLayout(false);
+            PerformLayout();
+        }
+
+        #endregion
+
+        private Label labelTitle;
+        private SplitContainer splitContainer1;
+        private GroupBox groupBox1;
+        private Panel panel1;
+        private GroupBox groupBox2;
+        private Panel panel2;
+        private NumericUpDown numericUpDownId;
+        private Button buttonSaveUserInfo;
+        private TextBox textBoxName;
+        private Label label6;
+        private Label label5;
+        private Label label4;
+        private Label label3;
+        private Label label2;
+        private Label label1;
+        private TextBox textBoxAddress;
+        private TextBox textBoxPhone;
+        private TextBox textBoxEmail;
+        private TextBox textBoxNic;
+    }
+}
