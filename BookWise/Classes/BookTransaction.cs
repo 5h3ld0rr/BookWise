@@ -2,23 +2,21 @@
 
 namespace BookWise
 {
-    public class BookTransaction
+    public static class BookTransaction
     {
-        public int Id;
-        public int UserId { get; set; }
-        public string UserName { get; set; }
-        public string BookTitle { get; set; }
-        public string ISBN { get; set; }
-        public int BookId;
-        private DateTime _date;
-        public string Status { get; set; }
-        public string Date;
-        public string Time { get => Convert.ToDateTime(Time).ToString("hh:mm"); }
-
-        public void Save()
+        public static bool Create(int userId, int bookId)
         {
-            string query = "INSERT INTO book_transactions (user_id, book_id, action, date, time) VALUES (@UserId, @BookId, @Action, @Date, @Time)";
-            DB.ExecuteQuery(query, UserId, BookId, Date, Status);
+            string query = "INSERT INTO book_transactions (user_id, book_id, borrow_date) VALUES (@UserId, @BookId, @Date)";
+            string date = DateTime.Now.ToString();
+            int rowsAffected = DB.ExecuteQuery(query, userId, bookId, date);
+            return rowsAffected > 0;
+        }
+        public static bool UpdateReturn(int id)
+        {
+            string query = "UPDATE book_transactions SET return_date = @ReturnDate WHERE id = @Id";
+            string date = DateTime.Now.ToString();
+            int rowsAffected = DB.ExecuteQuery(query, date, id);
+            return rowsAffected > 0;
         }
         public static DataTable GetAll(FilterHistoryModal.FilterData filterData)
         {
@@ -36,26 +34,28 @@ namespace BookWise
             DataTable result = DB.ExecuteSelect(bookTransactions.query, bookTransactions.parameters);
             return result;
         }
-        public static BookTransaction[] GetUnreturnedBooksByUser(int userId)
+        public static Book[] GetUnreturnedBooksByUser(int userId)
         {
-            string query = "SELECT * FROM book_transactions WHERE user_id = @userId AND ISNULL(return_date)";
+            string query = "SELECT bt.id, book_id, title, isbn_no, author, category, available_books FROM book_transactions bt INNER JOIN books b ON b.id = bt.book_id WHERE user_id = @userId AND ISNULL(return_date)";
             DataTable result = DB.ExecuteSelect(query, userId);
-            BookTransaction[] transactions = new BookTransaction[result.Rows.Count];
+            Book[] books = new Book[result.Rows.Count];
 
             for (int i = 0; i < result.Rows.Count; i++)
             {
                 DataRow row = result.Rows[i];
-                transactions[i] = new BookTransaction()
+                books[i] = new Book()
                 {
-                    UserId = Convert.ToInt32(row["user_id"]),
-                    UserName = row["first_name"].ToString() + " " + row["last_name"].ToString(),
-                    BookTitle = row["title"].ToString(),
+                    Id = Convert.ToInt32(row["book_id"]),
+                    Title = row["title"].ToString(),
                     ISBN = row["isbn_no"].ToString(),
-                    Status = row["status"].ToString(),
-                    _date = Convert.ToDateTime(row["date"])
-                };
+                    Author = row["author"].ToString(),
+                    Category = row["category"].ToString(),
+                    AvailableBooks = Convert.ToInt32(row["available_books"]),
+                    TransactionId = Convert.ToInt32(row["id"])
+                }
+            ;
             }
-            return transactions;
+            return books;
         }
 
         private static (string query, string[] parameters) GetBookTransactionsQueryAndParams(FilterHistoryModal.FilterData filterData, string? searchQuery = null)

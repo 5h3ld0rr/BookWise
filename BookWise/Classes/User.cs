@@ -12,6 +12,7 @@ namespace BookWise
         public string Role { get; set; }
         public string Phone { get; set; }
         public string Address { get; set; }
+        public Book[] BorrowedBooks;
         public string Password;
 
         public bool IsRegistered()
@@ -103,6 +104,31 @@ namespace BookWise
                 };
             }
             return users;
+        }
+
+        public static User GetUserByUniqueIdentifier(int id, string nic, string email)
+        {
+            string query = "SELECT id, first_name, last_name,email, role, nic, phone, address FROM users WHERE id = @Id OR nic= @NIC OR email = @Email";
+            DataTable result = DB.ExecuteSelect(query, id, nic, email);
+            if (result.Rows.Count == 0)
+            {
+                return null;
+            }
+            DataRow row = result.Rows[0];
+            int _id = Convert.ToInt32(row["id"]);
+            User user = new User()
+            {
+                Id = _id,
+                Email = row["email"]?.ToString(),
+                FirstName = row["first_name"]?.ToString(),
+                LastName = row["last_name"]?.ToString(),
+                NIC = row["nic"]?.ToString(),
+                Role = row["role"]?.ToString(),
+                Phone = row["phone"]?.ToString(),
+                Address = row["address"]?.ToString(),
+                BorrowedBooks = BookTransaction.GetUnreturnedBooksByUser(_id)
+            };
+            return user;
         }
     }
 }

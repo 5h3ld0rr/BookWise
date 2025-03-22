@@ -5,6 +5,8 @@ namespace BookWise
     public class Book
     {
         public int Id;
+        public int TransactionId;
+
         public string Title { get; set; }
         public string ISBN { get; set; }
         public string Author { get; set; }
@@ -20,14 +22,14 @@ namespace BookWise
 
         public bool Add()
         {
-            string query = "INSERT INTO books (title, isbn_no, author, category, available_books) VALUES ( @Title , @ISBN , @Author , @Category , @Available )";
+            string query = "INSERT INTO books (title, isbn_no, author, category, available_books) VALUES ( @Title , @ISBN , @Author , @Category , @AvailableBooks )";
             int rowsAffected = DB.ExecuteQuery(query, Title, ISBN, Author, Category, AvailableBooks);
             return rowsAffected > 0;
         }
 
         public bool Update()
         {
-            string query = "UPDATE books SET title = @Title , isbn_no = @ISBN , author = @Author , category = @Category , available_books = @Available WHERE id = @Id";
+            string query = "UPDATE books SET title = @Title , isbn_no = @ISBN , author = @Author , category = @Category , available_books = @AvailableBooks WHERE id = @Id";
             int rowsAffected = DB.ExecuteQuery(query, Title, ISBN, Author, Category, AvailableBooks, Id);
             return rowsAffected > 0;
         }
@@ -82,6 +84,29 @@ namespace BookWise
                 };
             }
             return books;
+        }
+        public bool Borrow(int userId)
+        {
+            string query = "UPDATE books SET available_books = available_books - 1 WHERE id = @Id";
+            int rowsAffected = DB.ExecuteQuery(query, Id);
+
+            if (rowsAffected > 0)
+            {
+                return BookTransaction.Create(userId, Id);
+            }
+            return false;
+        }
+
+        public bool Return()
+        {
+            string query = "UPDATE books SET available_books = available_books + 1 WHERE id = @Id";
+            int rowsAffected = DB.ExecuteQuery(query, Id);
+
+            if (rowsAffected > 0)
+            {
+                return BookTransaction.UpdateReturn(TransactionId);
+            }
+            return false;
         }
     }
 }
