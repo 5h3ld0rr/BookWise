@@ -10,7 +10,6 @@
             numericUpDownMaxBooksPerUser.Value = MasterData.Rules.MaxBooksPerUser;
             numericUpDownFinePerDay.Value = MasterData.Rules.FinePerDay;
         }
-        public void RefreshData() { }
         private void buttonSave_Click(object sender, EventArgs e)
         {
             MasterData.Rules.MaxDaysToReturn = (int)numericUpDownMaxDaysToReturn.Value;

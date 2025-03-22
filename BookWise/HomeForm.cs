@@ -32,6 +32,27 @@
             historyControl = new HistoryControl();
             rulesControl = new RulesControl();
             LoadControl(homeControl);
+
+            borrowBookControl.BookBorrowed += (sender, e) =>
+            {
+                homeControl.RefreshData();
+                booksControl.RefreshData();
+                historyControl.RefreshData();
+            };
+            returnBookControl.BookReturned += (sender, e) =>
+            {
+                homeControl.RefreshData();
+                booksControl.RefreshData();
+                historyControl.RefreshData();
+            };
+            booksControl.BooksUpdated += (sender, e) =>
+            {
+                homeControl.RefreshData();
+            };
+            usersControl.UsersUpdated += (sender, e) =>
+            {
+                homeControl.RefreshData();
+            };
         }
         private void HomeForm_FormClosing(object sender, FormClosingEventArgs e)
         {
@@ -73,7 +94,6 @@
         private void LoadControl(UserControl control)
         {
             if (currentControl == control) return;
-            (control as dynamic).RefreshData();
             if (currentControl != null)
             {
                 panelContainer.Controls.Remove(currentControl);
@@ -106,27 +126,27 @@
         private void buttonBooks_Click(object sender, EventArgs e)
         {
             panelSearch.Visible = true;
-            textBoxSearch.Text = "";
             textBoxSearch.PlaceholderText = "Search books by name, author, isbn or category";
             HighlightButton(buttonBooks);
             LoadControl(booksControl);
+            textBoxSearch.Text = "";
         }
         private void buttonUsers_Click(object sender, EventArgs e)
         {
             panelSearch.Visible = true;
-            textBoxSearch.Text = "";
             textBoxSearch.PlaceholderText = "Search users by id, name, email, nic or phone";
             HighlightButton(buttonUsers);
             LoadControl(usersControl);
+            textBoxSearch.Text = "";
         }
 
         private void buttonHistory_Click(object sender, EventArgs e)
         {
             panelSearch.Visible = true;
-            textBoxSearch.Text = "";
             textBoxSearch.PlaceholderText = "Search transaction by user or book";
             HighlightButton(buttonHistory);
             LoadControl(historyControl);
+            textBoxSearch.Text = "";
         }
 
         private void buttonRules_Click(object sender, EventArgs e)

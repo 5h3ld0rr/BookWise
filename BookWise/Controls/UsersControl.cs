@@ -6,6 +6,8 @@
         private int userId;
         private string userRole;
         private string acceptedRoles = "'Admin', 'Staff', 'Student'";
+
+        public event EventHandler UsersUpdated;
         public UsersControl(int userId, string userRole)
         {
             InitializeComponent();
@@ -56,6 +58,7 @@
                 {
                     selectedUser.Remove();
                     RefreshData();
+                    UsersUpdated?.Invoke(this, EventArgs.Empty);
                 }
                 catch (Exception ex)
                 {
@@ -92,7 +95,11 @@
             bool allowChangeRole = userRole == "Admin";
             DialogResult result = new AddUserModal(allowChangeRole).ShowDialog();
 
-            if (result == DialogResult.OK) RefreshData();
+            if (result == DialogResult.OK)
+            {
+                RefreshData();
+                UsersUpdated?.Invoke(this, EventArgs.Empty);
+            }
         }
 
         private void comboBoxUserFilter_SelectedIndexChanged(object sender, EventArgs e)

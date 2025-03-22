@@ -3,6 +3,7 @@
     public partial class BooksControl : UserControl
     {
         private Book selectedBook;
+        public event EventHandler BooksUpdated;
         public BooksControl()
         {
             InitializeComponent();
@@ -33,7 +34,11 @@
         {
             DialogResult result = new AddBookModal(selectedBook).ShowDialog();
 
-            if (result == DialogResult.OK) RefreshData();
+            if (result == DialogResult.OK)
+            {
+                RefreshData();
+                BooksUpdated?.Invoke(this, EventArgs.Empty);
+            }
         }
 
         private void removeToolStripMenuItem_Click(object sender, EventArgs e)
@@ -46,6 +51,7 @@
                 {
                     selectedBook.Remove();
                     RefreshData();
+                    BooksUpdated?.Invoke(this, EventArgs.Empty);
                 }
                 catch (Exception ex)
                 {
@@ -78,7 +84,11 @@
         {
             DialogResult result = new AddBookModal().ShowDialog();
 
-            if (result == DialogResult.OK) RefreshData();
+            if (result == DialogResult.OK)
+            {
+                RefreshData();
+                BooksUpdated?.Invoke(this, EventArgs.Empty);
+            }
         }
     }
 
