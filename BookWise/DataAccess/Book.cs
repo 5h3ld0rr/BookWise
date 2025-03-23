@@ -41,6 +41,26 @@ namespace BookWise
             return rowsAffected > 0;
         }
 
+        public static Book Get(string isbnNo)
+        {
+            string query = "SELECT id, title, isbn_no, author, category, available_books FROM books WHERE isbn_no = @ISBNo";
+            DataTable result = DB.ExecuteSelect(query, isbnNo);
+            if (result.Rows.Count == 0)
+            {
+                return null;
+            }
+            DataRow row = result.Rows[0];
+            return new Book()
+            {
+                Id = Convert.ToInt32(row["id"]),
+                Title = row["title"]?.ToString(),
+                ISBN = row["isbn_no"]?.ToString(),
+                Author = row["author"]?.ToString(),
+                Category = row["category"]?.ToString(),
+                AvailableBooks = Convert.ToInt32(row["available_books"])
+            };
+        }
+
         public static Book[] GetAll()
         {
             string query = "SELECT id, Title, isbn_no, author, category, available_books FROM books ORDER BY id DESC";
@@ -85,16 +105,12 @@ namespace BookWise
             }
             return books;
         }
-        public bool Borrow(int userId)
+        public bool Borrow()
         {
             string query = "UPDATE books SET available_books = available_books - 1 WHERE id = @Id";
             int rowsAffected = DB.ExecuteQuery(query, Id);
 
-            if (rowsAffected > 0)
-            {
-                return BookTransaction.Create(userId, Id);
-            }
-            return false;
+            return rowsAffected > 0;
         }
 
         public bool Return()
@@ -102,11 +118,7 @@ namespace BookWise
             string query = "UPDATE books SET available_books = available_books + 1 WHERE id = @Id";
             int rowsAffected = DB.ExecuteQuery(query, Id);
 
-            if (rowsAffected > 0)
-            {
-                return BookTransaction.UpdateReturn(TransactionId);
-            }
-            return false;
+            return rowsAffected > 0;
         }
     }
 }
