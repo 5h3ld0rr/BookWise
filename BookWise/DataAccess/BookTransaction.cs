@@ -6,15 +6,15 @@ namespace BookWise
     {
         public static bool Create(int userId, int bookId)
         {
+            string date = DateTime.Now.ToString("s");
             string query = "INSERT INTO book_transactions (user_id, book_id, borrow_date) VALUES (@UserId, @BookId, @Date)";
-            string date = DateTime.Now.ToString();
             int rowsAffected = DB.ExecuteQuery(query, userId, bookId, date);
             return rowsAffected > 0;
         }
         public static bool UpdateReturn(int id)
         {
+            string date = DateTime.Now.ToString("s");
             string query = "UPDATE book_transactions SET return_date = @ReturnDate WHERE id = @Id";
-            string date = DateTime.Now.ToString();
             int rowsAffected = DB.ExecuteQuery(query, date, id);
             return rowsAffected > 0;
         }
@@ -60,7 +60,7 @@ namespace BookWise
 
         private static (string query, string[] parameters) GetBookTransactionsQueryAndParams(FilterHistoryModal.FilterData filterData, string? searchQuery = null)
         {
-            string query = "SELECT isbn_no, title as Title, user_id, CONCAT(first_name,' ', last_name) AS user_name, DATE_FORMAT(borrow_date, '%Y-%m-%d %h:%i %p') as borrowdate,DATE_FORMAT(return_date, '%Y-%m-%d %h:%i %p') as returndate FROM book_transactions bt INNER JOIN users u ON bt.user_id = u.id INNER JOIN books b ON bt.book_id = b.id";
+            string query = "SELECT isbn_no, title as Title, user_id, CONCAT(first_name,' ', last_name) AS user_name, borrow_date, return_date FROM book_transactions bt INNER JOIN users u ON bt.user_id = u.id INNER JOIN books b ON bt.book_id = b.id";
 
             List<string> filterParams = new List<string>();
 
@@ -103,7 +103,7 @@ namespace BookWise
                         break;
                 }
             }
-            query += " ORDER BY bt.return_date DESC, bt.borrow_date DESC";
+            query += " ORDER BY COALESCE(bt.return_date, bt.borrow_date) DESC";
             return (query, filterParams.ToArray());
         }
     }

@@ -15,8 +15,8 @@
             dataGridViewBookTransactions.Columns["title"].HeaderText = "Book Title";
             dataGridViewBookTransactions.Columns["user_id"].HeaderText = "User ID";
             dataGridViewBookTransactions.Columns["user_name"].HeaderText = "User Name";
-            dataGridViewBookTransactions.Columns["borrowdate"].HeaderText = "Borrow Date";
-            dataGridViewBookTransactions.Columns["returndate"].HeaderText = "Return Date";
+            dataGridViewBookTransactions.Columns["borrow_date"].HeaderText = "Borrow Date";
+            dataGridViewBookTransactions.Columns["return_date"].HeaderText = "Return Date";
         }
         public void RefreshData()
         {
