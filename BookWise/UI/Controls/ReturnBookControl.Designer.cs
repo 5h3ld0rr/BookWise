@@ -29,6 +29,47 @@
         private void InitializeComponent()
         {
             labelTitle = new Label();
+            splitContainer1 = new SplitContainer();
+            groupBox1 = new GroupBox();
+            panel1 = new Panel();
+            textBoxAddress = new TextBox();
+            textBoxPhone = new TextBox();
+            textBoxEmail = new TextBox();
+            textBoxNic = new TextBox();
+            textBoxName = new TextBox();
+            label6 = new Label();
+            label5 = new Label();
+            label4 = new Label();
+            label3 = new Label();
+            label2 = new Label();
+            label1 = new Label();
+            numericUpDownId = new NumericUpDown();
+            buttonUserInfoConfirm = new Button();
+            groupBox2 = new GroupBox();
+            panel2 = new Panel();
+            labelFineV = new Label();
+            labelOverdueV = new Label();
+            labelFine = new Label();
+            labelOverdue = new Label();
+            comboBoxIsbn = new ComboBox();
+            comboBoxTitle = new ComboBox();
+            textBoxCategory = new TextBox();
+            textBoxAuthor = new TextBox();
+            label7 = new Label();
+            label8 = new Label();
+            label9 = new Label();
+            label10 = new Label();
+            buttonBookInfoConfirm = new Button();
+            buttonProceed = new Button();
+            ((System.ComponentModel.ISupportInitialize)splitContainer1).BeginInit();
+            splitContainer1.Panel1.SuspendLayout();
+            splitContainer1.Panel2.SuspendLayout();
+            splitContainer1.SuspendLayout();
+            groupBox1.SuspendLayout();
+            panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)numericUpDownId).BeginInit();
+            groupBox2.SuspendLayout();
+            panel2.SuspendLayout();
             SuspendLayout();
             // 
             // labelTitle
@@ -42,13 +83,443 @@
             labelTitle.TabIndex = 1;
             labelTitle.Text = "Return a Book";
             // 
+            // splitContainer1
+            // 
+            splitContainer1.BackColor = Color.GhostWhite;
+            splitContainer1.Location = new Point(0, 61);
+            splitContainer1.Name = "splitContainer1";
+            // 
+            // splitContainer1.Panel1
+            // 
+            splitContainer1.Panel1.Controls.Add(groupBox1);
+            splitContainer1.Panel1.Padding = new Padding(30);
+            // 
+            // splitContainer1.Panel2
+            // 
+            splitContainer1.Panel2.Controls.Add(groupBox2);
+            splitContainer1.Panel2.Padding = new Padding(30);
+            splitContainer1.Size = new Size(929, 480);
+            splitContainer1.SplitterDistance = 463;
+            splitContainer1.SplitterWidth = 1;
+            splitContainer1.TabIndex = 2;
+            // 
+            // groupBox1
+            // 
+            groupBox1.Controls.Add(panel1);
+            groupBox1.Dock = DockStyle.Fill;
+            groupBox1.Font = new Font("Segoe UI", 16F);
+            groupBox1.ForeColor = Color.FromArgb(30, 41, 59);
+            groupBox1.Location = new Point(30, 30);
+            groupBox1.Name = "groupBox1";
+            groupBox1.Size = new Size(403, 420);
+            groupBox1.TabIndex = 0;
+            groupBox1.TabStop = false;
+            groupBox1.Text = "User Information";
+            // 
+            // panel1
+            // 
+            panel1.BackColor = Color.White;
+            panel1.Controls.Add(textBoxAddress);
+            panel1.Controls.Add(textBoxPhone);
+            panel1.Controls.Add(textBoxEmail);
+            panel1.Controls.Add(textBoxNic);
+            panel1.Controls.Add(textBoxName);
+            panel1.Controls.Add(label6);
+            panel1.Controls.Add(label5);
+            panel1.Controls.Add(label4);
+            panel1.Controls.Add(label3);
+            panel1.Controls.Add(label2);
+            panel1.Controls.Add(label1);
+            panel1.Controls.Add(numericUpDownId);
+            panel1.Controls.Add(buttonUserInfoConfirm);
+            panel1.Dock = DockStyle.Fill;
+            panel1.Location = new Point(3, 32);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(397, 385);
+            panel1.TabIndex = 0;
+            // 
+            // textBoxAddress
+            // 
+            textBoxAddress.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            textBoxAddress.BackColor = Color.GhostWhite;
+            textBoxAddress.Enabled = false;
+            textBoxAddress.Font = new Font("Segoe UI", 12F);
+            textBoxAddress.ForeColor = Color.FromArgb(30, 41, 59);
+            textBoxAddress.Location = new Point(161, 268);
+            textBoxAddress.Name = "textBoxAddress";
+            textBoxAddress.Size = new Size(213, 29);
+            textBoxAddress.TabIndex = 15;
+            // 
+            // textBoxPhone
+            // 
+            textBoxPhone.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            textBoxPhone.BackColor = Color.GhostWhite;
+            textBoxPhone.Enabled = false;
+            textBoxPhone.Font = new Font("Segoe UI", 12F);
+            textBoxPhone.ForeColor = Color.FromArgb(30, 41, 59);
+            textBoxPhone.Location = new Point(161, 220);
+            textBoxPhone.Name = "textBoxPhone";
+            textBoxPhone.Size = new Size(213, 29);
+            textBoxPhone.TabIndex = 14;
+            // 
+            // textBoxEmail
+            // 
+            textBoxEmail.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            textBoxEmail.BackColor = Color.GhostWhite;
+            textBoxEmail.Font = new Font("Segoe UI", 12F);
+            textBoxEmail.ForeColor = Color.FromArgb(30, 41, 59);
+            textBoxEmail.Location = new Point(161, 172);
+            textBoxEmail.Name = "textBoxEmail";
+            textBoxEmail.Size = new Size(213, 29);
+            textBoxEmail.TabIndex = 13;
+            // 
+            // textBoxNic
+            // 
+            textBoxNic.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            textBoxNic.BackColor = Color.GhostWhite;
+            textBoxNic.Font = new Font("Segoe UI", 12F);
+            textBoxNic.ForeColor = Color.FromArgb(30, 41, 59);
+            textBoxNic.Location = new Point(161, 124);
+            textBoxNic.Name = "textBoxNic";
+            textBoxNic.Size = new Size(213, 29);
+            textBoxNic.TabIndex = 12;
+            // 
+            // textBoxName
+            // 
+            textBoxName.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            textBoxName.BackColor = Color.GhostWhite;
+            textBoxName.Enabled = false;
+            textBoxName.Font = new Font("Segoe UI", 12F);
+            textBoxName.ForeColor = Color.FromArgb(30, 41, 59);
+            textBoxName.Location = new Point(161, 32);
+            textBoxName.Name = "textBoxName";
+            textBoxName.Size = new Size(213, 29);
+            textBoxName.TabIndex = 11;
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Font = new Font("Segoe UI", 12F);
+            label6.Location = new Point(19, 223);
+            label6.Name = "label6";
+            label6.Size = new Size(83, 21);
+            label6.TabIndex = 10;
+            label6.Text = "Mobile No";
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Font = new Font("Segoe UI", 12F);
+            label5.Location = new Point(19, 271);
+            label5.Name = "label5";
+            label5.Size = new Size(66, 21);
+            label5.TabIndex = 9;
+            label5.Text = "Address";
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Font = new Font("Segoe UI", 12F);
+            label4.Location = new Point(19, 175);
+            label4.Name = "label4";
+            label4.Size = new Size(48, 21);
+            label4.TabIndex = 8;
+            label4.Text = "Email";
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Font = new Font("Segoe UI", 12F);
+            label3.Location = new Point(19, 127);
+            label3.Name = "label3";
+            label3.Size = new Size(61, 21);
+            label3.TabIndex = 7;
+            label3.Text = "NIC No";
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new Font("Segoe UI", 12F);
+            label2.Location = new Point(19, 79);
+            label2.Name = "label2";
+            label2.Size = new Size(50, 21);
+            label2.TabIndex = 6;
+            label2.Text = "ID No";
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Segoe UI", 12F);
+            label1.Location = new Point(19, 31);
+            label1.Name = "label1";
+            label1.Size = new Size(52, 21);
+            label1.TabIndex = 5;
+            label1.Text = "Name";
+            // 
+            // numericUpDownId
+            // 
+            numericUpDownId.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            numericUpDownId.BackColor = Color.GhostWhite;
+            numericUpDownId.Font = new Font("Segoe UI", 12F);
+            numericUpDownId.ForeColor = Color.FromArgb(30, 41, 59);
+            numericUpDownId.InterceptArrowKeys = false;
+            numericUpDownId.Location = new Point(161, 77);
+            numericUpDownId.Maximum = new decimal(new int[] { 999999999, 0, 0, 0 });
+            numericUpDownId.Name = "numericUpDownId";
+            numericUpDownId.Size = new Size(213, 29);
+            numericUpDownId.TabIndex = 4;
+            // 
+            // buttonUserInfoConfirm
+            // 
+            buttonUserInfoConfirm.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            buttonUserInfoConfirm.BackColor = Color.FromArgb(37, 56, 140);
+            buttonUserInfoConfirm.Cursor = Cursors.Hand;
+            buttonUserInfoConfirm.Font = new Font("Segoe UI Semibold", 14F, FontStyle.Bold, GraphicsUnit.Pixel, 0);
+            buttonUserInfoConfirm.ForeColor = Color.White;
+            buttonUserInfoConfirm.ImageAlign = ContentAlignment.MiddleLeft;
+            buttonUserInfoConfirm.Location = new Point(263, 324);
+            buttonUserInfoConfirm.Name = "buttonUserInfoConfirm";
+            buttonUserInfoConfirm.Padding = new Padding(10, 0, 10, 0);
+            buttonUserInfoConfirm.Size = new Size(111, 41);
+            buttonUserInfoConfirm.TabIndex = 3;
+            buttonUserInfoConfirm.Text = "Confirm";
+            buttonUserInfoConfirm.TextImageRelation = TextImageRelation.ImageBeforeText;
+            buttonUserInfoConfirm.UseVisualStyleBackColor = false;
+            buttonUserInfoConfirm.Click += buttonUserInfoConfirm_Click;
+            // 
+            // groupBox2
+            // 
+            groupBox2.Controls.Add(panel2);
+            groupBox2.Dock = DockStyle.Fill;
+            groupBox2.Font = new Font("Segoe UI", 16F);
+            groupBox2.ForeColor = Color.FromArgb(30, 41, 59);
+            groupBox2.Location = new Point(30, 30);
+            groupBox2.Name = "groupBox2";
+            groupBox2.Size = new Size(405, 420);
+            groupBox2.TabIndex = 1;
+            groupBox2.TabStop = false;
+            groupBox2.Text = "Book Information";
+            // 
+            // panel2
+            // 
+            panel2.BackColor = Color.White;
+            panel2.Controls.Add(labelFineV);
+            panel2.Controls.Add(labelOverdueV);
+            panel2.Controls.Add(labelFine);
+            panel2.Controls.Add(labelOverdue);
+            panel2.Controls.Add(comboBoxIsbn);
+            panel2.Controls.Add(comboBoxTitle);
+            panel2.Controls.Add(textBoxCategory);
+            panel2.Controls.Add(textBoxAuthor);
+            panel2.Controls.Add(label7);
+            panel2.Controls.Add(label8);
+            panel2.Controls.Add(label9);
+            panel2.Controls.Add(label10);
+            panel2.Controls.Add(buttonBookInfoConfirm);
+            panel2.Dock = DockStyle.Fill;
+            panel2.Location = new Point(3, 32);
+            panel2.Name = "panel2";
+            panel2.Size = new Size(399, 385);
+            panel2.TabIndex = 1;
+            // 
+            // labelFineV
+            // 
+            labelFineV.AutoSize = true;
+            labelFineV.BackColor = Color.White;
+            labelFineV.Font = new Font("Segoe UI", 12F);
+            labelFineV.ForeColor = Color.Red;
+            labelFineV.Location = new Point(164, 271);
+            labelFineV.Name = "labelFineV";
+            labelFineV.Size = new Size(68, 21);
+            labelFineV.TabIndex = 30;
+            labelFineV.Text = " Rs. 0.00";
+            labelFineV.Visible = false;
+            // 
+            // labelOverdueV
+            // 
+            labelOverdueV.AutoSize = true;
+            labelOverdueV.BackColor = Color.White;
+            labelOverdueV.Font = new Font("Segoe UI", 12F);
+            labelOverdueV.ForeColor = Color.Red;
+            labelOverdueV.Location = new Point(165, 222);
+            labelOverdueV.Name = "labelOverdueV";
+            labelOverdueV.Size = new Size(23, 21);
+            labelOverdueV.TabIndex = 29;
+            labelOverdueV.Text = " 0";
+            labelOverdueV.Visible = false;
+            // 
+            // labelFine
+            // 
+            labelFine.AutoSize = true;
+            labelFine.Font = new Font("Segoe UI", 12F);
+            labelFine.Location = new Point(22, 271);
+            labelFine.Name = "labelFine";
+            labelFine.Size = new Size(39, 21);
+            labelFine.TabIndex = 28;
+            labelFine.Text = "Fine";
+            labelFine.Visible = false;
+            // 
+            // labelOverdue
+            // 
+            labelOverdue.AutoSize = true;
+            labelOverdue.Font = new Font("Segoe UI", 12F);
+            labelOverdue.Location = new Point(22, 223);
+            labelOverdue.Name = "labelOverdue";
+            labelOverdue.Size = new Size(108, 21);
+            labelOverdue.TabIndex = 27;
+            labelOverdue.Text = "Days Overdue";
+            labelOverdue.Visible = false;
+            // 
+            // comboBoxIsbn
+            // 
+            comboBoxIsbn.BackColor = Color.GhostWhite;
+            comboBoxIsbn.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBoxIsbn.Enabled = false;
+            comboBoxIsbn.Font = new Font("Segoe UI", 12F);
+            comboBoxIsbn.ForeColor = Color.FromArgb(30, 41, 59);
+            comboBoxIsbn.FormattingEnabled = true;
+            comboBoxIsbn.Location = new Point(164, 76);
+            comboBoxIsbn.Name = "comboBoxIsbn";
+            comboBoxIsbn.Size = new Size(213, 29);
+            comboBoxIsbn.TabIndex = 26;
+            comboBoxIsbn.SelectedIndexChanged += comboBoxIsbn_SelectedIndexChanged;
+            // 
+            // comboBoxTitle
+            // 
+            comboBoxTitle.BackColor = Color.GhostWhite;
+            comboBoxTitle.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBoxTitle.Enabled = false;
+            comboBoxTitle.Font = new Font("Segoe UI", 12F);
+            comboBoxTitle.ForeColor = Color.FromArgb(30, 41, 59);
+            comboBoxTitle.FormattingEnabled = true;
+            comboBoxTitle.Location = new Point(164, 28);
+            comboBoxTitle.Name = "comboBoxTitle";
+            comboBoxTitle.Size = new Size(213, 29);
+            comboBoxTitle.TabIndex = 25;
+            comboBoxTitle.SelectedIndexChanged += comboBoxTitle_SelectedIndexChanged;
+            // 
+            // textBoxCategory
+            // 
+            textBoxCategory.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            textBoxCategory.BackColor = Color.GhostWhite;
+            textBoxCategory.Enabled = false;
+            textBoxCategory.Font = new Font("Segoe UI", 12F);
+            textBoxCategory.ForeColor = Color.FromArgb(30, 41, 59);
+            textBoxCategory.Location = new Point(164, 172);
+            textBoxCategory.Name = "textBoxCategory";
+            textBoxCategory.Size = new Size(213, 29);
+            textBoxCategory.TabIndex = 24;
+            // 
+            // textBoxAuthor
+            // 
+            textBoxAuthor.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            textBoxAuthor.BackColor = Color.GhostWhite;
+            textBoxAuthor.Enabled = false;
+            textBoxAuthor.Font = new Font("Segoe UI", 12F);
+            textBoxAuthor.ForeColor = Color.FromArgb(30, 41, 59);
+            textBoxAuthor.Location = new Point(164, 124);
+            textBoxAuthor.Name = "textBoxAuthor";
+            textBoxAuthor.Size = new Size(213, 29);
+            textBoxAuthor.TabIndex = 23;
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Font = new Font("Segoe UI", 12F);
+            label7.Location = new Point(22, 175);
+            label7.Name = "label7";
+            label7.Size = new Size(73, 21);
+            label7.TabIndex = 21;
+            label7.Text = "Category";
+            // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.Font = new Font("Segoe UI", 12F);
+            label8.Location = new Point(22, 127);
+            label8.Name = "label8";
+            label8.Size = new Size(58, 21);
+            label8.TabIndex = 20;
+            label8.Text = "Author";
+            // 
+            // label9
+            // 
+            label9.AutoSize = true;
+            label9.Font = new Font("Segoe UI", 12F);
+            label9.Location = new Point(22, 79);
+            label9.Name = "label9";
+            label9.Size = new Size(69, 21);
+            label9.TabIndex = 19;
+            label9.Text = "ISBN No";
+            // 
+            // label10
+            // 
+            label10.AutoSize = true;
+            label10.Font = new Font("Segoe UI", 12F);
+            label10.Location = new Point(22, 31);
+            label10.Name = "label10";
+            label10.Size = new Size(39, 21);
+            label10.TabIndex = 18;
+            label10.Text = "Title";
+            // 
+            // buttonBookInfoConfirm
+            // 
+            buttonBookInfoConfirm.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            buttonBookInfoConfirm.BackColor = Color.FromArgb(37, 56, 140);
+            buttonBookInfoConfirm.Cursor = Cursors.Hand;
+            buttonBookInfoConfirm.Font = new Font("Segoe UI Semibold", 14F, FontStyle.Bold, GraphicsUnit.Pixel, 0);
+            buttonBookInfoConfirm.ForeColor = Color.White;
+            buttonBookInfoConfirm.ImageAlign = ContentAlignment.MiddleLeft;
+            buttonBookInfoConfirm.Location = new Point(266, 324);
+            buttonBookInfoConfirm.Name = "buttonBookInfoConfirm";
+            buttonBookInfoConfirm.Padding = new Padding(10, 0, 10, 0);
+            buttonBookInfoConfirm.Size = new Size(111, 41);
+            buttonBookInfoConfirm.TabIndex = 16;
+            buttonBookInfoConfirm.Text = "Confirm";
+            buttonBookInfoConfirm.TextImageRelation = TextImageRelation.ImageBeforeText;
+            buttonBookInfoConfirm.UseVisualStyleBackColor = false;
+            buttonBookInfoConfirm.Visible = false;
+            buttonBookInfoConfirm.Click += buttonBookInfoConfirm_Click;
+            // 
+            // buttonProceed
+            // 
+            buttonProceed.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            buttonProceed.BackColor = Color.FromArgb(37, 56, 140);
+            buttonProceed.Cursor = Cursors.Hand;
+            buttonProceed.Font = new Font("Segoe UI Semibold", 14F, FontStyle.Bold, GraphicsUnit.Pixel, 0);
+            buttonProceed.ForeColor = Color.White;
+            buttonProceed.ImageAlign = ContentAlignment.MiddleLeft;
+            buttonProceed.Location = new Point(788, 25);
+            buttonProceed.Name = "buttonProceed";
+            buttonProceed.Padding = new Padding(10, 0, 10, 0);
+            buttonProceed.Size = new Size(111, 41);
+            buttonProceed.TabIndex = 17;
+            buttonProceed.Text = "Proceed";
+            buttonProceed.TextImageRelation = TextImageRelation.ImageBeforeText;
+            buttonProceed.UseVisualStyleBackColor = false;
+            buttonProceed.Visible = false;
+            buttonProceed.Click += buttonProceed_Click;
+            // 
             // ReturnBookControl
             // 
             AutoScaleMode = AutoScaleMode.None;
             BackColor = Color.GhostWhite;
+            Controls.Add(buttonProceed);
+            Controls.Add(splitContainer1);
             Controls.Add(labelTitle);
             Name = "ReturnBookControl";
             Size = new Size(929, 541);
+            splitContainer1.Panel1.ResumeLayout(false);
+            splitContainer1.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)splitContainer1).EndInit();
+            splitContainer1.ResumeLayout(false);
+            groupBox1.ResumeLayout(false);
+            panel1.ResumeLayout(false);
+            panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)numericUpDownId).EndInit();
+            groupBox2.ResumeLayout(false);
+            panel2.ResumeLayout(false);
+            panel2.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -56,5 +527,37 @@
         #endregion
 
         private Label labelTitle;
+        private SplitContainer splitContainer1;
+        private GroupBox groupBox1;
+        private Panel panel1;
+        private GroupBox groupBox2;
+        private Panel panel2;
+        private NumericUpDown numericUpDownId;
+        private Button buttonUserInfoConfirm;
+        private TextBox textBoxName;
+        private Label label6;
+        private Label label5;
+        private Label label4;
+        private Label label3;
+        private Label label2;
+        private Label label1;
+        private TextBox textBoxAddress;
+        private TextBox textBoxPhone;
+        private TextBox textBoxEmail;
+        private TextBox textBoxNic;
+        private Button buttonBookInfoConfirm;
+        private Button buttonProceed;
+        private TextBox textBoxCategory;
+        private TextBox textBoxAuthor;
+        private Label label7;
+        private Label label8;
+        private Label label9;
+        private Label label10;
+        private ComboBox comboBoxIsbn;
+        private ComboBox comboBoxTitle;
+        private Label labelOverdue;
+        private Label labelFine;
+        private Label labelOverdueV;
+        private Label labelFineV;
     }
 }

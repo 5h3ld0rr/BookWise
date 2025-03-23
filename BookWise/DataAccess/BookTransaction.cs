@@ -18,6 +18,19 @@ namespace BookWise
             int rowsAffected = DB.ExecuteQuery(query, date, id);
             return rowsAffected > 0;
         }
+
+        public static (DateTime dueDate, int noOfDaysOverdue, decimal fine) GetMoreById(int id)
+        {
+            string query = "SELECT borrow_date FROM book_transactions WHERE id = @Id";
+            DataTable result = DB.ExecuteSelect(query, id);
+            DataRow row = result.Rows[0];
+
+            DateTime dueDate = Convert.ToDateTime(row["borrow_date"]).AddDays(CommonData.Rules.MaxDaysToReturn);
+            int noOfDaysOverdue = (DateTime.Now - dueDate).Days;
+            decimal fine = noOfDaysOverdue > 0 ? noOfDaysOverdue * CommonData.Rules.FinePerDay : 0.00M;
+
+            return (dueDate, noOfDaysOverdue, fine);
+        }
         public static DataTable GetAll(FilterHistoryModal.FilterData filterData)
         {
             var bookTransactions = GetBookTransactionsQueryAndParams(filterData);
