@@ -1,9 +1,13 @@
-﻿namespace BookWise
+﻿using BookWise.Mails;
+
+namespace BookWise
 {
     public partial class BorrowBookControl : UserControl
     {
         private User user;
-        private bool userInformationConfirmed = false;
+        private Book book;
+        private bool userInfoConfirmed = false;
+        private bool bookInfoConfirmed = false;
         public event EventHandler BookBorrowed;
         public BorrowBookControl()
         {
@@ -11,12 +15,12 @@
             Dock = DockStyle.Fill;
         }
 
-        private void buttonSaveUserInfo_Click(object sender, EventArgs e)
+        private void buttonUserInfoConfirm_Click(object sender, EventArgs e)
         {
-            if (userInformationConfirmed)
+            if (userInfoConfirmed)
             {
-                userInformationConfirmed = false;
-                ToggleControls();
+                userInfoConfirmed = false;
+                ToggleUserInfoControls();
                 return;
             }
 
@@ -52,17 +56,98 @@
             textBoxPhone.Text = user.Phone;
             textBoxAddress.Text = user.Address;
 
-            userInformationConfirmed = true;
-            ToggleControls();
+            userInfoConfirmed = true;
+            ToggleUserInfoControls();
+        }
+        private void buttonBookInfoConfirm_Click(object sender, EventArgs e)
+        {
+            if (bookInfoConfirmed)
+            {
+                bookInfoConfirmed = false;
+                ToggleBookInfoControls();
+                return;
+            }
+
+            string isbn = textBoxIsbn.Text;
+
+            if (String.IsNullOrWhiteSpace(isbn))
+            {
+                MessageBox.Show("Please enter the ISBN No", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            book = Book.Get(isbn);
+
+            if (book == null)
+            {
+                MessageBox.Show("Book not found", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            if (book.AvailableBooks == 0)
+            {
+                MessageBox.Show("Book is not available", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            textBoxTitle.Text = book.Title;
+            textBoxAuthor.Text = book.Author;
+            textBoxCategory.Text = book.Category;
+
+            bookInfoConfirmed = true;
+            ToggleBookInfoControls();
+        }
+        private void buttonProceed_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (book.Borrow())
+                {
+                    string dueDate = DateTime.Now.AddDays(CommonData.Rules.MaxDaysToReturn).ToString("yyyy-MM-dd");
+                    BookTransaction.Create(user.Id, book.Id);
+                    MessageBox.Show("Book borrowed successfully!\nDue date: " + dueDate, "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    Reset();
+                    BookBorrowed?.Invoke(this, EventArgs.Empty);
+                    new BookBorrowMail(user.FirstName, book.Title, dueDate).Send(user.Email);
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("An error occurred: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
-        private void ToggleControls()
+        private void ToggleUserInfoControls()
         {
-            numericUpDownId.Enabled = !userInformationConfirmed;
-            textBoxNic.Enabled = !userInformationConfirmed;
-            textBoxEmail.Enabled = !userInformationConfirmed;
+            numericUpDownId.Enabled = !userInfoConfirmed;
+            textBoxNic.Enabled = !userInfoConfirmed;
+            textBoxEmail.Enabled = !userInfoConfirmed;
 
-            buttonSaveUserInfo.Text = userInformationConfirmed ? "Edit" : "Save";
+            buttonUserInfoConfirm.Text = userInfoConfirmed ? "Edit" : "Confirm";
+            buttonProceed.Visible = userInfoConfirmed && bookInfoConfirmed;
+        }
+        private void ToggleBookInfoControls()
+        {
+            textBoxIsbn.Enabled = !bookInfoConfirmed;
+
+            buttonBookInfoConfirm.Text = bookInfoConfirmed ? "Edit" : "Confirm";
+            buttonProceed.Visible = userInfoConfirmed && bookInfoConfirmed;
+        }
+        private void Reset()
+        {
+            numericUpDownId.Value = 0;
+            textBoxNic.Text = "";
+            textBoxEmail.Text = "";
+            textBoxName.Text = "";
+            textBoxPhone.Text = "";
+            textBoxAddress.Text = "";
+            textBoxIsbn.Text = "";
+            textBoxTitle.Text = "";
+            textBoxAuthor.Text = "";
+            textBoxCategory.Text = "";
+            userInfoConfirmed = false;
+            bookInfoConfirmed = false;
+            buttonProceed.Visible = false;
         }
     }
 }

@@ -44,9 +44,19 @@
             label2 = new Label();
             label1 = new Label();
             numericUpDownId = new NumericUpDown();
-            buttonSaveUserInfo = new Button();
+            buttonUserInfoConfirm = new Button();
             groupBox2 = new GroupBox();
             panel2 = new Panel();
+            textBoxIsbn = new TextBox();
+            textBoxCategory = new TextBox();
+            textBoxAuthor = new TextBox();
+            textBoxTitle = new TextBox();
+            label7 = new Label();
+            label8 = new Label();
+            label9 = new Label();
+            label10 = new Label();
+            buttonBookInfoConfirm = new Button();
+            buttonProceed = new Button();
             ((System.ComponentModel.ISupportInitialize)splitContainer1).BeginInit();
             splitContainer1.Panel1.SuspendLayout();
             splitContainer1.Panel2.SuspendLayout();
@@ -55,6 +65,7 @@
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)numericUpDownId).BeginInit();
             groupBox2.SuspendLayout();
+            panel2.SuspendLayout();
             SuspendLayout();
             // 
             // labelTitle
@@ -116,7 +127,7 @@
             panel1.Controls.Add(label2);
             panel1.Controls.Add(label1);
             panel1.Controls.Add(numericUpDownId);
-            panel1.Controls.Add(buttonSaveUserInfo);
+            panel1.Controls.Add(buttonUserInfoConfirm);
             panel1.Dock = DockStyle.Fill;
             panel1.Location = new Point(3, 32);
             panel1.Name = "panel1";
@@ -254,23 +265,23 @@
             numericUpDownId.Size = new Size(213, 29);
             numericUpDownId.TabIndex = 4;
             // 
-            // buttonSaveUserInfo
+            // buttonUserInfoConfirm
             // 
-            buttonSaveUserInfo.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            buttonSaveUserInfo.BackColor = Color.FromArgb(37, 56, 140);
-            buttonSaveUserInfo.Cursor = Cursors.Hand;
-            buttonSaveUserInfo.Font = new Font("Segoe UI Semibold", 14F, FontStyle.Bold, GraphicsUnit.Pixel, 0);
-            buttonSaveUserInfo.ForeColor = Color.White;
-            buttonSaveUserInfo.ImageAlign = ContentAlignment.MiddleLeft;
-            buttonSaveUserInfo.Location = new Point(263, 324);
-            buttonSaveUserInfo.Name = "buttonSaveUserInfo";
-            buttonSaveUserInfo.Padding = new Padding(10, 0, 10, 0);
-            buttonSaveUserInfo.Size = new Size(111, 41);
-            buttonSaveUserInfo.TabIndex = 3;
-            buttonSaveUserInfo.Text = "Save";
-            buttonSaveUserInfo.TextImageRelation = TextImageRelation.ImageBeforeText;
-            buttonSaveUserInfo.UseVisualStyleBackColor = false;
-            buttonSaveUserInfo.Click += buttonSaveUserInfo_Click;
+            buttonUserInfoConfirm.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            buttonUserInfoConfirm.BackColor = Color.FromArgb(37, 56, 140);
+            buttonUserInfoConfirm.Cursor = Cursors.Hand;
+            buttonUserInfoConfirm.Font = new Font("Segoe UI Semibold", 14F, FontStyle.Bold, GraphicsUnit.Pixel, 0);
+            buttonUserInfoConfirm.ForeColor = Color.White;
+            buttonUserInfoConfirm.ImageAlign = ContentAlignment.MiddleLeft;
+            buttonUserInfoConfirm.Location = new Point(263, 324);
+            buttonUserInfoConfirm.Name = "buttonUserInfoConfirm";
+            buttonUserInfoConfirm.Padding = new Padding(10, 0, 10, 0);
+            buttonUserInfoConfirm.Size = new Size(111, 41);
+            buttonUserInfoConfirm.TabIndex = 3;
+            buttonUserInfoConfirm.Text = "Confirm";
+            buttonUserInfoConfirm.TextImageRelation = TextImageRelation.ImageBeforeText;
+            buttonUserInfoConfirm.UseVisualStyleBackColor = false;
+            buttonUserInfoConfirm.Click += buttonUserInfoConfirm_Click;
             // 
             // groupBox2
             // 
@@ -288,16 +299,150 @@
             // panel2
             // 
             panel2.BackColor = Color.White;
+            panel2.Controls.Add(textBoxIsbn);
+            panel2.Controls.Add(textBoxCategory);
+            panel2.Controls.Add(textBoxAuthor);
+            panel2.Controls.Add(textBoxTitle);
+            panel2.Controls.Add(label7);
+            panel2.Controls.Add(label8);
+            panel2.Controls.Add(label9);
+            panel2.Controls.Add(label10);
+            panel2.Controls.Add(buttonBookInfoConfirm);
             panel2.Dock = DockStyle.Fill;
             panel2.Location = new Point(3, 32);
             panel2.Name = "panel2";
             panel2.Size = new Size(399, 385);
             panel2.TabIndex = 1;
             // 
+            // textBoxIsbn
+            // 
+            textBoxIsbn.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            textBoxIsbn.BackColor = Color.GhostWhite;
+            textBoxIsbn.Font = new Font("Segoe UI", 12F);
+            textBoxIsbn.ForeColor = Color.FromArgb(30, 41, 59);
+            textBoxIsbn.Location = new Point(164, 80);
+            textBoxIsbn.Name = "textBoxIsbn";
+            textBoxIsbn.Size = new Size(213, 29);
+            textBoxIsbn.TabIndex = 25;
+            // 
+            // textBoxCategory
+            // 
+            textBoxCategory.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            textBoxCategory.BackColor = Color.GhostWhite;
+            textBoxCategory.Enabled = false;
+            textBoxCategory.Font = new Font("Segoe UI", 12F);
+            textBoxCategory.ForeColor = Color.FromArgb(30, 41, 59);
+            textBoxCategory.Location = new Point(164, 176);
+            textBoxCategory.Name = "textBoxCategory";
+            textBoxCategory.Size = new Size(213, 29);
+            textBoxCategory.TabIndex = 24;
+            // 
+            // textBoxAuthor
+            // 
+            textBoxAuthor.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            textBoxAuthor.BackColor = Color.GhostWhite;
+            textBoxAuthor.Enabled = false;
+            textBoxAuthor.Font = new Font("Segoe UI", 12F);
+            textBoxAuthor.ForeColor = Color.FromArgb(30, 41, 59);
+            textBoxAuthor.Location = new Point(164, 128);
+            textBoxAuthor.Name = "textBoxAuthor";
+            textBoxAuthor.Size = new Size(213, 29);
+            textBoxAuthor.TabIndex = 23;
+            // 
+            // textBoxTitle
+            // 
+            textBoxTitle.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            textBoxTitle.BackColor = Color.GhostWhite;
+            textBoxTitle.Enabled = false;
+            textBoxTitle.Font = new Font("Segoe UI", 12F);
+            textBoxTitle.ForeColor = Color.FromArgb(30, 41, 59);
+            textBoxTitle.Location = new Point(164, 36);
+            textBoxTitle.Name = "textBoxTitle";
+            textBoxTitle.Size = new Size(213, 29);
+            textBoxTitle.TabIndex = 22;
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Font = new Font("Segoe UI", 12F);
+            label7.Location = new Point(22, 179);
+            label7.Name = "label7";
+            label7.Size = new Size(73, 21);
+            label7.TabIndex = 21;
+            label7.Text = "Category";
+            // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.Font = new Font("Segoe UI", 12F);
+            label8.Location = new Point(22, 131);
+            label8.Name = "label8";
+            label8.Size = new Size(58, 21);
+            label8.TabIndex = 20;
+            label8.Text = "Author";
+            // 
+            // label9
+            // 
+            label9.AutoSize = true;
+            label9.Font = new Font("Segoe UI", 12F);
+            label9.Location = new Point(22, 83);
+            label9.Name = "label9";
+            label9.Size = new Size(69, 21);
+            label9.TabIndex = 19;
+            label9.Text = "ISBN No";
+            // 
+            // label10
+            // 
+            label10.AutoSize = true;
+            label10.Font = new Font("Segoe UI", 12F);
+            label10.Location = new Point(22, 35);
+            label10.Name = "label10";
+            label10.Size = new Size(39, 21);
+            label10.TabIndex = 18;
+            label10.Text = "Title";
+            // 
+            // buttonBookInfoConfirm
+            // 
+            buttonBookInfoConfirm.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            buttonBookInfoConfirm.BackColor = Color.FromArgb(37, 56, 140);
+            buttonBookInfoConfirm.Cursor = Cursors.Hand;
+            buttonBookInfoConfirm.Font = new Font("Segoe UI Semibold", 14F, FontStyle.Bold, GraphicsUnit.Pixel, 0);
+            buttonBookInfoConfirm.ForeColor = Color.White;
+            buttonBookInfoConfirm.ImageAlign = ContentAlignment.MiddleLeft;
+            buttonBookInfoConfirm.Location = new Point(266, 324);
+            buttonBookInfoConfirm.Name = "buttonBookInfoConfirm";
+            buttonBookInfoConfirm.Padding = new Padding(10, 0, 10, 0);
+            buttonBookInfoConfirm.Size = new Size(111, 41);
+            buttonBookInfoConfirm.TabIndex = 16;
+            buttonBookInfoConfirm.Text = "Confirm";
+            buttonBookInfoConfirm.TextImageRelation = TextImageRelation.ImageBeforeText;
+            buttonBookInfoConfirm.UseVisualStyleBackColor = false;
+            buttonBookInfoConfirm.Click += buttonBookInfoConfirm_Click;
+            // 
+            // buttonProceed
+            // 
+            buttonProceed.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            buttonProceed.BackColor = Color.FromArgb(37, 56, 140);
+            buttonProceed.Cursor = Cursors.Hand;
+            buttonProceed.Font = new Font("Segoe UI Semibold", 14F, FontStyle.Bold, GraphicsUnit.Pixel, 0);
+            buttonProceed.ForeColor = Color.White;
+            buttonProceed.ImageAlign = ContentAlignment.MiddleLeft;
+            buttonProceed.Location = new Point(788, 25);
+            buttonProceed.Name = "buttonProceed";
+            buttonProceed.Padding = new Padding(10, 0, 10, 0);
+            buttonProceed.Size = new Size(111, 41);
+            buttonProceed.TabIndex = 17;
+            buttonProceed.Text = "Proceed";
+            buttonProceed.TextImageRelation = TextImageRelation.ImageBeforeText;
+            buttonProceed.UseVisualStyleBackColor = false;
+            buttonProceed.Visible = false;
+            buttonProceed.Click += buttonProceed_Click;
+            // 
             // BorrowBookControl
             // 
             AutoScaleMode = AutoScaleMode.None;
             BackColor = Color.GhostWhite;
+            Controls.Add(buttonProceed);
             Controls.Add(splitContainer1);
             Controls.Add(labelTitle);
             Name = "BorrowBookControl";
@@ -311,6 +456,8 @@
             panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)numericUpDownId).EndInit();
             groupBox2.ResumeLayout(false);
+            panel2.ResumeLayout(false);
+            panel2.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -324,7 +471,7 @@
         private GroupBox groupBox2;
         private Panel panel2;
         private NumericUpDown numericUpDownId;
-        private Button buttonSaveUserInfo;
+        private Button buttonUserInfoConfirm;
         private TextBox textBoxName;
         private Label label6;
         private Label label5;
@@ -336,5 +483,15 @@
         private TextBox textBoxPhone;
         private TextBox textBoxEmail;
         private TextBox textBoxNic;
+        private Button buttonBookInfoConfirm;
+        private Button buttonProceed;
+        private TextBox textBoxIsbn;
+        private TextBox textBoxCategory;
+        private TextBox textBoxAuthor;
+        private TextBox textBoxTitle;
+        private Label label7;
+        private Label label8;
+        private Label label9;
+        private Label label10;
     }
 }
