@@ -11,10 +11,10 @@
 
         public void RefreshData()
         {
-            MasterData.Stats.Refresh();
-            labelBorrowedBooks.Text = MasterData.Stats.BorrowedBooks;
-            labelAllBooks.Text = MasterData.Stats.TotalBooks;
-            labelTotalUsers.Text = MasterData.Stats.TotalUsers;
+            CommonData.Stats.Refresh();
+            labelBorrowedBooks.Text = CommonData.Stats.BorrowedBooks;
+            labelAllBooks.Text = CommonData.Stats.TotalBooks;
+            labelTotalUsers.Text = CommonData.Stats.TotalUsers;
         }
     }
 }

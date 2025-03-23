@@ -23,7 +23,7 @@
             FormClosing += HomeForm_FormClosing;
             SideBarBtns = [buttonHome, buttonBorrow, buttonReturn, buttonBooks, buttonUsers, buttonHistory, buttonRules];
             buttonRules.Visible = userRole == "Admin";
-            MasterData.Rules.Refresh();
+            CommonData.Rules.Refresh();
             homeControl = new HomeControl();
             borrowBookControl = new BorrowBookControl();
             returnBookControl = new ReturnBookControl();

@@ -89,7 +89,7 @@ namespace BookWise
                         break;
                 }
 
-                int days = MasterData.Rules.MaxDaysToReturn;
+                int days = CommonData.Rules.MaxDaysToReturn;
 
                 switch (filterData.Overdue)
                 {

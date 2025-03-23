@@ -6,19 +6,19 @@
         {
             InitializeComponent();
             Dock = DockStyle.Fill;
-            numericUpDownMaxDaysToReturn.Value = MasterData.Rules.MaxDaysToReturn;
-            numericUpDownMaxBooksPerUser.Value = MasterData.Rules.MaxBooksPerUser;
-            numericUpDownFinePerDay.Value = MasterData.Rules.FinePerDay;
+            numericUpDownMaxDaysToReturn.Value = CommonData.Rules.MaxDaysToReturn;
+            numericUpDownMaxBooksPerUser.Value = CommonData.Rules.MaxBooksPerUser;
+            numericUpDownFinePerDay.Value = CommonData.Rules.FinePerDay;
         }
         private void buttonSave_Click(object sender, EventArgs e)
         {
-            MasterData.Rules.MaxDaysToReturn = (int)numericUpDownMaxDaysToReturn.Value;
-            MasterData.Rules.MaxBooksPerUser = (int)numericUpDownMaxBooksPerUser.Value;
-            MasterData.Rules.FinePerDay = numericUpDownFinePerDay.Value;
+            CommonData.Rules.MaxDaysToReturn = (int)numericUpDownMaxDaysToReturn.Value;
+            CommonData.Rules.MaxBooksPerUser = (int)numericUpDownMaxBooksPerUser.Value;
+            CommonData.Rules.FinePerDay = numericUpDownFinePerDay.Value;
 
             try
             {
-                bool updated = MasterData.Rules.Update();
+                bool updated = CommonData.Rules.Update();
                 if (updated)
                     MessageBox.Show("Rules updated successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 else

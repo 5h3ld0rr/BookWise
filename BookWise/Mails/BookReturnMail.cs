@@ -6,7 +6,7 @@
         protected override string Body { get; }
         public BookReturnMail(string name, string bookTitle, int noOfDaysOverdue, string dueDate)
         {
-            decimal fineRate = MasterData.Rules.FinePerDay;
+            decimal fineRate = CommonData.Rules.FinePerDay;
 
             string addtionalInfo = noOfDaysOverdue > 0 ? $"Next time, try to return it on time.</p><ul style=color:#d6e0ff;font-size:18px><li>Due Date: <span style=color:#eed1ac>{dueDate}</span><li>Overdue Since: <span style=color:#eed1ac>{noOfDaysOverdue} days</span><li>Fine Per Day: <span style=color:#eed1ac>Rs. {fineRate}</span><li>Total Fine: <span style=color:#eed1ac>Rs. {fineRate * noOfDaysOverdue}</span></ul>" : "Thank you for returning it on time.</p>";
 

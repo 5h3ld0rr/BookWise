@@ -2,7 +2,7 @@
 
 namespace BookWise
 {
-    public static class MasterData
+    public static class CommonData
     {
         public static class Stats
         {

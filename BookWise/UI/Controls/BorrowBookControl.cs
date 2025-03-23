@@ -39,7 +39,7 @@
                 MessageBox.Show("User not found", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            if (user.BorrowedBooks.Length >= MasterData.Rules.MaxBooksPerUser)
+            if (user.BorrowedBooks.Length >= CommonData.Rules.MaxBooksPerUser)
             {
                 MessageBox.Show("User has already borrowed maximum number of books", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;

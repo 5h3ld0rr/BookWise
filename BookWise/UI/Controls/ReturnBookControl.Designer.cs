@@ -28,17 +28,33 @@
         /// </summary>
         private void InitializeComponent()
         {
+            labelTitle = new Label();
             SuspendLayout();
+            // 
+            // labelTitle
+            // 
+            labelTitle.AutoSize = true;
+            labelTitle.Font = new Font("Segoe UI Semibold", 20.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            labelTitle.ForeColor = Color.FromArgb(30, 41, 59);
+            labelTitle.Location = new Point(23, 21);
+            labelTitle.Name = "labelTitle";
+            labelTitle.Size = new Size(189, 37);
+            labelTitle.TabIndex = 1;
+            labelTitle.Text = "Return a Book";
             // 
             // ReturnBookControl
             // 
             AutoScaleMode = AutoScaleMode.None;
             BackColor = Color.GhostWhite;
+            Controls.Add(labelTitle);
             Name = "ReturnBookControl";
             Size = new Size(929, 541);
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
+
+        private Label labelTitle;
     }
 }
