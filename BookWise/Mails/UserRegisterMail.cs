@@ -1,4 +1,4 @@
-﻿namespace BookWise
+﻿namespace BookWise.Mails
 {
     public class UserRegisterMail : Mail
     {

@@ -1,4 +1,6 @@
-﻿namespace BookWise
+﻿using BookWise.Mails;
+
+namespace BookWise
 {
     public partial class AddUserModal : Form
     {
