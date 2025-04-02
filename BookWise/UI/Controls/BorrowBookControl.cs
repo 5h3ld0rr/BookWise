@@ -13,6 +13,12 @@ namespace BookWise
         {
             InitializeComponent();
             Dock = DockStyle.Fill;
+
+            VisibleChanged += (sender, e) =>
+            {
+                if (!Visible)
+                    Reset();
+            };
         }
 
         private void buttonUserInfoConfirm_Click(object sender, EventArgs e)

@@ -16,6 +16,12 @@ namespace BookWise
         {
             InitializeComponent();
             Dock = DockStyle.Fill;
+
+            VisibleChanged += (sender, e) =>
+            {
+                if (!Visible)
+                    Reset();
+            };
         }
 
         private void buttonUserInfoConfirm_Click(object sender, EventArgs e)
@@ -66,7 +72,6 @@ namespace BookWise
 
             ToggleUserInfoControls();
 
-            books = BookTransaction.GetUnreturnedBooksByUser(user.Id);
             comboBoxTitle.DataSource = books.Select(b => b.Title).ToArray();
             comboBoxIsbn.DataSource = books.Select(b => b.ISBN).ToArray();
             book = books[0];
@@ -163,6 +168,7 @@ namespace BookWise
             userInfoConfirmed = false;
             bookInfoConfirmed = false;
             ToggleUserInfoControls();
+            ToggleBookInfoControls();
             selectedBookIndex = 0;
             book = null;
             books = null;
