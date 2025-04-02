@@ -4,6 +4,17 @@
     {
         private Book selectedBook;
         public event EventHandler BooksUpdated;
+        public event EventHandler BookBorrow;
+        public class BookEventArgs : EventArgs
+        {
+            public Book Book { get; }
+
+            public BookEventArgs(Book book)
+            {
+                Book = book;
+            }
+        }
+
         public BooksControl()
         {
             InitializeComponent();
@@ -28,6 +39,11 @@
             {
                 dataGridViewBooks.DataSource = Book.Search(query);
             }
+        }
+
+        private void borrowToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            BookBorrow?.Invoke(this, new BookEventArgs(selectedBook));
         }
 
         private void editToolStripMenuItem_Click(object sender, EventArgs e)
@@ -72,6 +88,7 @@
             {
                 dataGridViewBooks.Rows[hit.RowIndex].Selected = true;
                 selectedBook = dataGridViewBooks.Rows[hit.RowIndex].DataBoundItem as Book;
+                moreToolStripMenuItem.Visible = selectedBook.AvailableBooks > 0;
             }
             else
             {

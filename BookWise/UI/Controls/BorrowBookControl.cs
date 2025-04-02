@@ -59,6 +59,17 @@ namespace BookWise
             userInfoConfirmed = true;
             ToggleUserInfoControls();
         }
+
+        public void SetBook(Book _book)
+        {
+            textBoxTitle.Text = _book.Title;
+            textBoxIsbn.Text = _book.ISBN;
+            textBoxAuthor.Text = _book.Author;
+            textBoxCategory.Text = _book.Category;
+
+            bookInfoConfirmed = true;
+            ToggleBookInfoControls();
+        }
         private void buttonBookInfoConfirm_Click(object sender, EventArgs e)
         {
             if (bookInfoConfirmed)
@@ -88,13 +99,7 @@ namespace BookWise
                 MessageBox.Show("Book is not available", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-
-            textBoxTitle.Text = book.Title;
-            textBoxAuthor.Text = book.Author;
-            textBoxCategory.Text = book.Category;
-
-            bookInfoConfirmed = true;
-            ToggleBookInfoControls();
+            SetBook(book);
         }
         private void buttonProceed_Click(object sender, EventArgs e)
         {

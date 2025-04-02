@@ -37,6 +37,8 @@ namespace BookWise
             contextMenu = new ContextMenuStrip(components);
             editToolStripMenuItem = new ToolStripMenuItem();
             removeToolStripMenuItem = new ToolStripMenuItem();
+            moreToolStripMenuItem = new ToolStripMenuItem();
+            borrowToolStripMenuItem = new ToolStripMenuItem();
             buttonAddBook = new Button();
             ((System.ComponentModel.ISupportInitialize)dataGridViewBooks).BeginInit();
             contextMenu.SuspendLayout();
@@ -100,17 +102,17 @@ namespace BookWise
             // 
             // contextMenu
             // 
-            contextMenu.Items.AddRange(new ToolStripItem[] { editToolStripMenuItem, removeToolStripMenuItem });
+            contextMenu.Items.AddRange(new ToolStripItem[] { editToolStripMenuItem, removeToolStripMenuItem, moreToolStripMenuItem });
             contextMenu.Name = "contextMenuStrip1";
             contextMenu.ShowImageMargin = false;
-            contextMenu.Size = new Size(93, 48);
+            contextMenu.Size = new Size(156, 92);
             contextMenu.Opening += contextMenu_Opening;
             // 
             // editToolStripMenuItem
             // 
             editToolStripMenuItem.DisplayStyle = ToolStripItemDisplayStyle.Text;
             editToolStripMenuItem.Name = "editToolStripMenuItem";
-            editToolStripMenuItem.Size = new Size(92, 22);
+            editToolStripMenuItem.Size = new Size(155, 22);
             editToolStripMenuItem.Text = "Edit";
             editToolStripMenuItem.Click += editToolStripMenuItem_Click;
             // 
@@ -118,9 +120,25 @@ namespace BookWise
             // 
             removeToolStripMenuItem.DisplayStyle = ToolStripItemDisplayStyle.Text;
             removeToolStripMenuItem.Name = "removeToolStripMenuItem";
-            removeToolStripMenuItem.Size = new Size(92, 22);
+            removeToolStripMenuItem.Size = new Size(155, 22);
             removeToolStripMenuItem.Text = "Remove";
             removeToolStripMenuItem.Click += removeToolStripMenuItem_Click;
+            // 
+            // moreToolStripMenuItem
+            // 
+            moreToolStripMenuItem.DisplayStyle = ToolStripItemDisplayStyle.Text;
+            moreToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { borrowToolStripMenuItem });
+            moreToolStripMenuItem.Name = "moreToolStripMenuItem";
+            moreToolStripMenuItem.Size = new Size(155, 22);
+            moreToolStripMenuItem.Text = "More";
+            // 
+            // borrowToolStripMenuItem
+            // 
+            borrowToolStripMenuItem.DisplayStyle = ToolStripItemDisplayStyle.Text;
+            borrowToolStripMenuItem.Name = "borrowToolStripMenuItem";
+            borrowToolStripMenuItem.Size = new Size(180, 22);
+            borrowToolStripMenuItem.Text = "Borrow";
+            borrowToolStripMenuItem.Click += borrowToolStripMenuItem_Click;
             // 
             // buttonAddBook
             // 
@@ -167,5 +185,8 @@ namespace BookWise
         private ContextMenuStrip contextMenu;
         private ToolStripMenuItem editToolStripMenuItem;
         private ToolStripMenuItem removeToolStripMenuItem;
+        private ToolStripMenuItem moreToolStripMenuItem;
+        private ToolStripMenuItem borrowToolStripMenuItem;
+        private ToolStripSeparator toolStripSeparator1;
     }
 }

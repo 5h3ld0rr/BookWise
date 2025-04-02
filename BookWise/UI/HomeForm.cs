@@ -1,4 +1,6 @@
-﻿namespace BookWise
+﻿using static BookWise.BooksControl;
+
+namespace BookWise
 {
     public partial class HomeForm : Form
     {
@@ -49,6 +51,13 @@
             {
                 homeControl.RefreshData();
             };
+            booksControl.BookBorrow += (sender, e) =>
+            {
+                var bookEventArgs = e as BookEventArgs;
+                borrowBookControl.SetBook(bookEventArgs.Book);
+                buttonBorrow_Click(sender, e);
+            };
+
             usersControl.UsersUpdated += (sender, e) =>
             {
                 homeControl.RefreshData();
