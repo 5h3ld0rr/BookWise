@@ -328,7 +328,7 @@
             labelFineV.BackColor = Color.White;
             labelFineV.Font = new Font("Segoe UI", 12F);
             labelFineV.ForeColor = Color.Red;
-            labelFineV.Location = new Point(164, 271);
+            labelFineV.Location = new Point(164, 275);
             labelFineV.Name = "labelFineV";
             labelFineV.Size = new Size(68, 21);
             labelFineV.TabIndex = 30;
@@ -341,7 +341,7 @@
             labelOverdueV.BackColor = Color.White;
             labelOverdueV.Font = new Font("Segoe UI", 12F);
             labelOverdueV.ForeColor = Color.Red;
-            labelOverdueV.Location = new Point(165, 222);
+            labelOverdueV.Location = new Point(165, 226);
             labelOverdueV.Name = "labelOverdueV";
             labelOverdueV.Size = new Size(23, 21);
             labelOverdueV.TabIndex = 29;
@@ -352,7 +352,7 @@
             // 
             labelFine.AutoSize = true;
             labelFine.Font = new Font("Segoe UI", 12F);
-            labelFine.Location = new Point(22, 271);
+            labelFine.Location = new Point(22, 275);
             labelFine.Name = "labelFine";
             labelFine.Size = new Size(39, 21);
             labelFine.TabIndex = 28;
@@ -363,7 +363,7 @@
             // 
             labelOverdue.AutoSize = true;
             labelOverdue.Font = new Font("Segoe UI", 12F);
-            labelOverdue.Location = new Point(22, 223);
+            labelOverdue.Location = new Point(22, 227);
             labelOverdue.Name = "labelOverdue";
             labelOverdue.Size = new Size(108, 21);
             labelOverdue.TabIndex = 27;
@@ -378,7 +378,7 @@
             comboBoxIsbn.Font = new Font("Segoe UI", 12F);
             comboBoxIsbn.ForeColor = Color.FromArgb(30, 41, 59);
             comboBoxIsbn.FormattingEnabled = true;
-            comboBoxIsbn.Location = new Point(164, 76);
+            comboBoxIsbn.Location = new Point(164, 80);
             comboBoxIsbn.Name = "comboBoxIsbn";
             comboBoxIsbn.Size = new Size(213, 29);
             comboBoxIsbn.TabIndex = 26;
@@ -392,7 +392,7 @@
             comboBoxTitle.Font = new Font("Segoe UI", 12F);
             comboBoxTitle.ForeColor = Color.FromArgb(30, 41, 59);
             comboBoxTitle.FormattingEnabled = true;
-            comboBoxTitle.Location = new Point(164, 28);
+            comboBoxTitle.Location = new Point(164, 32);
             comboBoxTitle.Name = "comboBoxTitle";
             comboBoxTitle.Size = new Size(213, 29);
             comboBoxTitle.TabIndex = 25;
@@ -405,7 +405,7 @@
             textBoxCategory.Enabled = false;
             textBoxCategory.Font = new Font("Segoe UI", 12F);
             textBoxCategory.ForeColor = Color.FromArgb(30, 41, 59);
-            textBoxCategory.Location = new Point(164, 172);
+            textBoxCategory.Location = new Point(164, 176);
             textBoxCategory.Name = "textBoxCategory";
             textBoxCategory.Size = new Size(213, 29);
             textBoxCategory.TabIndex = 24;
@@ -417,7 +417,7 @@
             textBoxAuthor.Enabled = false;
             textBoxAuthor.Font = new Font("Segoe UI", 12F);
             textBoxAuthor.ForeColor = Color.FromArgb(30, 41, 59);
-            textBoxAuthor.Location = new Point(164, 124);
+            textBoxAuthor.Location = new Point(164, 128);
             textBoxAuthor.Name = "textBoxAuthor";
             textBoxAuthor.Size = new Size(213, 29);
             textBoxAuthor.TabIndex = 23;
@@ -426,7 +426,7 @@
             // 
             label7.AutoSize = true;
             label7.Font = new Font("Segoe UI", 12F);
-            label7.Location = new Point(22, 175);
+            label7.Location = new Point(22, 179);
             label7.Name = "label7";
             label7.Size = new Size(73, 21);
             label7.TabIndex = 21;
@@ -436,7 +436,7 @@
             // 
             label8.AutoSize = true;
             label8.Font = new Font("Segoe UI", 12F);
-            label8.Location = new Point(22, 127);
+            label8.Location = new Point(22, 131);
             label8.Name = "label8";
             label8.Size = new Size(58, 21);
             label8.TabIndex = 20;
@@ -446,7 +446,7 @@
             // 
             label9.AutoSize = true;
             label9.Font = new Font("Segoe UI", 12F);
-            label9.Location = new Point(22, 79);
+            label9.Location = new Point(22, 83);
             label9.Name = "label9";
             label9.Size = new Size(69, 21);
             label9.TabIndex = 19;
@@ -456,7 +456,7 @@
             // 
             label10.AutoSize = true;
             label10.Font = new Font("Segoe UI", 12F);
-            label10.Location = new Point(22, 31);
+            label10.Location = new Point(22, 35);
             label10.Name = "label10";
             label10.Size = new Size(39, 21);
             label10.TabIndex = 18;
