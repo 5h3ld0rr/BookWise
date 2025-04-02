@@ -62,10 +62,12 @@ namespace BookWise
 
         public void SetBook(Book _book)
         {
-            textBoxTitle.Text = _book.Title;
-            textBoxIsbn.Text = _book.ISBN;
-            textBoxAuthor.Text = _book.Author;
-            textBoxCategory.Text = _book.Category;
+            if (book != _book)
+                book = _book;
+            textBoxTitle.Text = book.Title;
+            textBoxIsbn.Text = book.ISBN;
+            textBoxAuthor.Text = book.Author;
+            textBoxCategory.Text = book.Category;
 
             bookInfoConfirmed = true;
             ToggleBookInfoControls();

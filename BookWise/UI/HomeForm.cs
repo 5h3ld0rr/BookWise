@@ -54,8 +54,8 @@ namespace BookWise
             booksControl.BookBorrow += (sender, e) =>
             {
                 var bookEventArgs = e as BookEventArgs;
-                borrowBookControl.SetBook(bookEventArgs.Book);
                 buttonBorrow_Click(sender, e);
+                borrowBookControl.SetBook(bookEventArgs.Book);
             };
 
             usersControl.UsersUpdated += (sender, e) =>
