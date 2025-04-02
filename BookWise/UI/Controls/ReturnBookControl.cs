@@ -55,11 +55,23 @@ namespace BookWise
             textBoxAddress.Text = user.Address;
 
             userInfoConfirmed = true;
+
+            books = BookTransaction.GetUnreturnedBooksByUser(user.Id);
+            if (books.Length == 0)
+            {
+                MessageBox.Show("No books to return", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Reset();
+                return;
+            }
+
             ToggleUserInfoControls();
 
             books = BookTransaction.GetUnreturnedBooksByUser(user.Id);
             comboBoxTitle.DataSource = books.Select(b => b.Title).ToArray();
             comboBoxIsbn.DataSource = books.Select(b => b.ISBN).ToArray();
+            book = books[0];
+            textBoxAuthor.Text = book.Author;
+            textBoxCategory.Text = book.Category;
         }
         private void buttonBookInfoConfirm_Click(object sender, EventArgs e)
         {
