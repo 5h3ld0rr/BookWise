@@ -35,32 +35,11 @@ namespace BookWise
             rulesControl = new RulesControl();
             LoadControl(homeControl);
 
-            borrowBookControl.BookBorrowed += (sender, e) =>
-            {
-                homeControl.RefreshData();
-                booksControl.RefreshData();
-                historyControl.RefreshData();
-            };
-            returnBookControl.BookReturned += (sender, e) =>
-            {
-                homeControl.RefreshData();
-                booksControl.RefreshData();
-                historyControl.RefreshData();
-            };
-            booksControl.BooksUpdated += (sender, e) =>
-            {
-                homeControl.RefreshData();
-            };
             booksControl.BookBorrow += (sender, e) =>
             {
                 var bookEventArgs = e as BookEventArgs;
                 buttonBorrow_Click(sender, e);
                 borrowBookControl.SetBook(bookEventArgs.Book);
-            };
-
-            usersControl.UsersUpdated += (sender, e) =>
-            {
-                homeControl.RefreshData();
             };
         }
         private void HomeForm_FormClosing(object sender, FormClosingEventArgs e)
@@ -102,6 +81,12 @@ namespace BookWise
         }
         private void LoadControl(UserControl control)
         {
+            try
+            {
+                (control as dynamic).RefreshData();
+            }
+            catch (Exception e) { }
+
             if (currentControl == control) return;
             if (currentControl != null)
             {

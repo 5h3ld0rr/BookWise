@@ -6,6 +6,11 @@
         {
             InitializeComponent();
             Dock = DockStyle.Fill;
+            RefreshData();
+        }
+        public void RefreshData()
+        {
+            CommonData.Rules.Refresh();
             numericUpDownMaxDaysToReturn.Value = CommonData.Rules.MaxDaysToReturn;
             numericUpDownMaxBooksPerUser.Value = CommonData.Rules.MaxBooksPerUser;
             numericUpDownFinePerDay.Value = CommonData.Rules.FinePerDay;

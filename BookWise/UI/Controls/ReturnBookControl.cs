@@ -11,7 +11,6 @@ namespace BookWise
         private (DateTime dueDate, int noOfDaysOverdue, decimal fine) data;
         private bool userInfoConfirmed = false;
         private bool bookInfoConfirmed = false;
-        public event EventHandler BookReturned;
         public ReturnBookControl()
         {
             InitializeComponent();
@@ -116,7 +115,6 @@ namespace BookWise
                 {
                     BookTransaction.UpdateReturn(book.TransactionId);
                     MessageBox.Show("Book returned successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    BookReturned?.Invoke(this, EventArgs.Empty);
                     new BookReturnMail(user.FirstName, book.Title, data.noOfDaysOverdue, data.dueDate.ToString()).Send(user.Email);
                     Reset();
                 }

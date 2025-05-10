@@ -8,7 +8,6 @@ namespace BookWise
         private Book book;
         private bool userInfoConfirmed = false;
         private bool bookInfoConfirmed = false;
-        public event EventHandler BookBorrowed;
         public BorrowBookControl()
         {
             InitializeComponent();
@@ -118,7 +117,6 @@ namespace BookWise
                     string dueDate = DateTime.Now.AddDays(CommonData.Rules.MaxDaysToReturn).ToString("yyyy-MM-dd");
                     BookTransaction.Create(user.Id, book.Id);
                     MessageBox.Show("Book borrowed successfully!\nDue date: " + dueDate, "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    BookBorrowed?.Invoke(this, EventArgs.Empty);
                     new BookBorrowMail(user.FirstName, book.Title, dueDate).Send(user.Email);
                     Reset();
                 }
