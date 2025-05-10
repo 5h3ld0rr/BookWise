@@ -75,8 +75,8 @@ namespace BookWise
             comboBoxTitle.DataSource = books.Select(b => b.Title).ToArray();
             comboBoxIsbn.DataSource = books.Select(b => b.ISBN).ToArray();
             book = books[0];
-            textBoxAuthor.Text = book.Author;
             textBoxCategory.Text = book.Category;
+            textBoxBorrowDate.Text = book.BorrowDate.ToString("yyyy-MM-dd");
         }
         private void buttonBookInfoConfirm_Click(object sender, EventArgs e)
         {
@@ -86,7 +86,7 @@ namespace BookWise
                 ToggleBookInfoControls();
                 return;
             }
-            data = BookTransaction.GetMoreById(book.TransactionId);
+            data = BookTransaction.GetReturnDetailsByBorrowDate(book.BorrowDate);
 
             if (data.fine > 0)
             {
@@ -155,10 +155,10 @@ namespace BookWise
             textBoxName.Text = "";
             textBoxPhone.Text = "";
             textBoxAddress.Text = "";
-            textBoxAuthor.Text = "";
+            textBoxCategory.Text = "";
             comboBoxTitle.DataSource = new string[0];
             comboBoxIsbn.DataSource = new string[0];
-            textBoxCategory.Text = "";
+            textBoxBorrowDate.Text = "";
             comboBoxIsbn.Enabled = false;
             comboBoxTitle.Enabled = false;
             labelFine.Visible = false;
@@ -181,8 +181,8 @@ namespace BookWise
             selectedBookIndex = comboBoxTitle.SelectedIndex;
             book = books[selectedBookIndex];
             comboBoxIsbn.SelectedIndex = selectedBookIndex;
-            textBoxAuthor.Text = book.Author;
             textBoxCategory.Text = book.Category;
+            textBoxBorrowDate.Text = book.BorrowDate.ToString("yyyy-MM-dd");
         }
 
         private void comboBoxIsbn_SelectedIndexChanged(object sender, EventArgs e)
@@ -192,8 +192,8 @@ namespace BookWise
             selectedBookIndex = comboBoxIsbn.SelectedIndex;
             book = books[selectedBookIndex];
             comboBoxTitle.SelectedIndex = selectedBookIndex;
-            textBoxAuthor.Text = book.Author;
             textBoxCategory.Text = book.Category;
+            textBoxBorrowDate.Text = book.BorrowDate.ToString("yyyy-MM-dd");
         }
     }
 }

@@ -19,13 +19,9 @@ namespace BookWise
             return rowsAffected > 0;
         }
 
-        public static (DateTime dueDate, int noOfDaysOverdue, decimal fine) GetMoreById(int id)
+        public static (DateTime dueDate, int noOfDaysOverdue, decimal fine) GetReturnDetailsByBorrowDate(DateTime borrowDate)
         {
-            string query = "SELECT borrow_date FROM book_transactions WHERE id = @Id";
-            DataTable result = DB.ExecuteSelect(query, id);
-            DataRow row = result.Rows[0];
-
-            DateTime dueDate = Convert.ToDateTime(row["borrow_date"]).AddDays(CommonData.Rules.MaxDaysToReturn);
+            DateTime dueDate = borrowDate.AddDays(CommonData.Rules.MaxDaysToReturn);
             int noOfDaysOverdue = (DateTime.Now - dueDate).Days;
             decimal fine = noOfDaysOverdue > 0 ? noOfDaysOverdue * CommonData.Rules.FinePerDay : 0.00M;
 
@@ -49,7 +45,7 @@ namespace BookWise
         }
         public static Book[] GetUnreturnedBooksByUser(int userId)
         {
-            string query = "SELECT bt.id, book_id, title, isbn_no, author, category, available_books FROM book_transactions bt INNER JOIN books b ON b.id = bt.book_id WHERE user_id = @userId AND ISNULL(return_date)";
+            string query = "SELECT bt.id, book_id, title, isbn_no, author, borrow_date, category, available_books FROM book_transactions bt INNER JOIN books b ON b.id = bt.book_id WHERE user_id = @userId AND ISNULL(return_date)";
             DataTable result = DB.ExecuteSelect(query, userId);
             Book[] books = new Book[result.Rows.Count];
 
@@ -64,7 +60,8 @@ namespace BookWise
                     Author = row["author"].ToString(),
                     Category = row["category"].ToString(),
                     AvailableBooks = Convert.ToInt32(row["available_books"]),
-                    TransactionId = Convert.ToInt32(row["id"])
+                    TransactionId = Convert.ToInt32(row["id"]),
+                    BorrowDate = Convert.ToDateTime(row["borrow_date"])
                 }
             ;
             }

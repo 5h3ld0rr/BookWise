@@ -6,6 +6,7 @@ namespace BookWise
     {
         public int Id;
         public int TransactionId;
+        public DateTime BorrowDate;
 
         public string Title { get; set; }
         public string ISBN { get; set; }

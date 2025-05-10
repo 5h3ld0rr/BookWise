@@ -53,8 +53,8 @@
             labelOverdue = new Label();
             comboBoxIsbn = new ComboBox();
             comboBoxTitle = new ComboBox();
+            textBoxBorrowDate = new TextBox();
             textBoxCategory = new TextBox();
-            textBoxAuthor = new TextBox();
             label7 = new Label();
             label8 = new Label();
             label9 = new Label();
@@ -309,8 +309,8 @@
             panel2.Controls.Add(labelOverdue);
             panel2.Controls.Add(comboBoxIsbn);
             panel2.Controls.Add(comboBoxTitle);
+            panel2.Controls.Add(textBoxBorrowDate);
             panel2.Controls.Add(textBoxCategory);
-            panel2.Controls.Add(textBoxAuthor);
             panel2.Controls.Add(label7);
             panel2.Controls.Add(label8);
             panel2.Controls.Add(label9);
@@ -398,6 +398,18 @@
             comboBoxTitle.TabIndex = 25;
             comboBoxTitle.SelectedIndexChanged += comboBoxTitle_SelectedIndexChanged;
             // 
+            // textBoxBorrowDate
+            // 
+            textBoxBorrowDate.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            textBoxBorrowDate.BackColor = Color.GhostWhite;
+            textBoxBorrowDate.Enabled = false;
+            textBoxBorrowDate.Font = new Font("Segoe UI", 12F);
+            textBoxBorrowDate.ForeColor = Color.FromArgb(30, 41, 59);
+            textBoxBorrowDate.Location = new Point(164, 176);
+            textBoxBorrowDate.Name = "textBoxBorrowDate";
+            textBoxBorrowDate.Size = new Size(213, 29);
+            textBoxBorrowDate.TabIndex = 24;
+            // 
             // textBoxCategory
             // 
             textBoxCategory.Anchor = AnchorStyles.Top | AnchorStyles.Right;
@@ -405,22 +417,10 @@
             textBoxCategory.Enabled = false;
             textBoxCategory.Font = new Font("Segoe UI", 12F);
             textBoxCategory.ForeColor = Color.FromArgb(30, 41, 59);
-            textBoxCategory.Location = new Point(164, 176);
+            textBoxCategory.Location = new Point(164, 128);
             textBoxCategory.Name = "textBoxCategory";
             textBoxCategory.Size = new Size(213, 29);
-            textBoxCategory.TabIndex = 24;
-            // 
-            // textBoxAuthor
-            // 
-            textBoxAuthor.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            textBoxAuthor.BackColor = Color.GhostWhite;
-            textBoxAuthor.Enabled = false;
-            textBoxAuthor.Font = new Font("Segoe UI", 12F);
-            textBoxAuthor.ForeColor = Color.FromArgb(30, 41, 59);
-            textBoxAuthor.Location = new Point(164, 128);
-            textBoxAuthor.Name = "textBoxAuthor";
-            textBoxAuthor.Size = new Size(213, 29);
-            textBoxAuthor.TabIndex = 23;
+            textBoxCategory.TabIndex = 23;
             // 
             // label7
             // 
@@ -428,9 +428,9 @@
             label7.Font = new Font("Segoe UI", 12F);
             label7.Location = new Point(22, 179);
             label7.Name = "label7";
-            label7.Size = new Size(73, 21);
+            label7.Size = new Size(97, 21);
             label7.TabIndex = 21;
-            label7.Text = "Category";
+            label7.Text = "Borrow Date";
             // 
             // label8
             // 
@@ -438,9 +438,9 @@
             label8.Font = new Font("Segoe UI", 12F);
             label8.Location = new Point(22, 131);
             label8.Name = "label8";
-            label8.Size = new Size(58, 21);
+            label8.Size = new Size(73, 21);
             label8.TabIndex = 20;
-            label8.Text = "Author";
+            label8.Text = "Category";
             // 
             // label9
             // 
@@ -547,8 +547,8 @@
         private TextBox textBoxNic;
         private Button buttonBookInfoConfirm;
         private Button buttonProceed;
+        private TextBox textBoxBorrowDate;
         private TextBox textBoxCategory;
-        private TextBox textBoxAuthor;
         private Label label7;
         private Label label8;
         private Label label9;
