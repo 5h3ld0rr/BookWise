@@ -46,6 +46,7 @@
             // 
             // tableLayoutPanel
             // 
+            tableLayoutPanel.BackColor = Color.Transparent;
             tableLayoutPanel.ColumnCount = 3;
             tableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 33.3333321F));
             tableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 33.3333321F));
@@ -174,7 +175,10 @@
             // 
             AutoScaleMode = AutoScaleMode.None;
             BackColor = Color.GhostWhite;
+            BackgroundImage = Properties.Resources.home_bg;
+            BackgroundImageLayout = ImageLayout.Stretch;
             Controls.Add(tableLayoutPanel);
+            DoubleBuffered = true;
             Name = "HomeControl";
             Size = new Size(1280, 720);
             tableLayoutPanel.ResumeLayout(false);
