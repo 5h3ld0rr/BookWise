@@ -87,7 +87,7 @@ namespace BookWise
         public static Book[] Search(string _searchQuery)
         {
             string searchQuery = "%" + _searchQuery + "%";
-            string query = "SELECT id, title, isbn_no, author, category, available FROM books WHERE title LIKE @query OR isbn_no LIKE @query OR author LIKE @query OR category LIKE @query ORDER BY id DESC";
+            string query = "SELECT id, title, isbn_no, author, category, available_books FROM books WHERE title LIKE @query OR isbn_no LIKE @query OR author LIKE @query OR category LIKE @query ORDER BY id DESC";
             DataTable result = DB.ExecuteSelect(query, searchQuery);
             Book[] books = new Book[result.Rows.Count];
 
